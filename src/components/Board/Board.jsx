@@ -1,4 +1,4 @@
-import React, { Component } from "react-dom";
+import React, { Component } from "react";
 import Colunm from "../Colunm/Colunm";
 
 class Board extends Component {
