@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Colunm from "../Colunm/Colunm";
+import Header from "../Header/Header";
 
 class Board extends Component {
   state = {};
@@ -7,6 +8,7 @@ class Board extends Component {
   render() {
     return (
       <div>
+        <Header/>
         <Colunm />
       </div>
     );
