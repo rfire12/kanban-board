@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Board from './Board/Board';
+import "../assets/normalize.scss";
 
 class App extends Component {
   render() {
