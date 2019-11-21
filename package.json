@@ -4,7 +4,7 @@
   "description": "A kaban board demo project using React",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --mode development --content-base src --hot --inline",
+    "start": "webpack-dev-server --mode development --content-base src --watch-content-base --hot --inline",
     "build": "webpack --mode production",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -30,6 +30,7 @@
     "@babel/preset-react": "^7.7.0",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.2.0",
+    "hot-module-replacement": "^3.0.3",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.8.0",
     "node-sass": "^4.13.0",

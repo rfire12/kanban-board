@@ -1,6 +1,7 @@
 const path = require("path"); // Manipulates filepaths
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const webpack = require("webpack");
 
 module.exports = {
   entry: "./src/index.jsx",
@@ -28,8 +29,7 @@ module.exports = {
           "sass-loader"
         ]
       }
-    ],
-    
+    ]
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -38,6 +38,7 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "style.css",
       chunkFilename: "[name].css"
-    })
+    }),
+    new webpack.HotModuleReplacementPlugin()
   ]
 };
