@@ -9,7 +9,7 @@ class Board extends Component {
     return (
       <div>
         <Header/>
-        <Colunm />
+        
       </div>
     );
   }
