@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import "../../assets/fonts/fonts.scss";
-import styles from "./styles.scss";
+import styles from "./Header.scss";
 
 class Header extends Component {
     state = {};
