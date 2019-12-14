@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Colunm from "../Colunm/Colunm";
-import Header from "../Header/Header";
+import Colunm from "./Colunm/Colunm";
+import Header from "./Header/Header";
 import styles from "./Board.scss";
 import BoardHeader from "../BoardHeader/BoardHeader"
 
