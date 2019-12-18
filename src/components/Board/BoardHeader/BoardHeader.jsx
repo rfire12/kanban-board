@@ -1,16 +1,19 @@
 import React, { Component } from "react";
-import styles from "./BoardHeader.scss"
+import styles from "./BoardHeader.scss";
 
-class BoardHeader extends Component {
-  state = {};
-
-  render() {
-    return <>
+const BoardHeader = () => {
+  return (
+    <>
       <div className={styles.BoardHeader}>
-
+        <input
+          type="text"
+          name="board-title"
+          value="Store"
+          className={styles.BoardTitle}
+        />
       </div>
-    </>;
-  }
-}
+    </>
+  );
+};
 
 export default BoardHeader;
