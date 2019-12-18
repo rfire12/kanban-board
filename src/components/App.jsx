@@ -3,8 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Board from './Board/Board';
 import "../assets/normalize.scss";
 
-class App extends Component {
-  render() {
+const App = () => {
     return (
       <Router>
           <Switch>
@@ -14,7 +13,6 @@ class App extends Component {
           </Switch>
       </Router>
     );
-  }
 }
 
 export default App;
