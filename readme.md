@@ -1,5 +1,5 @@
 ### Description
-This is training project to strengthen my skills in the fullstack web development area. Thid project will be completly made using NodeJS, both on the client and on the server side. 
+This is a training project to strengthen my skills in the fullstack web development area. Thid project will be completly made using NodeJS, both on the client and on the server side. 
 
 The project consist on a Kaban Board app, the most similar to Trello as possible. 
 
