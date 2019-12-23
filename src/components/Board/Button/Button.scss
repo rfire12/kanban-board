@@ -1,0 +1,26 @@
+input[type="text"] {
+	border: 1px solid rgb(0, 0, 100);
+	border-radius: 3px;
+	font-size: 1.2em;
+	font-weight: bolder;
+    padding: 0px;
+    margin: 0;
+    transform: scale(0.95, 1);
+    text-align: center;
+}
+.BoardTitle {
+	border-radius: 3px;
+	color: white;
+	display: inline-block;
+	font-family: sans-serif;
+	font-size: 1.2em;
+	font-stretch: condensed;
+	font-weight: bolder;
+	padding: 5px 12px;
+	transform: scale(0.95, 1);
+}
+
+.BoardTitle:hover {
+	background-color: rgba(255,255,255, 0.3);
+	cursor: pointer;
+}
