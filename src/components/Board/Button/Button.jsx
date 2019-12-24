@@ -36,7 +36,6 @@ const Button = () => {
         }}
         style={{
           visibility: enableEditTitle ? "hidden" : "visible",
-          marginLeft: `-${boardTitle.length / 4}px`
         }}
       >
         {boardTitle}
@@ -56,7 +55,6 @@ const Button = () => {
         style={{
           width: titleWidth,
           display: enableEditTitle ? "inline-block" : "none"
-          //marginLeft: `-${boardTitle.length/4}px`
         }}
       />
     </>
