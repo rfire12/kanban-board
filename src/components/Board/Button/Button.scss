@@ -1,23 +1,30 @@
-input[type="text"] {
-	border: 1px solid rgb(0, 0, 100);
-	border-radius: 3px;
-	font-size: 1.2em;
-	font-weight: bolder;
-    padding: 0px;
-    margin: 0;
-    transform: scale(0.95, 1);
-    text-align: center;
-}
-.BoardTitle {
+%title {
+	border: 2px solid rgb(9, 123, 199);
 	border-radius: 3px;
 	color: white;
 	display: inline-block;
 	font-family: sans-serif;
 	font-size: 1.2em;
-	font-stretch: condensed;
 	font-weight: bolder;
-	padding: 5px 12px;
-	transform: scale(0.95, 1);
+	margin: 0;
+	outline: none;
+	padding: 5px 15px;
+	position: absolute;
+	transform: translate(0%, 0%);
+	//transform: scale(0.95, 1);
+	white-space: pre-wrap;
+}
+
+.BoardTitle{
+	@extend %title;
+	border: 0;
+	
+}
+
+input[type="text"] {
+	@extend %title;
+	color: black;
+	padding: 3px 15px;
 }
 
 .BoardTitle:hover {

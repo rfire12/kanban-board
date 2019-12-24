@@ -6,14 +6,19 @@ const Button = () => {
 
   const [enableEditTitle, setEnableEditTitle] = useState(false);
 
-  const [titleWidth, setTitleWidth] = useState("10px");
+  const [titleWidth, setTitleWidth] = useState("");
 
-  const titleRef = useRef(null);
+  const titleSpanRef = useRef(null);
 
-  const setTitle = (e) => {
-    setBoardTitle(e.currentTarget.value);
-    setTitleWidth(`${titleRef.current.offsetWidth-5}px`);
-  }
+  const titleInputRef = useRef(null);
+
+  useEffect(() => {
+      setTitleWidth(`${titleSpanRef.current.offsetWidth - 30}px`);
+  }, [boardTitle]);
+
+  useEffect(() => {
+    titleInputRef.current.focus();
+  }, [enableEditTitle === true]);
 
   const onPressEnterKey = e => {
     if (e.key === "Enter" || e.key === "Escape") {
@@ -23,26 +28,37 @@ const Button = () => {
 
   return (
     <>
-      <input
-        id="te"
-        autoFocus
-        type="text"
-        name="board-title"
-        value={boardTitle}
-        autoComplete="off"
-        onChange={setTitle}
-        onKeyDown={onPressEnterKey}
-        onBlur={() => setEnableEditTitle(false)}
-        style={{width: titleWidth}}
-      />
-
       <span
         className={styles.BoardTitle}
-        onClick={() => setEnableEditTitle(true)}
-        ref={titleRef}
+        ref={titleSpanRef}
+        onClick={() => {
+          setEnableEditTitle(true);
+        }}
+        style={{
+          visibility: enableEditTitle ? "hidden" : "visible",
+          marginLeft: `-${boardTitle.length / 4}px`
+        }}
       >
         {boardTitle}
       </span>
+
+      <input
+        type="text"
+        name="board-title"
+        ref={titleInputRef}
+        value={boardTitle}
+        autoComplete="off"
+        spellCheck={false}
+        autoFocus
+        onChange={e => setBoardTitle(e.currentTarget.value)}
+        onBlur={() => setEnableEditTitle(false)}
+        onKeyDown={onPressEnterKey}
+        style={{
+          width: titleWidth,
+          display: enableEditTitle ? "inline-block" : "none"
+          //marginLeft: `-${boardTitle.length/4}px`
+        }}
+      />
     </>
   );
 };
