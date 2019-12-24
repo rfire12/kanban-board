@@ -1,0 +1,33 @@
+%title {
+	border: 2px solid rgb(9, 123, 199);
+	border-radius: 3px;
+	color: white;
+	display: inline-block;
+	font-family: sans-serif;
+	font-size: 1.2em;
+	font-weight: bolder;
+	margin: 0;
+	outline: none;
+	padding: 5px 15px;
+	position: absolute;
+	transform: translate(0%, 0%);
+	//transform: scale(0.95, 1);
+	white-space: pre-wrap;
+}
+
+.BoardTitle{
+	@extend %title;
+	border: 0;
+	
+}
+
+input[type="text"] {
+	@extend %title;
+	color: black;
+	padding: 3px 15px;
+}
+
+.BoardTitle:hover {
+	background-color: rgba(255,255,255, 0.3);
+	cursor: pointer;
+}
