@@ -1,4 +1,4 @@
-import React, { Component, useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styles from "./Button.scss";
 
 const Button = () => {
@@ -13,7 +13,7 @@ const Button = () => {
   const titleInputRef = useRef(null);
 
   useEffect(() => {
-      setTitleWidth(`${titleSpanRef.current.offsetWidth - 30}px`);
+    setTitleWidth(`${titleSpanRef.current.offsetWidth - 30}px`);
   }, [boardTitle]);
 
   useEffect(() => {
@@ -28,19 +28,6 @@ const Button = () => {
 
   return (
     <>
-      <span
-        className={styles.BoardTitle}
-        ref={titleSpanRef}
-        onClick={() => {
-          setEnableEditTitle(true);
-        }}
-        style={{
-          visibility: enableEditTitle ? "hidden" : "visible",
-        }}
-      >
-        {boardTitle}
-      </span>
-
       <input
         type="text"
         name="board-title"
@@ -57,6 +44,19 @@ const Button = () => {
           display: enableEditTitle ? "inline-block" : "none"
         }}
       />
+
+      <span
+        className={styles.BoardTitle}
+        ref={titleSpanRef}
+        onClick={() => {
+          setEnableEditTitle(true);
+        }}
+        style={{
+          visibility: enableEditTitle ? "hidden" : "visible"
+        }}
+      >
+        {boardTitle}
+      </span>
     </>
   );
 };
