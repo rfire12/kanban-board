@@ -1,7 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
-import styles from "./Button.scss";
+import React, { useContext, useEffect, useRef, useState } from "react";
 
-const Button = () => {
+import styles from "./BoardTitleInput.scss";
+import boardContext from "../../context/boardContext";
+
+const BoardTitleInput = props => {
   const [boardTitle, setBoardTitle] = useState("Store");
 
   const [enableEditTitle, setEnableEditTitle] = useState(false);
@@ -12,6 +14,8 @@ const Button = () => {
 
   const titleInputRef = useRef(null);
 
+  const context = useContext(boardContext);
+
   useEffect(() => {
     setTitleWidth(`${titleSpanRef.current.offsetWidth - 30}px`);
   }, [boardTitle]);
@@ -20,9 +24,11 @@ const Button = () => {
     titleInputRef.current.focus();
   }, [enableEditTitle === true]);
 
-  const onPressEnterKey = e => {
-    if (e.key === "Enter" || e.key === "Escape") {
+  const saveBoardTitle = e => {
+    if (e.key === "Enter" || e.key === "Escape" || e.nativeEvent.type === "blur") {
+      context.changeBoardTitle(boardTitle);
       e.currentTarget.blur();
+      setEnableEditTitle(false);
     }
   };
 
@@ -37,8 +43,8 @@ const Button = () => {
         spellCheck={false}
         autoFocus
         onChange={e => setBoardTitle(e.currentTarget.value)}
-        onBlur={() => setEnableEditTitle(false)}
-        onKeyDown={onPressEnterKey}
+        onBlur={saveBoardTitle}
+        onKeyDown={saveBoardTitle}
         style={{
           width: titleWidth,
           display: enableEditTitle ? "inline-block" : "none"
@@ -61,4 +67,4 @@ const Button = () => {
   );
 };
 
-export default Button;
+export default BoardTitleInput;
