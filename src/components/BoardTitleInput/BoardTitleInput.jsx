@@ -19,6 +19,7 @@ const BoardTitleInput = props => {
   useEffect(() => {
     setTitleWidth(`${titleSpanRef.current.offsetWidth - 30}px`);
   }, [boardTitle]);
+  
 
   useEffect(() => {
     titleInputRef.current.focus();

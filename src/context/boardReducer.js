@@ -1,7 +1,7 @@
 import { ADD_TITLE } from "./types";
 
 const addTitle = (title, state) => {
-  return { ...state, title: title };
+  return { ...state, boardTitle: title };
 };
 
 export default (state, action) => {

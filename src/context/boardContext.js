@@ -1,5 +1,5 @@
 import { createContext } from "react";
 
-const BoardContext = createContext({ title: "", changeBoardTitle: title => {} });
+const BoardContext = createContext(null);
 
 export default BoardContext;

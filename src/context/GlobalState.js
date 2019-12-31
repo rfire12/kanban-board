@@ -5,7 +5,7 @@ import boardReducer from "./boardReducer";
 import { ADD_TITLE } from "./types";
 
 const GlobalState = props => {
-  const [state, dispatch] = useReducer(boardReducer, {});
+  const [state, dispatch] = useReducer(boardReducer, {boardTitle: "Store"});
 
   const changeBoardTitle = (boardTitle) => {
     dispatch({
@@ -16,7 +16,7 @@ const GlobalState = props => {
   return (
     <BoardContext.Provider
       value={{
-        boardTitle: state.title,
+        boardTitle: state.boardTitle,
         changeBoardTitle: changeBoardTitle
       }}
     >
