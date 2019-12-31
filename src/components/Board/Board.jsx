@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import Colunm from "../Colunm/Colunm";
+
+import BoardHeader from "../BoardHeader/BoardHeader";
 import Header from "../Header/Header";
 import styles from "./Board.scss";
-import BoardHeader from "../BoardHeader/BoardHeader";
 
 const Board = () => {
   return (
