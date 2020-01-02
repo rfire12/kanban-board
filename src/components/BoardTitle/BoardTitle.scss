@@ -11,23 +11,23 @@
 	padding: 5px 15px;
 	position: absolute;
 	transform: translate(0%, 0%);
-	//transform: scale(0.95, 1);
 	white-space: pre-wrap;
 }
 
-.BoardTitle{
+
+.BoardTitleSpan{
 	@extend %title;
 	border: 0;
 	
 }
 
-input[type="text"] {
+.BoardTitleInput[type="text"] {
 	@extend %title;
 	color: black;
 	padding: 3px 15px;
 }
 
-.BoardTitle:hover {
+.BoardTitleSpan:hover {
 	background-color: rgba(255,255,255, 0.3);
 	cursor: pointer;
 }
