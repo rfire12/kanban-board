@@ -21,7 +21,7 @@
 	
 }
 
-.BoardTitleInput[type="text"] {
+.BoardTitleInput {
 	@extend %title;
 	color: black;
 	padding: 3px 15px;

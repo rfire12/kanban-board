@@ -1,7 +1,31 @@
 .wrapper {
-	background-color: #ebecf0;
-	border: 1px solid black;
-	height: 10px;
+	background-color: rgba($color: #ffffff, $alpha: 0.3);
+	border-radius: 3px;
 	margin: 0px 0px 0px 10px;
 	width: 272px;
 }
+.addList {
+	color: white;
+	display: inline-block;
+	font-family: sans-serif;
+	font-size: 1em;
+	padding: 4px 0px 9px 0px;
+	text-decoration: none;
+	transition: 0.1s;
+	width: 100%;
+}
+.addList:hover {
+	background-color: rgba($color: #ffffff, $alpha: 0.1);
+}
+.addIcon::before {
+	-moz-transform: rotate(-45deg) translate(0%, 7%);
+	-ms-transform: rotate(-45deg) translate(0%, 7%);
+	-webkit-transform: rotate(-45deg) translate(0%, 7%);
+	content: "\000D7";
+	display: inline-block;
+	font-size: 1.6em;
+	font-weight: 300;
+	margin: 0px 10px 0px 17px;
+	transform: rotate(-45deg) translate(0%, 11%);
+}
+

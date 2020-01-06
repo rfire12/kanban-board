@@ -33,11 +33,11 @@ module.exports = {
         test: /\.(woff(2)|jpeg)?$/,
         use: [
           {
-            loader: 'url-loader',
+            loader: "url-loader",
             options: {
               limit: 10000,
-              name: './font/[hash].[ext]',
-              mimetype: 'application/font-woff'
+              name: "./font/[hash].[ext]",
+              mimetype: "application/font-woff"
             }
           }
         ]
@@ -53,5 +53,10 @@ module.exports = {
       chunkFilename: "[name].css"
     }),
     new webpack.HotModuleReplacementPlugin()
-  ]
+  ],
+  devServer: {
+    watchOptions: {
+      ignored: "./src/assets/fonts/fontawesome/"
+    }
+  }
 };
