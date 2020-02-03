@@ -1,11 +1,13 @@
 .wrapper {
 	background-color: rgba($color: #ffffff, $alpha: 0.3);
 	border-radius: 3px;
+	height: auto;
 	margin: 0px 0px 0px 10px;
 	width: 272px;
 }
+
 .addList {
-	color: white;
+	color: #ffffff;
 	display: inline-block;
 	font-family: sans-serif;
 	font-size: 1em;
@@ -28,4 +30,29 @@
 	margin: 0px 10px 0px 17px;
 	transform: rotate(-45deg) translate(0%, 11%);
 }
+.listNameInput {
+	border: 2px solid #028ddd;
+	border-radius: 3px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1em;
+	height: 30px;
+	margin: 4px;
+	outline: none;
+	padding-left: 15px;
+	width: calc(100% - 27px);
+}
+.addListButton {
+	background-color: #6bb855;
+	border: none;
+	color: white;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 1em;
+	margin: 0px 0px 4px 4px;
+	outline: none;
+	padding: 6px 12px;
+}
 
+.addListButton:hover{
+	background-color: #7bc267;
+	cursor: pointer;
+}
