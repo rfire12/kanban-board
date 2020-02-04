@@ -1,0 +1,89 @@
+.wrapper {
+	background-color: rgba($color: #ffffff, $alpha: 0.3);
+	border-radius: 3px;
+	height: 41px;
+	margin: 0px 0px 0px 10px;
+	transition: height 70ms ease-out;
+	width: 272px;
+}
+.adding {
+	background-color: #ebecf0;
+	height: 81px;
+	transition: height 85ms ease-in;
+}
+.addList {
+	color: #ffffff;
+	display: inline-block;
+	font-family: sans-serif;
+	font-size: 1em;
+	padding: 4px 0px 9px 0px;
+	text-decoration: none;
+	transition: 0.1s;
+	width: 100%;
+}
+.addList:hover {
+	background-color: rgba($color: #ffffff, $alpha: 0.1);
+}
+
+%crossIcon {
+	content: "\000D7";
+	display: inline-block;
+	font-size: 1.6em;
+	margin: 0px 10px 0px 17px;
+}
+
+.addIcon::before {
+	@extend %crossIcon;
+	transform: rotate(-45deg) translate(0%, 11%);
+}
+
+.exitIcon::before{
+	@extend %crossIcon;
+	animation: slide-down 85ms ease;
+	cursor: pointer;
+	font-size: 2.2em;
+	font-weight: 500;
+	margin: -4px 0px 0px 10px;
+	position: absolute;
+}
+
+
+.listNameInput {
+	border: 2px solid #028ddd;
+	border-radius: 3px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 0.9em;
+	height: 30px;
+	margin: 4px;
+	outline: none;
+	padding-left: 12px;
+	padding-top: 2px;
+	padding: 2px 12px 0px 12px;
+	width: calc(100% - 36px);
+}
+@keyframes slide-down {
+	0% {
+		opacity: 0;
+		transform: translateY(-20px);
+	}
+	100% {
+		opacity: 1;
+		transform: translateY(0px);
+	}
+}
+.addListButton {
+	animation: slide-down 85ms ease;
+	background-color: #5fb348;
+	border: none;
+	border-radius: 2px;
+	color: white;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 0.9em;
+	margin: 0px 0px 4px 4px;
+	outline: none;
+	padding: 10px 12px 8px 12px;
+}
+.addListButton:hover {
+	background-color: #67bb50;
+	cursor: pointer;
+}
