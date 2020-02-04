@@ -3,6 +3,7 @@
 	border-radius: 3px;
 	height: 41px;
 	margin: 0px 0px 0px 10px;
+	transition: height 70ms ease-out;
 	width: 272px;
 }
 .adding {
@@ -28,7 +29,6 @@
 	content: "\000D7";
 	display: inline-block;
 	font-size: 1.6em;
-	font-weight: 300;
 	margin: 0px 10px 0px 17px;
 }
 
@@ -39,11 +39,11 @@
 
 .exitIcon::before{
 	@extend %crossIcon;
-	animation: slide-up 85ms ease;
+	animation: slide-down 85ms ease;
 	cursor: pointer;
 	font-size: 2.2em;
-	font-weight: 600;
-	margin: -1px 0px 0px 10px;
+	font-weight: 500;
+	margin: -4px 0px 0px 10px;
 	position: absolute;
 }
 
@@ -61,7 +61,7 @@
 	padding: 2px 12px 0px 12px;
 	width: calc(100% - 36px);
 }
-@keyframes slide-up {
+@keyframes slide-down {
 	0% {
 		opacity: 0;
 		transform: translateY(-20px);
@@ -72,7 +72,7 @@
 	}
 }
 .addListButton {
-	animation: slide-up 85ms ease;
+	animation: slide-down 85ms ease;
 	background-color: #5fb348;
 	border: none;
 	border-radius: 2px;

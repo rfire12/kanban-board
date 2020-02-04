@@ -9,14 +9,13 @@ const AddList = () => {
 
   useEffect(() => {
     window.addEventListener("click", e => {
-      if (listTitleRef.current.contains(e.target)) { // If clicked outside the box
-        setIsAdding(true)
+      if (listTitleRef.current.contains(e.target)) { // If clicked outside the addList box
+        setIsAdding(true);
       }else{
         setIsAdding(false);
       }
-      console.log(isAdding)
     });
-  });
+  }, []);
 
   return (
     <>
@@ -45,10 +44,6 @@ const AddList = () => {
       </div>
     </>
   );
-};
-
-AddList.propTypes = {
-  seIsAdding: PropTypes.func
 };
 
 export default AddList;
