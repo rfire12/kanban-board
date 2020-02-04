@@ -2,6 +2,7 @@ const path = require("path"); // Manipulates filepaths
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const webpack = require("webpack");
+const autoprefixer = require("autoprefixer");
 
 module.exports = {
   entry: "./src/index.jsx",
@@ -26,7 +27,8 @@ module.exports = {
         use: [
           MiniCssExtractPlugin.loader,
           { loader: "css-loader", options: { modules: true } },
-          "sass-loader"
+          "sass-loader",
+          "postcss-loader"
         ]
       },
       {
@@ -52,7 +54,14 @@ module.exports = {
       filename: "style.css",
       chunkFilename: "[name].css"
     }),
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.LoaderOptionsPlugin({
+      options: {
+          postcss: [
+              autoprefixer()
+          ]
+      }
+  })
   ],
   devServer: {
     watchOptions: {
