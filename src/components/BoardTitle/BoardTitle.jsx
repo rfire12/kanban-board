@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 
-import styles from "./BoardTitleInput.scss";
+import styles from "./BoardTitle.scss";
 import boardContext from "../../context/boardContext";
 
-const BoardTitleInput = props => {
+const BoardTitle = props => {
   const [boardTitle, setBoardTitle] = useState("Store");
 
   const [enableEditTitle, setEnableEditTitle] = useState(false);
@@ -38,6 +38,7 @@ const BoardTitleInput = props => {
       <input
         type="text"
         name="board-title"
+        className={styles.BoardTitleInput}
         ref={titleInputRef}
         value={boardTitle}
         autoComplete="off"
@@ -53,7 +54,7 @@ const BoardTitleInput = props => {
       />
 
       <span
-        className={styles.BoardTitle}
+        className={styles.BoardTitleSpan}
         ref={titleSpanRef}
         onClick={() => {
           setEnableEditTitle(true);
@@ -68,4 +69,4 @@ const BoardTitleInput = props => {
   );
 };
 
-export default BoardTitleInput;
+export default BoardTitle;

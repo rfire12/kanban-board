@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import styles from "./BoardHeader.scss";
-import BoardTitleInput from "../BoardTitleInput/BoardTitleInput";
+import BoardTitle from "../BoardTitle/BoardTitle";
 
 const BoardHeader = () => {
   return (
     <>
       <div className={styles.BoardHeader}>
-        <BoardTitleInput />
+        <BoardTitle />
       </div>
     </>
   );
