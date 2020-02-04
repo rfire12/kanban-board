@@ -1,10 +1,11 @@
 import React from "react";
+import styles from "./List.scss";
 
 const List = () => {
   return(
-      <>
-        <span></span>
-      </>
+      <div className={styles.list}>
+        
+      </div>
     );
 };
 

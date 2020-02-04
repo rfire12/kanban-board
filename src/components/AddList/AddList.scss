@@ -1,6 +1,7 @@
 .wrapper {
 	background-color: rgba($color: #ffffff, $alpha: 0.3);
 	border-radius: 3px;
+	display: inline-block;
 	height: 41px;
 	margin: 0px 0px 0px 10px;
 	transition: height 70ms ease-out;
@@ -8,7 +9,7 @@
 }
 .adding {
 	background-color: #ebecf0;
-	height: 81px;
+	height: 82px;
 	transition: height 85ms ease-in;
 }
 .addList {

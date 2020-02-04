@@ -4,6 +4,7 @@ import BoardHeader from "../BoardHeader/BoardHeader";
 import Header from "../Header/Header";
 import styles from "./Board.scss";
 import AddList from "../AddList/AddList";
+import List from "../List/List";
 
 const Board = () => {
   return (
@@ -12,6 +13,7 @@ const Board = () => {
       <div className={styles.boardWrapper}>
         <BoardHeader />
         <div className={styles.listsWrapper}>
+          <List />
           <AddList />
         </div>
       </div>
