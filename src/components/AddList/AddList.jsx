@@ -7,22 +7,19 @@ const AddList = () => {
 
   const listTitleRef = useRef(null);
 
-  const context = useContext(BoardContext)
+  const context = useContext(BoardContext);
 
   useEffect(() => {
-      if (listTitleRef.current.contains(context.lastClickedItem)) { // If clicked outside the box
-        setIsAdding(true)
-      }else{
-        setIsAdding(false);
-      }
+    if (listTitleRef.current.contains(context.lastClickedItem)) { // If clicked outside the box
+      setIsAdding(true);
+    } else {
+      setIsAdding(false);
+    }
   }, [context.lastClickedItem]);
 
   return (
     <>
-      <div
-        className={`${styles.wrapper} ${isAdding ? styles.adding : ""}`}
-        ref={listTitleRef}
-      >
+      <div className={`${styles.wrapper} ${isAdding ? styles.adding : ""}`} ref={listTitleRef}>
         {isAdding ? (
           <div>
             <input
@@ -45,6 +42,5 @@ const AddList = () => {
     </>
   );
 };
-
 
 export default AddList;
