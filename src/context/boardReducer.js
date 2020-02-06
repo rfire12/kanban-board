@@ -1,13 +1,12 @@
-import { ADD_TITLE } from "./types";
 
-const addTitle = (title, state) => {
-  return { ...state, boardTitle: title };
+const setLastClickedItem = (lastClickedItem, state) => {
+  return { ...state, lastClickedItem: lastClickedItem };
 };
 
 export default (state, action) => {
   switch (action.type) {
-    case ADD_TITLE:
-      return addTitle(action.payload, state);
+    case 'SET_LAST_CLICKED_ITEM':
+      return setLastClickedItem(action.payload, state);
     default:
       return state;
   }

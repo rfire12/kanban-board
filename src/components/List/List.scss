@@ -1,0 +1,83 @@
+.wrapper {
+	background-color: #ebecf0;
+	border-radius: 3px;
+	display: inline-block;
+	font-family: Arial, Helvetica, sans-serif;
+	height: auto;
+	margin: 0px 0px 0px 10px;
+	transition: height 70ms ease-out;
+	width: 272px;
+}
+.header {
+	margin: 7px 10px;
+	padding: 5px 0px 0px 7px;
+	vertical-align: top;
+	width: calc(100% -7px);
+}
+.listTitle {
+	color: #172b4d;
+	display: inline-block;
+	font-size: 14.5px;
+	margin: 0;
+}
+.numCards {
+	color: #5e6c84;
+	display: block;
+	font-size: 15px;
+	font-weight: 100;
+	margin-top: 3px;
+}
+.addCards {
+	border-radius: 3px;
+	color: #5e6c84;
+	display: inline-block;
+	font-size: 15px;
+	font-weight: 100;
+	margin: 0px 7px 9px 10px;
+	padding: 0px 0px 4px 0px;
+	position: relative;
+	user-select: none;
+	width: 80%;
+}
+
+.addCards:hover{
+	background-color: rgba(9,30,66,.08);
+	color: rgba(9,30,66, 0.8);
+	cursor: pointer;
+}
+
+.addCards:active {
+	background-color: rgba(9, 30, 66, 0.219);
+}
+
+.addIcon{
+	margin-left: -10px;
+}
+
+.archiveIcon {
+	border-radius: 3px; 
+	display: inline-block;
+	color: #5e6c84;
+	position: relative;
+	margin: 6px 0px 5px 5px;
+	vertical-align: middle;
+}
+
+.archiveIcon:before {
+	content: "\267B";	
+	font-size: 18px;
+}
+
+.archiveIcon:hover {
+	cursor: pointer;
+	color: rgba(9,30,66, 0.8);
+}
+
+.archiveIcon:active {
+	color: rgba(9, 30, 66, 0.9);
+} 
+
+
+
+
+

@@ -1,28 +1,25 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import styles from "./AddList.scss";
-import PropTypes from "prop-types";
+import BoardContext from "../../context/boardContext";
 
 const AddList = () => {
   const [isAdding, setIsAdding] = useState(false);
 
   const listTitleRef = useRef(null);
 
+  const context = useContext(BoardContext);
+
   useEffect(() => {
-    window.addEventListener("click", e => {
-      if (listTitleRef.current.contains(e.target)) { // If clicked outside the addList box
-        setIsAdding(true);
-      }else{
-        setIsAdding(false);
-      }
-    });
-  }, []);
+    if (listTitleRef.current.contains(context.lastClickedItem)) { // If clicked outside the box
+      setIsAdding(true);
+    } else {
+      setIsAdding(false);
+    }
+  }, [context.lastClickedItem]);
 
   return (
     <>
-      <div
-        className={`${styles.wrapper} ${isAdding ? styles.adding : ""}`}
-        ref={listTitleRef}
-      >
+      <div className={`${styles.wrapper} ${isAdding ? styles.adding : ""}`} ref={listTitleRef}>
         {isAdding ? (
           <div>
             <input
