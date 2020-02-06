@@ -2,22 +2,21 @@ import React, { useState, useReducer, useEffect } from "react";
 
 import BoardContext from "./boardContext";
 import boardReducer from "./boardReducer";
-import { ADD_TITLE } from "./types";
 
 const GlobalState = props => {
-  const [state, dispatch] = useReducer(boardReducer, {boardTitle: "Store"});
+  const [state, dispatch] = useReducer(boardReducer, {lastClickedItem: null});
 
-  const changeBoardTitle = (boardTitle) => {
+  const setLastClickedItem = (lastClickedItem) => {
     dispatch({
-      type: ADD_TITLE,
-      payload: boardTitle
+      type: 'SET_LAST_CLICKED_ITEM',
+      payload: lastClickedItem
     })};
 
   return (
     <BoardContext.Provider
       value={{
-        boardTitle: state.boardTitle,
-        changeBoardTitle: changeBoardTitle
+        lastClickedItem: state.lastClickedItem,
+        setLastClickedItem: setLastClickedItem
       }}
     >
       {props.children}

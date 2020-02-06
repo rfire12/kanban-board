@@ -1,20 +1,22 @@
 .wrapper {
 	background-color: rgba($color: #ffffff, $alpha: 0.3);
 	border-radius: 3px;
+	display: inline-block;
+	font-family: Arial, Helvetica, sans-serif;
 	height: 41px;
 	margin: 0px 0px 0px 10px;
-	transition: height 70ms ease-out;
+	transition: height 85ms ease-out;
 	width: 272px;
+	vertical-align: top;
 }
 .adding {
 	background-color: #ebecf0;
-	height: 81px;
+	height: 82px;
 	transition: height 85ms ease-in;
 }
 .addList {
 	color: #ffffff;
 	display: inline-block;
-	font-family: sans-serif;
 	font-size: 1em;
 	padding: 4px 0px 9px 0px;
 	text-decoration: none;
@@ -41,9 +43,8 @@
 	@extend %crossIcon;
 	animation: slide-down 85ms ease;
 	cursor: pointer;
-	font-size: 2.2em;
-	font-weight: 500;
-	margin: -4px 0px 0px 10px;
+	font-size: 32px;
+	margin: 0px 0px 0px 10px;
 	position: absolute;
 }
 
@@ -51,7 +52,6 @@
 .listNameInput {
 	border: 2px solid #028ddd;
 	border-radius: 3px;
-	font-family: Arial, Helvetica, sans-serif;
 	font-size: 0.9em;
 	height: 30px;
 	margin: 4px;
@@ -77,7 +77,6 @@
 	border: none;
 	border-radius: 2px;
 	color: white;
-	font-family: Arial, Helvetica, sans-serif;
 	font-size: 0.9em;
 	margin: 0px 0px 4px 4px;
 	outline: none;
