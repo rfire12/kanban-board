@@ -20,10 +20,8 @@ const Board = () => {
       <div className={styles.boardWrapper}>
         <BoardHeader />
         <div className={styles.listsWrapper}>
-          <AddList/>
-          <List/>
-          <AddList />
           <List />
+          <AddList/>
         </div>
       </div>
     </div>

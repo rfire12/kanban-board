@@ -3,8 +3,6 @@ import React, { useState, useReducer, useEffect } from "react";
 import BoardContext from "./boardContext";
 import boardReducer from "./boardReducer";
 
-
-
 const GlobalState = props => {
   const [state, dispatch] = useReducer(boardReducer, {lastClickedItem: null});
 

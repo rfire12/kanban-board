@@ -33,7 +33,7 @@ const AddList = () => {
               autoFocus
             />
             <button className={styles.addListButton}>Add List</button>
-            <span className={styles.exitIcon}></span>
+            <span className={styles.exitIcon} onClick={() => setIsAdding(false)}></span>
           </div>
         ) : (
           <a className={styles.addList} href="#">
