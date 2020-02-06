@@ -1,21 +1,21 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, useContext } from "react";
 import styles from "./AddList.scss";
-import PropTypes from "prop-types";
+import BoardContext from "../../context/boardContext";
 
 const AddList = () => {
   const [isAdding, setIsAdding] = useState(false);
 
   const listTitleRef = useRef(null);
 
+  const context = useContext(BoardContext)
+
   useEffect(() => {
-    window.addEventListener("click", e => {
-      if (listTitleRef.current.contains(e.target)) { // If clicked outside the addList box
-        setIsAdding(true);
+      if (listTitleRef.current.contains(context.lastClickedItem)) { // If clicked outside the box
+        setIsAdding(true)
       }else{
         setIsAdding(false);
       }
-    });
-  }, []);
+  }, [context.lastClickedItem]);
 
   return (
     <>
@@ -33,7 +33,7 @@ const AddList = () => {
               autoFocus
             />
             <button className={styles.addListButton}>Add List</button>
-            <span className={styles.exitIcon} onClick={() => setIsAdding(false)}></span>
+            <span className={styles.exitIcon}></span>
           </div>
         ) : (
           <a className={styles.addList} href="#">
@@ -45,5 +45,6 @@ const AddList = () => {
     </>
   );
 };
+
 
 export default AddList;

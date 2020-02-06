@@ -6,6 +6,7 @@
 	margin: 0px 0px 0px 10px;
 	transition: height 70ms ease-out;
 	width: 272px;
+	vertical-align:top;
 }
 .adding {
 	background-color: #ebecf0;
@@ -42,9 +43,9 @@
 	@extend %crossIcon;
 	animation: slide-down 85ms ease;
 	cursor: pointer;
-	font-size: 2.2em;
-	font-weight: 500;
-	margin: -4px 0px 0px 10px;
+	font-size: 32px;
+	font-weight: 600;
+	margin: 0px 0px 0px 10px;
 	position: absolute;
 }
 
