@@ -34,29 +34,10 @@
 	font-size: 15px;
 	font-weight: 100;
 	margin: 0px 7px 9px 10px;
-	padding: 0px 0px 2px 0px;
+	padding: 0px 0px 4px 0px;
 	position: relative;
+	user-select: none;
 	width: 80%;
-}
-
-
-
-.addIcon{
-	margin-left: -10px;
-}
-
-.archiveIcon:before {
-	content: "\267B";	
-	font-size: 20px;
-}
-
-.archiveIcon {
-	border-radius: 3px; 
-	display: inline-block;
-	color: #5e6c84;
-	position: relative;
-	margin: 4px 0px 5px 5px;
-	vertical-align: middle;
 }
 
 .addCards:hover{
@@ -65,7 +46,38 @@
 	cursor: pointer;
 }
 
-.archiveIcon:hover{
+.addCards:active {
+	background-color: rgba(9, 30, 66, 0.219);
+}
+
+.addIcon{
+	margin-left: -10px;
+}
+
+.archiveIcon {
+	border-radius: 3px; 
+	display: inline-block;
+	color: #5e6c84;
+	position: relative;
+	margin: 6px 0px 5px 5px;
+	vertical-align: middle;
+}
+
+.archiveIcon:before {
+	content: "\267B";	
+	font-size: 18px;
+}
+
+.archiveIcon:hover {
 	cursor: pointer;
 	color: rgba(9,30,66, 0.8);
 }
+
+.archiveIcon:active {
+	color: rgba(9, 30, 66, 0.9);
+} 
+
+
+
+
+
