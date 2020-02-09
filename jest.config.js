@@ -4,6 +4,6 @@ module.exports = {
       "<rootDir>/src/tests/__mocks__/fileMock.js",
     "\\.(css|scss)$": "<rootDir>/src/tests/__mocks__/styleMock.js"
   },
-  modulePathIgnorePatterns: ["node_modules"],
+  modulePathIgnorePatterns: ["node_modules", ".git"],
   verbose: false
 };

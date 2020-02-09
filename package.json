@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack-dev-server --mode development --content-base src --watch-content-base --hot --inline",
     "build": "webpack --mode production",
-    "test": "jest --watch --runInBand"
+    "test": "jest --watchAll"
   },
   "repository": {
     "type": "git",
