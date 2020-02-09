@@ -7,7 +7,7 @@ import AddList from "./AddList";
 afterEach(cleanup);
 
 describe("Add new list item", () => {
-  it("on click the box should open if it's closed", () => {
+  it("on click, the box should open if it's closed", () => {
     const mockHtmlNode = document.createElement("span");
     mockHtmlNode.id = "add-another-list-button";
 
