@@ -6,7 +6,8 @@
   "scripts": {
     "start": "webpack-dev-server --mode development --content-base src --watch-content-base --hot --inline",
     "build": "webpack --mode production",
-    "test": "jest --watchAll"
+    "test": "jest --watchAll",
+    "test-not-watch": "jest"
   },
   "repository": {
     "type": "git",
