@@ -1,6 +1,7 @@
-import React, { useState, useRef, useEffect, useContext } from "react";
-import styles from "./AddList.scss";
+import React, { useContext, useEffect, useRef, useState } from "react";
+
 import BoardContext from "../../context/boardContext";
+import styles from "./AddList.scss";
 
 const AddList = () => {
   const [isAdding, setIsAdding] = useState(false);

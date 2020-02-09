@@ -1,8 +1,10 @@
-import React from "react";
 import "@testing-library/jest-dom/extend-expect";
-import { render, fireEvent, cleanup, waitForDomChange } from "@testing-library/react";
-import BoardContext from "../../context/boardContext";
+
+import { cleanup, render } from "@testing-library/react";
+
 import AddList from "./AddList";
+import BoardContext from "../../context/boardContext";
+import React from "react";
 
 afterEach(cleanup);
 
@@ -19,6 +21,4 @@ describe("Add new list item", () => {
 
     expect(queryByTestId("adding-list").getAttribute("data-testid")).toBe("adding-list");
   });
-
-
 });
