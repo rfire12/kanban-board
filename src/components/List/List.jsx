@@ -12,7 +12,7 @@ const List = () => {
       <section>
         <div className={styles.addCards}>
           <span className={`${addListStyles.addIcon} ${styles.addIcon}`}></span>
-          Add another list
+          Add a card
         </div>
         <span className={styles.archiveIcon}></span>
       </section>

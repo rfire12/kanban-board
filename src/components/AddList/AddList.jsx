@@ -10,7 +10,7 @@ const AddList = () => {
   const context = useContext(BoardContext);
 
   useEffect(() => {
-    if (listTitleRef.current.contains(context.lastClickedItem)) { // If clicked outside the box
+    if (context.lastClickedItem != null && context.lastClickedItem.id === "add-another-list-button") {
       setIsAdding(true);
     } else {
       setIsAdding(false);
@@ -21,7 +21,7 @@ const AddList = () => {
     <>
       <div className={`${styles.wrapper} ${isAdding ? styles.adding : ""}`} ref={listTitleRef}>
         {isAdding ? (
-          <div>
+          <div data-testid="adding-list">
             <input
               type="text"
               className={styles.listNameInput}
@@ -33,7 +33,7 @@ const AddList = () => {
             <span className={styles.exitIcon} onClick={() => setIsAdding(false)}></span>
           </div>
         ) : (
-          <a className={styles.addList} href="#">
+          <a id="add-another-list-button" className={styles.addList} href="#">
             <span className={styles.addIcon}></span>
             Add another list
           </a>

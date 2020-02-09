@@ -11,7 +11,7 @@ const GlobalState = props => {
       type: 'SET_LAST_CLICKED_ITEM',
       payload: lastClickedItem
     })};
-
+    
   return (
     <BoardContext.Provider
       value={{
