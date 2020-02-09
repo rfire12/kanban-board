@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
 
-import styles from "./BoardTitle.scss";
 import boardContext from "../../context/boardContext";
+import styles from "./BoardTitle.scss";
 
 const BoardTitle = props => {
   const [boardTitle, setBoardTitle] = useState("Store");
@@ -14,7 +14,6 @@ const BoardTitle = props => {
 
   const titleInputRef = useRef(null);
 
-  const context = useContext(boardContext);
 
   useEffect(() => {
     setTitleWidth(`${titleSpanRef.current.offsetWidth - 30}px`);
@@ -26,8 +25,8 @@ const BoardTitle = props => {
   }, [enableEditTitle === true]);
 
   const saveBoardTitle = e => {
+    console.log("sd")
     if (e.key === "Enter" || e.key === "Escape" || e.nativeEvent.type === "blur") {
-      context.changeBoardTitle(boardTitle);
       e.currentTarget.blur();
       setEnableEditTitle(false);
     }
