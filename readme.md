@@ -14,7 +14,11 @@ The project consist on a Kaban Board app, the most similar to Trello as possible
 - [Kubernetes](https://kubernetes.io/)
 - [Nginx](https://www.nginx.com/)
 
-Concepts to be found on this project: TDD, CI, Server Side Rendering, Load Balancing, Web Accessibility, and SEO. 
+Concepts to be found on this project: CI, Server Side Rendering, Load Balancing, Web Accessibility, and SEO. 
+
+## Build status
+| Circle CI | [![Build Status](https://circleci.com/gh/rfire12/kanban-board.svg)](https://circleci.com/gh/rfire12/kanban-board) |
+| ----------- | ----------- |
 
 To run this project use npm 6.13.0
 
