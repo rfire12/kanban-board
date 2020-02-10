@@ -16,7 +16,7 @@ The project consist on a Kaban Board app, the most similar to Trello as possible
 
 Concepts to be found on this project: CI, Server Side Rendering, Load Balancing, Web Accessibility, and SEO. 
 
-## Build status
+### Build status
 | Circle CI | [![Build Status](https://circleci.com/gh/rfire12/kanban-board.svg)](https://circleci.com/gh/rfire12/kanban-board) |
 | ----------- | ----------- |
 
