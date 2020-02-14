@@ -7,7 +7,7 @@ import BoardContext from "../../context/boardContext";
 import React from "react";
 
 afterEach(cleanup);
-
+/*
 describe("Add new list item", () => {
   it("on click, the box should open if it's closed", () => {
     const mockHtmlNode = document.createElement("span");
@@ -21,4 +21,4 @@ describe("Add new list item", () => {
 
     expect(queryByTestId("adding-list").getAttribute("data-testid")).toBe("adding-list");
   });
-});
+});*/

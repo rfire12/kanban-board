@@ -1,22 +1,14 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
-
-import BoardContext from "../../context/boardContext";
+import React, { useRef, useState } from "react";
+import useDisplayAddBox from "../../hooks/useDisplayAddBox";
 import styles from "./AddList.scss";
+
 
 const AddList = () => {
   const [isAdding, setIsAdding] = useState(false);
 
   const listTitleRef = useRef(null);
 
-  const context = useContext(BoardContext);
-
-  useEffect(() => {
-    if (context.lastClickedItem != null && context.lastClickedItem.id === "add-another-list-button") {
-      setIsAdding(true);
-    } else {
-      setIsAdding(false);
-    }
-  }, [context.lastClickedItem]);
+  useDisplayAddBox(listTitleRef, setIsAdding);
 
   return (
     <>
