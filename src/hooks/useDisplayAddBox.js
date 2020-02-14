@@ -5,7 +5,7 @@ const useDisplayAddBox = (targetElement, setIsAdding) => {
   const context = useContext(BoardContext);
 
   useEffect(() => {
-    if (targetElement.current.contains(context.lastClickedItem)) {
+    if (targetElement.current !== null && targetElement.current.contains(context.lastClickedItem)) {
       setIsAdding(true);
     } else {
       setIsAdding(false);
