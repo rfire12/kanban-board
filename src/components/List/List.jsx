@@ -1,6 +1,7 @@
-import React, { useState, useRef } from "react";
-import styles from "./List.scss";
+import React, { useRef, useState } from "react";
+
 import addListStyles from "../AddList/AddList.scss";
+import styles from "./List.scss";
 import useDisplayAddBox from "../../hooks/useDisplayAddBox";
 
 const List = () => {
@@ -16,19 +17,21 @@ const List = () => {
         <h2 className={styles.listTitle}>General</h2>
         <h3 className={styles.numCards}>0 cards</h3>
       </section>
-      {isAdding ? (
-        <section>
-
-        </section>
-      ) : (
-        <section ref={addCardRef}>
-          <div className={styles.addCards}>
-            <span className={`${addListStyles.addIcon} ${styles.addIcon}`}></span>
-            Add a card
+      <section ref={addCardRef} className={styles.addSection}>
+        {isAdding ? (
+          <div>
+            <textarea className={styles.cardTitle}></textarea>
           </div>
-          <span className={styles.archiveIcon}></span>
-        </section>
-      )}
+        ) : (
+          <div>
+            <div className={styles.addCards}>
+              <span className={`${addListStyles.addIcon} ${styles.addIcon}`}></span>
+              Add a card
+            </div>
+            <span className={styles.archiveIcon}></span>
+          </div>
+        )}
+      </section>
     </div>
   );
 };

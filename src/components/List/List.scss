@@ -27,13 +27,19 @@
 	font-weight: 100;
 	margin-top: 3px;
 }
+
+.addSection {
+	margin: 0px 7px 9px 10px;
+	width: 100%;
+}
+
 .addCards {
 	border-radius: 3px;
 	color: #5e6c84;
 	display: inline-block;
 	font-size: 15px;
 	font-weight: 100;
-	margin: 0px 7px 9px 10px;
+	
 	padding: 0px 0px 4px 0px;
 	position: relative;
 	user-select: none;
@@ -59,7 +65,7 @@
 	display: inline-block;
 	color: #5e6c84;
 	position: relative;
-	margin: 6px 0px 5px 5px;
+	margin: 6px 0px 5px 12px;
 	vertical-align: middle;
 }
 
@@ -76,6 +82,12 @@
 .archiveIcon:active {
 	color: rgba(9, 30, 66, 0.9);
 } 
+
+/*   When use is adding a new card */
+
+.cardTitle {
+	resize: none;
+}
 
 
 
