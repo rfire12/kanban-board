@@ -1,83 +1,94 @@
 .wrapper {
-	background-color: #ebecf0;
-	border-radius: 3px;
-	display: inline-block;
-	font-family: Arial, Helvetica, sans-serif;
-	height: auto;
-	margin: 0px 0px 0px 10px;
-	transition: height 70ms ease-out;
-	width: 272px;
+  background-color: #ebecf0;
+  border-radius: 3px;
+  display: inline-block;
+  font-family: Arial, Helvetica, sans-serif;
+  height: auto;
+  margin: 0px 0px 0px 10px;
+  padding: 15px 10px 7px 10px;
+  transition: height 70ms ease-out;
+  width: 251px;
 }
 .header {
-	margin: 7px 10px;
-	padding: 5px 0px 0px 7px;
-	vertical-align: top;
-	width: calc(100% -7px);
+  margin-left: 7px;
+  vertical-align: top;
+  width: calc(100% -7px);
 }
 .listTitle {
-	color: #172b4d;
-	display: inline-block;
-	font-size: 14.5px;
-	margin: 0;
+  color: #172b4d;
+  display: inline-block;
+  font-size: 14.5px;
+  margin: 0;
 }
 .numCards {
-	color: #5e6c84;
-	display: block;
-	font-size: 15px;
-	font-weight: 100;
-	margin-top: 3px;
+  color: #5e6c84;
+  display: block;
+  font-size: 15px;
+  font-weight: 100;
+  margin-top: 3px;
+}
+.addSection {
+  width: 100%;
 }
 .addCards {
-	border-radius: 3px;
-	color: #5e6c84;
-	display: inline-block;
-	font-size: 15px;
-	font-weight: 100;
-	margin: 0px 7px 9px 10px;
-	padding: 0px 0px 4px 0px;
-	position: relative;
-	user-select: none;
-	width: 80%;
+  border-radius: 3px;
+  color: #5e6c84;
+  display: inline-block;
+  font-size: 15px;
+  font-weight: 100;
+  padding: 0px 0px 4px 0px;
+  position: relative;
+  user-select: none;
+  width: 88%;
 }
-
-.addCards:hover{
-	background-color: rgba(9,30,66,.08);
-	color: rgba(9,30,66, 0.8);
-	cursor: pointer;
+.addCards:hover {
+  background-color: rgba(9, 30, 66, 0.08);
+  color: rgba(9, 30, 66, 0.8);
+  cursor: pointer;
 }
-
 .addCards:active {
-	background-color: rgba(9, 30, 66, 0.219);
+  background-color: rgba(9, 30, 66, 0.219);
 }
-
-.addIcon{
-	margin-left: -10px;
+.addIcon {
+  margin-left: -10px;
 }
-
 .archiveIcon {
-	border-radius: 3px; 
-	display: inline-block;
-	color: #5e6c84;
-	position: relative;
-	margin: 6px 0px 5px 5px;
-	vertical-align: middle;
+  border-radius: 3px;
+  color: #5e6c84;
+  display: inline-block;
+  margin: 6px 0px 5px 8px;
+  position: relative;
+  vertical-align: middle;
 }
-
 .archiveIcon:before {
-	content: "\267B";	
-	font-size: 18px;
+  content: "\267B";
+  font-size: 18px;
 }
-
 .archiveIcon:hover {
-	cursor: pointer;
-	color: rgba(9,30,66, 0.8);
+  color: rgba(9, 30, 66, 0.8);
+  cursor: pointer;
 }
-
 .archiveIcon:active {
-	color: rgba(9, 30, 66, 0.9);
-} 
-
-
-
-
-
+  color: rgba(9, 30, 66, 0.9);
+}
+.cardTitle {
+  border: 0px;
+  border-radius: 2px;
+  box-shadow: 0px 1px rgb(187, 187, 187);
+  color: #172b4d;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14.5px;
+  font-weight: 100;
+  height: 48px;
+  outline: none;
+  padding: 9px;
+  resize: none;
+  width: calc(100% - 18px);
+}
+.cardTitle::placeholder {
+  color: #6b768b;
+}
+.exitIcon::before {
+  line-height: 45px;
+  margin: 0px 0px 0px 10px;
+}

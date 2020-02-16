@@ -1,22 +1,16 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 
-import BoardContext from "../../context/boardContext";
+import AddButton from "../AddButton/AddButton";
+import ExitIcon from "../ExitIcon/ExitIcon";
 import styles from "./AddList.scss";
+import useDisplayAddBox from "../../hooks/useDisplayAddBox";
 
 const AddList = () => {
   const [isAdding, setIsAdding] = useState(false);
 
   const listTitleRef = useRef(null);
 
-  const context = useContext(BoardContext);
-
-  useEffect(() => {
-    if (context.lastClickedItem != null && context.lastClickedItem.id === "add-another-list-button") {
-      setIsAdding(true);
-    } else {
-      setIsAdding(false);
-    }
-  }, [context.lastClickedItem]);
+  useDisplayAddBox(listTitleRef, setIsAdding);
 
   return (
     <>
@@ -30,8 +24,9 @@ const AddList = () => {
               autoComplete="off"
               autoFocus
             />
-            <button className={styles.addListButton}>Add List</button>
-            <span className={styles.exitIcon} onClick={() => setIsAdding(false)}></span>
+            <AddButton title={"Add List"} style={{margin:"0px 0px 4px 4px"}}/>
+            <ExitIcon className={styles.exitIcon} onClick={() => setIsAdding(false)}/>
+          
           </div>
         ) : (
           <a id="add-another-list-button" className={styles.addList} href="#">
