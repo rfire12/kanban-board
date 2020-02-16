@@ -1,0 +1,18 @@
+.addButton {
+	animation: slide-down 85ms ease;
+	background-color: #5fb348;
+	border: none;
+	border-radius: 2px;
+	color: white;
+	font-size: 0.9em;
+	outline: none;
+	padding: 10px 12px 8px 12px;
+}
+.addButton:hover {
+	background-color: #67bb50;
+	cursor: pointer;
+}
+
+.addButton:active{
+	background-color: #579e44;
+}
