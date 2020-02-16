@@ -1,7 +1,7 @@
-import "../assets/normalize.scss";
+import "../assets/scss/normalize.scss";
 
 import { Link, Route, BrowserRouter as Router, Switch } from "react-router-dom";
-import React, { useState, useReducer } from "react";
+import React, { useReducer, useState } from "react";
 
 import Board from "./Board/Board";
 import GlobalState from "../context/GlobalState";

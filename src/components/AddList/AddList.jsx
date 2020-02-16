@@ -1,7 +1,9 @@
 import React, { useRef, useState } from "react";
-import useDisplayAddBox from "../../hooks/useDisplayAddBox";
-import styles from "./AddList.scss";
 
+import AddButton from "../AddButton/AddButton";
+import ExitIcon from "../ExitIcon/ExitIcon";
+import styles from "./AddList.scss";
+import useDisplayAddBox from "../../hooks/useDisplayAddBox";
 
 const AddList = () => {
   const [isAdding, setIsAdding] = useState(false);
@@ -22,8 +24,9 @@ const AddList = () => {
               autoComplete="off"
               autoFocus
             />
-            <button className={styles.addListButton}>Add List</button>
-            <span className={styles.exitIcon} onClick={() => setIsAdding(false)}></span>
+            <AddButton title={"Add List"} style={{margin:"0px 0px 4px 4px"}}/>
+            <ExitIcon className={styles.exitIcon} onClick={() => setIsAdding(false)}/>
+          
           </div>
         ) : (
           <a id="add-another-list-button" className={styles.addList} href="#">
