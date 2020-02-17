@@ -1,11 +1,11 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 
+import AddList from "../AddList/AddList";
+import BoardContext from "../../context/boardContext";
 import BoardHeader from "../BoardHeader/BoardHeader";
 import Header from "../Header/Header";
-import styles from "./Board.scss";
-import AddList from "../AddList/AddList";
 import List from "../List/List";
-import BoardContext from "../../context/boardContext";
+import styles from "./Board.scss";
 
 const Board = () => {
   const context = useContext(BoardContext);
