@@ -4,14 +4,14 @@ import Button from "../Button/Button";
 import ExitIcon from "../ExitIcon/ExitIcon";
 import addListStyles from "../AddList/AddList.scss";
 import styles from "./List.scss";
-import useDisplayElementOnClick from "../../hooks/useDisplayElementOnClick";
+import useSetStateOnClickElement from "../../hooks/useSetStateOnClickElement";
 
 const List = (props) => {
   const [isAdding, setIsAdding] = useState(false);
 
   const addCardRef = useRef(null);
 
-  useDisplayElementOnClick(addCardRef, setIsAdding);
+  useSetStateOnClickElement(addCardRef, setIsAdding);
 
   return (
     <div className={styles.wrapper}>

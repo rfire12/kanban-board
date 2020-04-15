@@ -2,19 +2,65 @@
 
 .link {
   text-decoration: none;
+  &:hover .editIcon {
+    visibility: visible;
+  }
 }
 
-.wrapper {
+%wrapper {
   @extend %cardBox;
   height: auto;
   margin: 0px 0px 10px 0px;
   padding: 10px 9px 10px 9px;
   position: relative;
   z-index: 11;
+  
+}
+
+.cardLabelWrapper {
+  @extend %wrapper;
   &:hover {
     background-color: rgb(248, 248, 248);
   }
 }
+
+
+.title {
+  line-height: 20px;
+  margin: 0;
+}
+
+.editIcon {
+  border: 1px black solid;
+  padding: 5px;
+  position: absolute;
+  right: 3px;
+  top: 3px;
+  visibility: hidden;
+}
+
+.saveButton {
+  border-radius: 3px;
+  padding: 9px 22px 8px 22px;
+  position: absolute;
+  z-index: 11;
+}
+
+.cardEditingWrapper {
+  @extend %wrapper;
+}
+
+.titleTextarea {
+  border: 0;
+  line-height: 20px;
+  outline: none;
+  padding: 0;
+  position: relative;
+  resize: none;
+  width: 100%;
+  display: block;
+}
+
 
 .blurScreen {
   background-color: rgba(0, 0, 0, 0.363);
@@ -24,9 +70,4 @@
   top: 0px;
   width: 100%;
   z-index: 10;
-}
-
-.title {
-  line-height: 20px;
-  margin: 0;
 }

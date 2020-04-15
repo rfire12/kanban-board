@@ -3,14 +3,14 @@ import React, { useRef, useState } from "react";
 import Button from "../Button/Button";
 import ExitIcon from "../ExitIcon/ExitIcon";
 import styles from "./AddList.scss";
-import useDisplayElementOnClick from "../../hooks/useDisplayElementOnClick";
+import useSetStateOnClickElement from "../../hooks/useSetStateOnClickElement";
 
 const AddList = () => {
   const [isAdding, setIsAdding] = useState(false);
 
   const listTitleRef = useRef(null);
 
-  useDisplayElementOnClick(listTitleRef, setIsAdding);
+  useSetStateOnClickElement(listTitleRef, setIsAdding);
 
   return (
     <>
