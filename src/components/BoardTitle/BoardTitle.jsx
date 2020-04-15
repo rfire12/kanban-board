@@ -25,7 +25,6 @@ const BoardTitle = props => {
   }, [enableEditTitle === true]);
 
   const saveBoardTitle = e => {
-    console.log("sd")
     if (e.key === "Enter" || e.key === "Escape" || e.nativeEvent.type === "blur") {
       e.currentTarget.blur();
       setEnableEditTitle(false);
