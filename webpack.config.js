@@ -32,7 +32,7 @@ module.exports = {
         ]
       },
       {
-        test: /\.(woff(2)|jpeg)?$/,
+        test: /\.(woff(2)|jpeg|jpg)?$/,
         use: [
           {
             loader: "url-loader",
