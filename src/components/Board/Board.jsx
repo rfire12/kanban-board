@@ -14,7 +14,7 @@ const Board = () => {
   return (
     <div
       className={styles.wrapper}
-      onClick={e => {
+      onClick={(e) => {
         context.setLastClickedItem(e.target);
       }}
     >
@@ -22,7 +22,7 @@ const Board = () => {
       <div className={styles.boardWrapper}>
         <BoardHeader />
         <div className={styles.listsWrapper}>
-          <List >
+          <List>
             <Card />
           </List>
           <AddList />

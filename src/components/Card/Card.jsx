@@ -30,7 +30,7 @@ const Card = () => {
 
     if (titleTextareaRef.current !== null) {
       titleTextareaRef.current.select();
-      setCardHeight(titleTextareaRef.current.scrollHeight);
+      setCardHeight(titleTextareaRef.current.scrollHeight - 3);
     }
   }, [isEditing]);
 
@@ -38,8 +38,8 @@ const Card = () => {
     <>
       <div ref={cardRef}>
         {isEditing ? (
-          <>
-            <div className={styles.cardEditingWrapper}>
+          <div className={styles.cardEditingWrapper}>
+            <div className={styles.textareaWrapper}>
               <textarea
                 className={styles.titleTextarea}
                 defaultValue={cardTitle}
@@ -48,7 +48,7 @@ const Card = () => {
               />
             </div>
             <Button title="Save" className={styles.saveButton} />
-          </>
+          </div>
         ) : (
           <a href="#" className={styles.link}>
             <div className={styles.cardLabelWrapper}>

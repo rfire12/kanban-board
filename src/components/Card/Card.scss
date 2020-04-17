@@ -13,7 +13,6 @@
   margin: 0px 0px 10px 0px;
   padding: 10px 9px 10px 9px;
   position: relative;
-  z-index: 11;
 }
 
 .cardLabelWrapper {
@@ -48,15 +47,19 @@
   }
 }
 
+.cardEditingWrapper {
+  position: relative;
+  z-index: 11;
+}
+
+.textareaWrapper {
+  @extend %wrapper;
+}
+
 .saveButton {
   border-radius: 3px;
   padding: 9px 22px 8px 22px;
   position: absolute;
-  z-index: 11;
-}
-
-.cardEditingWrapper {
-  @extend %wrapper;
 }
 
 .titleTextarea {
