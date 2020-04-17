@@ -1,17 +1,17 @@
-import React, { useRef, useState } from "react";
+import React, { Children, useRef, useState } from "react";
 
-import AddButton from "../AddButton/AddButton";
+import Button from "../Button/Button";
 import ExitIcon from "../ExitIcon/ExitIcon";
 import addListStyles from "../AddList/AddList.scss";
 import styles from "./List.scss";
-import useDisplayAddBox from "../../hooks/useDisplayAddBox";
+import useSetStateOnClickElement from "../../hooks/useSetStateOnClickElement";
 
-const List = () => {
+const List = (props) => {
   const [isAdding, setIsAdding] = useState(false);
 
   const addCardRef = useRef(null);
 
-  useDisplayAddBox(addCardRef, setIsAdding);
+  useSetStateOnClickElement(addCardRef, setIsAdding);
 
   return (
     <div className={styles.wrapper}>
@@ -19,7 +19,8 @@ const List = () => {
         <h2 className={styles.listTitle}>General</h2>
         <h3 className={styles.numCards}>0 cards</h3>
       </section>
-      <section ref={addCardRef} className={styles.addSection}>
+      {props.children}
+      <section className={styles.addSection}>
         {isAdding ? (
           <div>
             <textarea
@@ -27,7 +28,7 @@ const List = () => {
               placeholder="Enter a title for this card"
               autoFocus
             ></textarea>
-            <AddButton
+            <Button  
               style={{ padding: "9px 14px 8px 14px", margin: "5px 0px 0px 0px" }}
               title="Add card"
             />
@@ -35,7 +36,7 @@ const List = () => {
           </div>
         ) : (
           <div>
-            <div className={styles.addCards}>
+            <div className={styles.addCards}  ref={addCardRef}>
               <span className={`${addListStyles.addIcon} ${styles.addIcon}`}></span>
               Add a card
             </div>

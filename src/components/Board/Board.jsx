@@ -1,11 +1,12 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 
-import BoardHeader from "../BoardHeader/BoardHeader";
-import Header from "../Header/Header";
-import styles from "./Board.scss";
 import AddList from "../AddList/AddList";
-import List from "../List/List";
 import BoardContext from "../../context/boardContext";
+import BoardHeader from "../BoardHeader/BoardHeader";
+import Card from "../Card/Card";
+import Header from "../Header/Header";
+import List from "../List/List";
+import styles from "./Board.scss";
 
 const Board = () => {
   const context = useContext(BoardContext);
@@ -21,7 +22,9 @@ const Board = () => {
       <div className={styles.boardWrapper}>
         <BoardHeader />
         <div className={styles.listsWrapper}>
-          <List />
+          <List >
+            <Card />
+          </List>
           <AddList />
         </div>
       </div>

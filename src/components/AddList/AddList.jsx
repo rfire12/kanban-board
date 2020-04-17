@@ -1,16 +1,16 @@
 import React, { useRef, useState } from "react";
 
-import AddButton from "../AddButton/AddButton";
+import Button from "../Button/Button";
 import ExitIcon from "../ExitIcon/ExitIcon";
 import styles from "./AddList.scss";
-import useDisplayAddBox from "../../hooks/useDisplayAddBox";
+import useSetStateOnClickElement from "../../hooks/useSetStateOnClickElement";
 
 const AddList = () => {
   const [isAdding, setIsAdding] = useState(false);
 
   const listTitleRef = useRef(null);
 
-  useDisplayAddBox(listTitleRef, setIsAdding);
+  useSetStateOnClickElement(listTitleRef, setIsAdding);
 
   return (
     <>
@@ -24,7 +24,7 @@ const AddList = () => {
               autoComplete="off"
               autoFocus
             />
-            <AddButton title={"Add List"} style={{margin:"0px 0px 4px 4px"}}/>
+            <Button title={"Add List"} style={{margin:"0px 0px 4px 4px"}}/>
             <ExitIcon className={styles.exitIcon} onClick={() => setIsAdding(false)}/>
           
           </div>
