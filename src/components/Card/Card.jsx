@@ -4,7 +4,7 @@ import Button from "../Button/Button";
 import styles from "./Card.scss";
 import useSetStateOnClickElement from "../../hooks/useSetStateOnClickElement";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPen } from "@fortawesome/free-solid-svg-icons";
+import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import { useEffect } from "react";
 
 const Card = () => {
@@ -14,17 +14,25 @@ const Card = () => {
 
   const [isEditing, setIsEditing] = useState(false);
 
+  const [cardHeight, setCardHeight] = useState("");
+
   useSetStateOnClickElement(cardRef, setIsEditing);
 
-  const cardContent = `#8 As a developer, I would like to create a template for an order to be placed, in the
+  const [
+    cardTitle,
+    setCardTitle,
+  ] = useState(`As a developer, I would like to create a template for an order to be placed, in the
   administrator be able to select a supplier and several products that you want to
-  order.`;
+  order.`);
 
   useEffect(() => {
-    if(titleTextareaRef.current !== null) {
+    setCardTitle(cardTitle.replace(/(\r\n|\n|\r)(  +)/gm, " ")); // Removes line breaks and tabs
+
+    if (titleTextareaRef.current !== null) {
       titleTextareaRef.current.select();
+      setCardHeight(titleTextareaRef.current.scrollHeight);
     }
-  }, [isEditing])
+  }, [isEditing]);
 
   return (
     <>
@@ -32,16 +40,21 @@ const Card = () => {
         {isEditing ? (
           <>
             <div className={styles.cardEditingWrapper}>
-              <textarea className={styles.titleTextarea} defaultValue={cardContent} ref={titleTextareaRef}/>
+              <textarea
+                className={styles.titleTextarea}
+                defaultValue={cardTitle}
+                ref={titleTextareaRef}
+                style={{ height: cardHeight }}
+              />
             </div>
             <Button title="Save" className={styles.saveButton} />
           </>
         ) : (
           <a href="#" className={styles.link}>
             <div className={styles.cardLabelWrapper}>
-              <p className={styles.title}>{cardContent}</p>
+              <p className={styles.title}>{cardTitle}</p>
               <div className={styles.editIcon}>
-                <FontAwesomeIcon icon={faPen} />
+                <FontAwesomeIcon icon={faPencilAlt} />
               </div>
             </div>
           </a>

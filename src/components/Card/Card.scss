@@ -14,7 +14,6 @@
   padding: 10px 9px 10px 9px;
   position: relative;
   z-index: 11;
-  
 }
 
 .cardLabelWrapper {
@@ -24,19 +23,29 @@
   }
 }
 
-
 .title {
   line-height: 20px;
   margin: 0;
 }
 
 .editIcon {
-  border: 1px black solid;
-  padding: 5px;
+  background: rgba(248, 248, 248, 0.548);
+  border-radius: 2px;
+  padding: 5px 7px 5px 7px;
   position: absolute;
   right: 3px;
   top: 3px;
   visibility: hidden;
+  & > * {
+    color: rgb(24, 50, 99);
+    font-size: 12px;
+  }
+  &:hover {
+    background: rgb(235, 236, 240)
+  }
+  &:active {
+    background: rgb(217, 218, 223)
+  }
 }
 
 .saveButton {
@@ -53,15 +62,14 @@
 .titleTextarea {
   border: 0;
   line-height: 20px;
+  margin: 0;
   outline: none;
   overflow: hidden;
   padding: 0;
   position: relative;
   resize: none;
   width: 100%;
-  display: block;
 }
-
 
 .blurScreen {
   background-color: rgba(0, 0, 0, 0.363);
