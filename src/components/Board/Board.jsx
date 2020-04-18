@@ -13,7 +13,7 @@ import { useState } from "react";
 const Board = () => {
   const context = useContext(BoardContext);
 
-  const cardsFromBackend = [
+  const cardsFromBackend1 = [
     {
       id: "card-1",
       title: `As a developer, I would like to create a template for an order to be placed, 
@@ -33,7 +33,7 @@ const Board = () => {
   const columnsFromBackend = {
     "column-1": {
       name: "Todo",
-      cards: cardsFromBackend,
+      cards: cardsFromBackend1,
     },
     "column-2": {
       name: "Todo",
@@ -41,14 +41,20 @@ const Board = () => {
     },
   };
 
-
-  const onDragEnd = (result, columns, setColumns) => {
+  const dropOnSameColumn = (result, columns, setColumns) => {
     const { source, destination } = result;
     const column = columns[source.droppableId];
     const cardsCopy = [...column.cards];
     const [movedCard] = cardsCopy.splice(source.index, 1); // Removes the card from its position on the column
     cardsCopy.splice(destination.index, 0, movedCard); // Re-inserts the card to its new position on the same column
     setColumns({ ...columns, [source.droppableId]: { ...column, cards: cardsCopy } });
+  };
+
+  const onDragEnd = (result, columns, setColumns) => {
+    const { source } = result;
+    if (source.destination === source.destination) {
+      dropOnSameColumn(result, columns, setColumns);
+    }
   };
 
   const [columns, setColumns] = useState(columnsFromBackend);
