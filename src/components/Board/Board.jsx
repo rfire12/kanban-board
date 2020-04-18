@@ -49,7 +49,7 @@ const Board = () => {
     const { source, destination } = result;
     const list = copy(lists[source.droppableId]);
     const [movedCard] = list.cards.splice(source.index, 1); // Removes the card from its position on the list
-    list.cards.splice(destination.index, 0, movedCard); // Re-inserts the card to its new position on the same list
+    list.cards.splice(destination.index, 0, movedCard); // Re-inserts the card into its new position on the same list
     setLists({ ...lists, [source.droppableId]: list });
   };
 
@@ -58,7 +58,7 @@ const Board = () => {
     const sourceList = copy(lists[source.droppableId]);
     const destinationList = copy(lists[destination.droppableId]);
     const [movedCard] = sourceList.cards.splice(source.index, 1); // Removes the card from its position on the list
-    destinationList.cards.splice(destination.index, 0, movedCard); // Inserts the card to its new position on the destination list
+    destinationList.cards.splice(destination.index, 0, movedCard); // Inserts the card into its new position on the destination list
     setLists({
       ...lists,
       [source.droppableId]: sourceList,
