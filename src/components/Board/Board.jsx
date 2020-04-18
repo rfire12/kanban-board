@@ -11,6 +11,8 @@ import { cloneDeep as copy } from "lodash";
 import styles from "./Board.scss";
 import { useState } from "react";
 
+// A list is a column
+
 const Board = () => {
   const cardsFromBackend1 = [
     {
@@ -29,55 +31,55 @@ const Board = () => {
     { id: "card-4", title: "fourth card" },
   ];
 
-  const columnsFromBackend = {
-    "column-1": {
+  const listsFromBackend = {
+    "list-1": {
       name: "Todo",
       cards: cardsFromBackend1,
     },
-    "column-2": {
+    "list-2": {
       name: "Todo",
       cards: cardsFromBackend2,
     },
   };
 
   const context = useContext(BoardContext);
-  const [columns, setColumns] = useState(columnsFromBackend);
+  const [lists, setLists] = useState(listsFromBackend);
 
-  const dropOnSameColumn = (result, columns, setColumns) => {
+  const dropOnSameList = (result, lists, setLists) => {
     const { source, destination } = result;
-    const column = copy(columns[source.droppableId]);
-    const [movedCard] = column.cards.splice(source.index, 1); // Removes the card from its position on the column
-    column.cards.splice(destination.index, 0, movedCard); // Re-inserts the card to its new position on the same column
-    setColumns({ ...columns, [source.droppableId]: column });
+    const list = copy(lists[source.droppableId]);
+    const [movedCard] = list.cards.splice(source.index, 1); // Removes the card from its position on the list
+    list.cards.splice(destination.index, 0, movedCard); // Re-inserts the card to its new position on the same list
+    setLists({ ...lists, [source.droppableId]: list });
   };
 
-  const dropOnDifferentColumn = (result, columns, setColumns) => {
+  const dropOnDifferentList = (result, lists, setLists) => {
     const { source, destination } = result;
-    const sourceColumn = copy(columns[source.droppableId]);
-    const destinationColumn = copy(columns[destination.droppableId]);
-    const [movedCard] = sourceColumn.cards.splice(source.index, 1); // Removes the card from its position on the column
-    destinationColumn.cards.splice(destination.index, 0, movedCard); // Inserts the card to its new position on the destination column
-    setColumns({
-      ...columns,
-      [source.droppableId]: sourceColumn,
-      [destination.droppableId]: destinationColumn,
+    const sourceList = copy(lists[source.droppableId]);
+    const destinationList = copy(lists[destination.droppableId]);
+    const [movedCard] = sourceList.cards.splice(source.index, 1); // Removes the card from its position on the list
+    destinationList.cards.splice(destination.index, 0, movedCard); // Inserts the card to its new position on the destination list
+    setLists({
+      ...lists,
+      [source.droppableId]: sourceList,
+      [destination.droppableId]: destinationList,
     });
   };
 
-  const onDragEnd = (result, columns, setColumns) => {
+  const onDragEnd = (result, lists, setLists) => {
     const { source, destination } = result;
     if (source.droppableId === destination.droppableId) {
-      dropOnSameColumn(result, columns, setColumns);
+      dropOnSameList(result, lists, setLists);
     } else {
-      dropOnDifferentColumn(result, columns, setColumns);
+      dropOnDifferentList(result, lists, setLists);
     }
   };
 
-  const renderColumn = (columnId = "", column = {}) => (
-    <Droppable key={columnId} droppableId={columnId}>
+  const renderList = (listId = "", list = {}) => (
+    <Droppable key={listId} droppableId={listId}>
       {(provided, snapshot) => (
         <List providedRef={provided.innerRef} droppableProps={provided.droppableProps}>
-          {column.cards.map((card, index) => renderCard(index, card))}
+          {list.cards.map((card, index) => renderCard(index, card))}
           {provided.placeholder}
         </List>
       )}
@@ -108,8 +110,8 @@ const Board = () => {
       <div className={styles.boardWrapper}>
         <BoardHeader />
         <div className={styles.listsWrapper}>
-          <DragDropContext onDragEnd={(result) => onDragEnd(result, columns, setColumns)}>
-            {Object.entries(columns).map(([columnId, column]) => renderColumn(columnId, column))}
+          <DragDropContext onDragEnd={(result) => onDragEnd(result, lists, setLists)}>
+            {Object.entries(lists).map(([listId, list]) => renderList(listId, list))}
             <AddList />
           </DragDropContext>
         </div>
