@@ -12,8 +12,6 @@ import styles from "./Board.scss";
 import { useState } from "react";
 
 const Board = () => {
-  const context = useContext(BoardContext);
-
   const cardsFromBackend1 = [
     {
       id: "card-1",
@@ -42,6 +40,9 @@ const Board = () => {
     },
   };
 
+  const context = useContext(BoardContext);
+  const [columns, setColumns] = useState(columnsFromBackend);
+
   const dropOnSameColumn = (result, columns, setColumns) => {
     const { source, destination } = result;
     const column = copy(columns[source.droppableId]);
@@ -64,7 +65,6 @@ const Board = () => {
   };
 
   const onDragEnd = (result, columns, setColumns) => {
-    console.log(result);
     const { source, destination } = result;
     if (source.droppableId === destination.droppableId) {
       dropOnSameColumn(result, columns, setColumns);
@@ -73,7 +73,29 @@ const Board = () => {
     }
   };
 
-  const [columns, setColumns] = useState(columnsFromBackend);
+  const renderColumn = (columnId = "", column = {}) => (
+    <Droppable key={columnId} droppableId={columnId}>
+      {(provided, snapshot) => (
+        <List providedRef={provided.innerRef} droppableProps={provided.droppableProps}>
+          {column.cards.map((card, index) => renderCard(index, card))}
+          {provided.placeholder}
+        </List>
+      )}
+    </Droppable>
+  );
+
+  const renderCard = (cardIndex, card = {}) => (
+    <Draggable key={card.id} draggableId={card.id} index={cardIndex}>
+      {(provided, snapshot) => (
+        <Card
+          providedRef={provided.innerRef}
+          draggableProps={provided.draggableProps}
+          dragHandleProps={provided.dragHandleProps}
+          title={card.title}
+        />
+      )}
+    </Draggable>
+  );
 
   return (
     <div
@@ -87,28 +109,7 @@ const Board = () => {
         <BoardHeader />
         <div className={styles.listsWrapper}>
           <DragDropContext onDragEnd={(result) => onDragEnd(result, columns, setColumns)}>
-            {Object.entries(columns).map(([id, column]) => (
-              <Droppable key={id} droppableId={id}>
-                {(provided, snapshot) => (
-                  <List providedRef={provided.innerRef} droppableProps={provided.droppableProps}>
-                    {column.cards.map((card, index) => (
-                      <Draggable key={card.id} draggableId={card.id} index={index}>
-                        {(provided, snapshot) => (
-                          <Card
-                            providedRef={provided.innerRef}
-                            draggableProps={provided.draggableProps}
-                            dragHandleProps={provided.dragHandleProps}
-                            title={card.title}
-                          />
-                        )}
-                      </Draggable>
-                    ))}
-                    {provided.placeholder}
-                  </List>
-                )}
-              </Droppable>
-            ))}
-
+            {Object.entries(columns).map(([columnId, column]) => renderColumn(columnId, column))}
             <AddList />
           </DragDropContext>
         </div>
