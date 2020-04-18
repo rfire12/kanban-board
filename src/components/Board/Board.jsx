@@ -19,15 +19,15 @@ const Board = () => {
       title: `As a developer, I would like to create a template for an order to be placed, 
               in the administrator be able to select a supplier and several products that you want to order.`,
     },
-    { id: "card-2", title: "Second task" },
+    { id: "card-2", title: "Second card" },
   ];
 
   const cardsFromBackend2 = [
     {
       id: "card-3",
-      title: "third task",
+      title: "third card",
     },
-    { id: "card-4", title: "fourth task" },
+    { id: "card-4", title: "fourth card" },
   ];
 
   const columnsFromBackend = {
