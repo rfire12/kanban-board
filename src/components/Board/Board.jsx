@@ -103,10 +103,7 @@ const Board = () => {
     <div
       className={styles.wrapper}
       onClick={(e) => context.setLastClickedItem(e.target, "LEFT")}
-      onContextMenu={(e) => {
-        context.setLastClickedItem(e.target, "RIGHT");
-        e.preventDefault();
-      }}
+      onContextMenu={(e) => context.setLastClickedItem(e.target, "RIGHT")}
     >
       <Header />
       <div className={styles.boardWrapper}>

@@ -32,7 +32,12 @@ const Card = ({ providedRef, draggableProps = {}, dragHandleProps = {}, title = 
   }, [isEditing]);
 
   return (
-    <div ref={providedRef} {...draggableProps} {...dragHandleProps}>
+    <div
+      ref={providedRef}
+      {...draggableProps}
+      {...dragHandleProps}
+      onContextMenu={(e) => e.preventDefault()}
+    >
       <div ref={cardRef}>
         {isEditing ? (
           <div className={styles.cardEditingWrapper}>
