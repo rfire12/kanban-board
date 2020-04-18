@@ -6,7 +6,7 @@ import addListStyles from "../AddList/AddList.scss";
 import styles from "./List.scss";
 import useSetStateOnClickElement from "../../hooks/useSetStateOnClickElement";
 
-const List = (props) => {
+const List = ({ providedRef, droppableProps, ...props }) => {
   const [isAdding, setIsAdding] = useState(false);
 
   const addCardRef = useRef(null);
@@ -14,7 +14,7 @@ const List = (props) => {
   useSetStateOnClickElement(addCardRef, setIsAdding);
 
   return (
-    <div className={styles.wrapper}>
+    <div ref={providedRef} {...droppableProps} className={styles.wrapper} >
       <section className={styles.header}>
         <h2 className={styles.listTitle}>General</h2>
         <h3 className={styles.numCards}>0 cards</h3>
@@ -28,7 +28,7 @@ const List = (props) => {
               placeholder="Enter a title for this card"
               autoFocus
             ></textarea>
-            <Button  
+            <Button
               style={{ padding: "9px 14px 8px 14px", margin: "5px 0px 0px 0px" }}
               title="Add card"
             />
@@ -36,7 +36,7 @@ const List = (props) => {
           </div>
         ) : (
           <div>
-            <div className={styles.addCards}  ref={addCardRef}>
+            <div className={styles.addCards} ref={addCardRef}>
               <span className={`${addListStyles.addIcon} ${styles.addIcon}`}></span>
               Add a card
             </div>

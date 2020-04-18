@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import { useEffect } from "react";
 
-const Card = () => {
+const Card = ({ providedRef, draggableProps, dragHandleProps, title = "" }) => {
   const cardRef = useRef(null);
 
   const titleTextareaRef = useRef(null);
@@ -18,12 +18,7 @@ const Card = () => {
 
   useSetStateOnClickElement(cardRef, setIsEditing);
 
-  const [
-    cardTitle,
-    setCardTitle,
-  ] = useState(`As a developer, I would like to create a template for an order to be placed, in the
-  administrator be able to select a supplier and several products that you want to
-  order.`);
+  const [cardTitle, setCardTitle] = useState(title);
 
   useEffect(() => {
     setCardTitle(cardTitle.replace(/(\r\n|\n|\r)(  +)/gm, " ")); // Removes line breaks and tabs
@@ -35,7 +30,7 @@ const Card = () => {
   }, [isEditing]);
 
   return (
-    <>
+    <div ref={providedRef} {...draggableProps} {...dragHandleProps}>
       <div ref={cardRef}>
         {isEditing ? (
           <div className={styles.cardEditingWrapper}>
@@ -64,7 +59,7 @@ const Card = () => {
           It needs to be outside the card's container, because when somebody clicks on it, it should disappear.
       */}
       {isEditing && <div className={styles.blurScreen}></div>}
-    </>
+    </div>
   );
 };
 
