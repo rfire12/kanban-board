@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 import { useEffect } from "react";
 
-const Card = () => {
+const Card = ({providedRef, draggableProps, dragHandleProps}) => {
   const cardRef = useRef(null);
 
   const titleTextareaRef = useRef(null);
@@ -35,7 +35,7 @@ const Card = () => {
   }, [isEditing]);
 
   return (
-    <>
+    <div ref={providedRef} {...draggableProps} {...dragHandleProps}>
       <div ref={cardRef}>
         {isEditing ? (
           <div className={styles.cardEditingWrapper}>
@@ -64,7 +64,7 @@ const Card = () => {
           It needs to be outside the card's container, because when somebody clicks on it, it should disappear.
       */}
       {isEditing && <div className={styles.blurScreen}></div>}
-    </>
+    </div>
   );
 };
 
