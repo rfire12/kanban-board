@@ -3,10 +3,11 @@ import React, { Children, useRef, useState } from "react";
 import Button from "../Button/Button";
 import ExitIcon from "../ExitIcon/ExitIcon";
 import addListStyles from "../AddList/AddList.scss";
+import PropTypes from "prop-types";
 import styles from "./List.scss";
 import useSetStateOnClickElement from "../../hooks/useSetStateOnClickElement";
 
-const List = ({ providedRef, droppableProps, ...props }) => {
+const List = ({ providedRef, droppableProps = {}, children }) => {
   const [isAdding, setIsAdding] = useState(false);
 
   const addCardRef = useRef(null);
@@ -19,7 +20,7 @@ const List = ({ providedRef, droppableProps, ...props }) => {
         <h2 className={styles.listTitle}>General</h2>
         <h3 className={styles.numCards}>0 cards</h3>
       </section>
-      {props.children}
+      {children}
       <section className={styles.addSection}>
         {isAdding ? (
           <div>
@@ -46,6 +47,13 @@ const List = ({ providedRef, droppableProps, ...props }) => {
       </section>
     </div>
   );
+};
+
+
+List.propTypes = {
+  providedRef: PropTypes.func.isRequired,
+  droppableProps: PropTypes.object.isRequired,
+  children: PropTypes.node
 };
 
 export default List;
