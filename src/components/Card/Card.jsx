@@ -18,7 +18,7 @@ const Card = ({ providedRef, draggableProps = {}, dragHandleProps = {}, title = 
 
   const [cardHeight, setCardHeight] = useState("");
 
-  useSetStateOnClickElement(cardRef, setIsEditing);
+  useSetStateOnClickElement(cardRef, setIsEditing, "RIGHT");
 
   const [cardTitle, setCardTitle] = useState(title);
 
