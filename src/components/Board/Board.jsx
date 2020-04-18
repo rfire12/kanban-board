@@ -1,3 +1,4 @@
+import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
 import React, { useContext } from "react";
 
 import AddList from "../AddList/AddList";
@@ -6,8 +7,8 @@ import BoardHeader from "../BoardHeader/BoardHeader";
 import Card from "../Card/Card";
 import Header from "../Header/Header";
 import List from "../List/List";
+import { cloneDeep as copy } from "lodash";
 import styles from "./Board.scss";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { useState } from "react";
 
 const Board = () => {
@@ -43,17 +44,32 @@ const Board = () => {
 
   const dropOnSameColumn = (result, columns, setColumns) => {
     const { source, destination } = result;
-    const column = columns[source.droppableId];
-    const cardsCopy = [...column.cards];
-    const [movedCard] = cardsCopy.splice(source.index, 1); // Removes the card from its position on the column
-    cardsCopy.splice(destination.index, 0, movedCard); // Re-inserts the card to its new position on the same column
-    setColumns({ ...columns, [source.droppableId]: { ...column, cards: cardsCopy } });
+    const column = copy(columns[source.droppableId]);
+    const [movedCard] = column.cards.splice(source.index, 1); // Removes the card from its position on the column
+    column.cards.splice(destination.index, 0, movedCard); // Re-inserts the card to its new position on the same column
+    setColumns({ ...columns, [source.droppableId]: column });
+  };
+
+  const dropOnDifferentColumn = (result, columns, setColumns) => {
+    const { source, destination } = result;
+    const sourceColumn = copy(columns[source.droppableId]);
+    const destinationColumn = copy(columns[destination.droppableId]);
+    const [movedCard] = sourceColumn.cards.splice(source.index, 1); // Removes the card from its position on the column
+    destinationColumn.cards.splice(destination.index, 0, movedCard); // Inserts the card to its new position on the destination column
+    setColumns({
+      ...columns,
+      [source.droppableId]: sourceColumn,
+      [destination.droppableId]: destinationColumn,
+    });
   };
 
   const onDragEnd = (result, columns, setColumns) => {
-    const { source } = result;
-    if (source.destination === source.destination) {
+    console.log(result);
+    const { source, destination } = result;
+    if (source.droppableId === destination.droppableId) {
       dropOnSameColumn(result, columns, setColumns);
+    } else {
+      dropOnDifferentColumn(result, columns, setColumns);
     }
   };
 
