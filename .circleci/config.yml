@@ -8,6 +8,8 @@ jobs:
     docker:
       # specify the version you desire here
       - image: circleci/node:10.16.3
+        environment:
+          NODE_ENV: development
 
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
