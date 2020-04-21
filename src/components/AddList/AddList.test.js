@@ -18,19 +18,19 @@ it("Renders shrinked", () => {
 });
 
 it("On click, it allows to add a new list", async () => {
-  const browser = await pupperteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
+  const browser = await pupperteer.launch({ args: ["--no-sandbox", "--disable-setuid-sandbox"] });
   const page = await browser.newPage();
   let addingBoxId = null;
   try {
-    console.log("1")
+    console.log("1");
     await page.goto("http://127.0.0.1:8080");
-    console.log("2")
+    console.log("2");
     await page.click("[data-testid='add-list']");
-    console.log("3")
+    console.log("3");
     addingBoxId = await page.$eval("[data-testid='adding-list']", (input) => input.id);
-    console.log("4")
+    console.log("4");
     await browser.close();
-    console.log("5")
+    console.log("5");
   } catch {
     await browser.close();
   }
