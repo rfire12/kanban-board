@@ -17,10 +17,10 @@ const AddList = () => {
       <div
         className={`${styles.wrapper} ${isAdding ? styles.adding : ""}`}
         ref={listTitleRef}
-        data-testid="add-list-wrapper"
+        data-testid="add-list"
       >
         {isAdding ? (
-          <div>
+          <div data-testid="adding-list">
             <input
               type="text"
               className={styles.listNameInput}
@@ -33,10 +33,9 @@ const AddList = () => {
           </div>
         ) : (
           <a
-            id="add-another-list-button"
-            data-testid="add-another-list-button"
             className={styles.addList}
             href="#"
+            data-testid="add-another-list-button"
           >
             <span className={styles.addIcon}></span>
             Add another list
