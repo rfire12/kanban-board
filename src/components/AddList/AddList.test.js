@@ -18,7 +18,7 @@ it("Renders shrinked", () => {
 });
 
 it("On click, it allows to add a new list", async () => {
-  const browser = await pupperteer.launch();
+  const browser = await pupperteer.launch({args: ['--no-sandbox', '--disable-setuid-sandbox']});
   const page = await browser.newPage();
   let addingBoxId = null;
   try {
