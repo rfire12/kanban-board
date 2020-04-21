@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom/extend-expect";
 import pupperteer from "puppeteer";
-import { cleanup, render, fireEvent } from "@testing-library/react";
+import { cleanup, render } from "@testing-library/react";
 
 import AddList from "./AddList";
 import BoardContext from "../../context/boardContext";
