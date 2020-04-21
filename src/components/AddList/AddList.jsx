@@ -14,9 +14,13 @@ const AddList = () => {
 
   return (
     <>
-      <div className={`${styles.wrapper} ${isAdding ? styles.adding : ""}`} ref={listTitleRef}>
+      <div
+        className={`${styles.wrapper} ${isAdding ? styles.adding : ""}`}
+        ref={listTitleRef}
+        data-testid="add-list-wrapper"
+      >
         {isAdding ? (
-          <div data-testid="adding-list">
+          <div>
             <input
               type="text"
               className={styles.listNameInput}
@@ -24,12 +28,16 @@ const AddList = () => {
               autoComplete="off"
               autoFocus
             />
-            <Button title={"Add List"} style={{margin:"0px 0px 4px 4px"}}/>
-            <ExitIcon className={styles.exitIcon} onClick={() => setIsAdding(false)}/>
-          
+            <Button title={"Add List"} style={{ margin: "0px 0px 4px 4px" }} />
+            <ExitIcon className={styles.exitIcon} onClick={() => setIsAdding(false)} />
           </div>
         ) : (
-          <a id="add-another-list-button" className={styles.addList} href="#">
+          <a
+            id="add-another-list-button"
+            data-testid="add-another-list-button"
+            className={styles.addList}
+            href="#"
+          >
             <span className={styles.addIcon}></span>
             Add another list
           </a>
