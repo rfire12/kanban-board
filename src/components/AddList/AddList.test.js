@@ -1,10 +1,11 @@
+import React from "react";
 import "@testing-library/jest-dom/extend-expect";
-import pupperteer from "puppeteer";
+import puppeteer from "puppeteer";
+import appRoot from "app-root-path";
 import { cleanup, render } from "@testing-library/react";
 
 import AddList from "./AddList";
 import BoardContext from "../../context/boardContext";
-import React from "react";
 
 afterEach(cleanup);
 
@@ -18,15 +19,16 @@ it("Renders shrinked", () => {
 });
 
 it("On click, it allows to add a new list", async () => {
-  const browser = await pupperteer.launch();
+  const browser = await puppeteer.launch({ args: ["--no-sandbox", "--disable-setuid-sandbox"] });
   const page = await browser.newPage();
   let addingBoxId = null;
   try {
-    await page.goto("http://127.0.0.1:8080");
+    await page.goto(`file:${appRoot.path}/dist/index.html`);
     await page.click("[data-testid='add-list']");
     addingBoxId = await page.$eval("[data-testid='adding-list']", (input) => input.id);
     await browser.close();
-  } catch {
+  } catch (error) {
+    console.log(error);
     await browser.close();
   }
   expect(addingBoxId).toBe("");

@@ -2,12 +2,14 @@
 #
 # Check https://circleci.com/docs/2.0/language-javascript/ for more details
 #
-version: 2
+version: 2.1
+orbs:
+  puppeteer: threetreeslight/puppeteer@0.1.2
 jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/node:10.16.3
+      - image: circleci/node:latest-browsers
         environment:
           NODE_ENV: development
 
@@ -24,16 +26,22 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-            - v1-dependencies-{{ checksum "package.json" }}
+            - v2-dependencies-{{ checksum "package.json" }}
             # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
+            - v2-dependencies-
+
+      - run:
+          name: "Add missing library to run puppeteer"
+          command: sudo apt-get install -yq libxtst6
 
       - run: npm install
 
       - save_cache:
           paths:
             - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
+          key: v2-dependencies-{{ checksum "package.json" }}
+
+      - run: npm run build
 
       # run tests!
       - run: npm run test-not-watch

@@ -64,6 +64,7 @@ module.exports = {
   })
   ],
   devServer: {
+    port: 8080,
     watchOptions: {
       ignored: "./src/assets/fonts/fontawesome/"
     }
