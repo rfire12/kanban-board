@@ -27,7 +27,6 @@
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/react-fontawesome": "^0.1.9",
     "@testing-library/jest-dom": "^5.5.0",
-    "ip": "^1.1.5",
     "loadash": "^1.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
