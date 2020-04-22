@@ -1,5 +1,6 @@
 import "@testing-library/jest-dom/extend-expect";
 import pupperteer from "puppeteer";
+import ip from "ip";
 import { cleanup, render } from "@testing-library/react";
 
 import AddList from "./AddList";
@@ -23,7 +24,8 @@ it("On click, it allows to add a new list", async () => {
   let addingBoxId = null;
   try {
     console.log("1");
-    await page.goto("http://127.0.0.1:8080");
+
+    await page.goto(`http://${ip.address()}:8080`);
     console.log("2");
     await page.click("[data-testid='add-list']");
     console.log("3");
