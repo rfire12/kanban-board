@@ -5,7 +5,7 @@ import { cleanup, render } from "@testing-library/react";
 import AddList from "./AddList";
 import BoardContext from "../../context/boardContext";
 import React from "react";
-import { SingleEntryPlugin } from "webpack";
+import appRoot from "app-root-path";
 
 afterEach(cleanup);
 
@@ -24,7 +24,7 @@ it("On click, it allows to add a new list", async () => {
   let addingBoxId = null;
   try {
     console.log("1");
-    await page.goto("http://localhost:8080");
+    await page.goto(`file:${appRoot.path}/dist/index.html`);
     console.log("2");
     await page.click("[data-testid='add-list']");
     console.log("3");
@@ -32,7 +32,8 @@ it("On click, it allows to add a new list", async () => {
     console.log("4");
     await browser.close();
     console.log("5");
-  } catch {
+  } catch (error){
+    console.log(error)
     await browser.close();
   }
   expect(addingBoxId).toBe("");
