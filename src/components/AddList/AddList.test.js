@@ -31,7 +31,8 @@ it("On click, it allows to add a new list", async () => {
     console.log("4");
     await browser.close();
     console.log("5");
-  } catch {
+  } catch (error) {
+    console.log(error);
     await browser.close();
   }
   expect(addingBoxId).toBe("");
