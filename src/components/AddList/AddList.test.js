@@ -1,11 +1,11 @@
+import React from "react";
 import "@testing-library/jest-dom/extend-expect";
 import pupperteer from "puppeteer";
+import appRoot from "app-root-path";
 import { cleanup, render } from "@testing-library/react";
 
 import AddList from "./AddList";
 import BoardContext from "../../context/boardContext";
-import React from "react";
-import appRoot from "app-root-path";
 
 afterEach(cleanup);
 
@@ -27,8 +27,8 @@ it("On click, it allows to add a new list", async () => {
     await page.click("[data-testid='add-list']");
     addingBoxId = await page.$eval("[data-testid='adding-list']", (input) => input.id);
     await browser.close();
-  } catch (error){
-    console.log(error)
+  } catch (error) {
+    console.log(error);
     await browser.close();
   }
   expect(addingBoxId).toBe("");
