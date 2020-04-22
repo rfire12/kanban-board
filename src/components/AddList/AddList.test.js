@@ -1,6 +1,6 @@
 import React from "react";
 import "@testing-library/jest-dom/extend-expect";
-import pupperteer from "puppeteer";
+import puppeteer from "puppeteer";
 import appRoot from "app-root-path";
 import { cleanup, render } from "@testing-library/react";
 
@@ -19,7 +19,7 @@ it("Renders shrinked", () => {
 });
 
 it("On click, it allows to add a new list", async () => {
-  const browser = await pupperteer.launch({ args: ["--no-sandbox", "--disable-setuid-sandbox"] });
+  const browser = await puppeteer.launch({ args: ["--no-sandbox", "--disable-setuid-sandbox"] });
   const page = await browser.newPage();
   let addingBoxId = null;
   try {
