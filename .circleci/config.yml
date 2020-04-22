@@ -9,7 +9,7 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/node:10.20.1
+      - image: circleci/node:latest-browsers
         environment:
           NODE_ENV: development
 
@@ -23,16 +23,13 @@ jobs:
     steps:
       - checkout
 
-      - run: sudo apt-get install -yq libxtst6
+      - run: 
+          name: "Add missing library to run puppeteer"  
+          command: sudo apt-get install -yq libxtst6
 
       - run: npm install
-
-      - save_cache:
-          paths:
-            - node_modules
-          key: v1-dependencies-{{ checksum "package.json" }}
-
-      # run tests!
+      
       - run: npm run build
 
+      # run tests!
       - run: npm run test-not-watch
