@@ -36,21 +36,16 @@ jobs:
 
       - run: npm install
 
-      - run: 
-          name: "Install wait-on package"
-          command: sudo npm install -g wait-on
-
       - save_cache:
           paths:
             - node_modules
           key: v2-dependencies-{{ checksum "package.json" }}
 
-      - run: 
-          command: npm run start
-          background: true
+      - run:
+          name: "Test are running on CircleCI"
+          command: export TEST_ENV="circle_ci"
 
-      - run: 
-          name: "Wait until Node server starts"
-          command: wait-on http://127.0.0.1:8080
+      - run: npm run build
 
+      # run tests!
       - run: npm run test-not-watch
