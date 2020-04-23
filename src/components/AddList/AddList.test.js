@@ -1,7 +1,7 @@
 import React from "react";
 import "@testing-library/jest-dom/extend-expect";
 import puppeteer from "puppeteer";
-import appRoot from "app-root-path";
+import { getTestPagePath } from "../../helpers/helpers";
 import { cleanup, render } from "@testing-library/react";
 
 import AddList from "./AddList";
@@ -19,11 +19,12 @@ it("Renders shrinked", () => {
 });
 
 it("On click, it allows to add a new list", async () => {
+  const testPage = getTestPagePath();
   const browser = await puppeteer.launch({ args: ["--no-sandbox", "--disable-setuid-sandbox"] });
   const page = await browser.newPage();
   let addingBoxId = null;
   try {
-    await page.goto(`file:${appRoot.path}/dist/index.html`);
+    await page.goto(testPage);
     await page.click("[data-testid='add-list']");
     addingBoxId = await page.$eval("[data-testid='adding-list']", (input) => input.id);
     await browser.close();

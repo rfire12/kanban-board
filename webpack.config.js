@@ -64,7 +64,7 @@ module.exports = {
   })
   ],
   devServer: {
-    port: 8080,
+    port: 8080, // If you change this port, make sure to also change it on helpers.js
     watchOptions: {
       ignored: "./src/assets/fonts/fontawesome/"
     }

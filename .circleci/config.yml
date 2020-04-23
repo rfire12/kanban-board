@@ -36,12 +36,19 @@ jobs:
 
       - run: npm install
 
+      - run:
+          name: "Rebuild node-sass if needed"
+          command: "npm run prebuild"
+
       - save_cache:
           paths:
             - node_modules
           key: v2-dependencies-{{ checksum "package.json" }}
 
+      - run:
+          name: "Indicate that tests are running on CircleCI"
+          command: echo "export TEST_ENV=circle_ci" >> $BASH_ENV
+
       - run: npm run build
 
-      # run tests!
       - run: npm run test-not-watch
