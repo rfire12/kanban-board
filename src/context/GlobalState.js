@@ -7,7 +7,7 @@ const GlobalState = (props) => {
   const [state, dispatch] = useReducer(boardReducer, { lastClickedItem: null });
 
   const setLastClickedItem = (clickedItem, clickType) => {
-    const lastClickedItem = {item: clickedItem, clickType: clickType}
+    const lastClickedItem = { item: clickedItem, clickType: clickType };
 
     dispatch({
       type: "SET_LAST_CLICKED_ITEM",
