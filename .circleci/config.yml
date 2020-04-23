@@ -36,14 +36,14 @@ jobs:
 
       - run: npm install
 
+      - run:
+          name: "Rebuild node-sass if needed"
+          command: "npm run prebuild"
+
       - save_cache:
           paths:
             - node_modules
           key: v2-dependencies-{{ checksum "package.json" }}
-
-      - run:
-          name: "Rebuild node-sass if needed"
-          command: "npm run prebuild"
 
       - run:
           name: "Indicate that tests are running on CircleCI"
