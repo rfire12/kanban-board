@@ -26,13 +26,12 @@ it("On click, it allows to add a new list", async () => {
   try {
     await page.goto(testPage);
     await page.click("[data-testid='add-list']");
-    addingBoxId = await page.$eval("[data-testid='adding-list']", (input) => input.id);
+    addingBoxId = await page.$eval("[data-testid='adding-list']", (input) => input.id); // Returns undefined if it doesn't match any element
     await browser.close();
   } catch (error) {
     console.log(error);
     await browser.close();
   }
-  expect(addingBoxId).toBe("");
-  /* The adding box doesnt't have an ID, so its ID is an empty string. 
-    If the adding box ID is undefined, it's because the adding box it's not being displayed. */
+  expect(addingBoxId != null).toBeTruthy();
+  /* Expect the adding box to exist */
 });
