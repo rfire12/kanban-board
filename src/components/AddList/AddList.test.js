@@ -23,7 +23,7 @@ it("On click, it allows to add a new list", async () => {
   const page = await browser.newPage();
   let addingBoxId = null;
   try {
-    await page.goto(`file:${appRoot.path}/dist/index.html`);
+    await page.goto(`http://127.0.0.1:8080`);
     await page.click("[data-testid='add-list']");
     addingBoxId = await page.$eval("[data-testid='adding-list']", (input) => input.id);
     await browser.close();
