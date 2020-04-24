@@ -1,6 +1,6 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect } from 'react';
 
-import BoardContext from "../context/boardContext";
+import BoardContext from '../context/boardContext';
 
 /**
  * Sets a passed state as True when the passed element is clicked, and sets it False when another element is clicked.
@@ -8,10 +8,11 @@ import BoardContext from "../context/boardContext";
  * @param {SetStateAction} setState - State handler to be set when the element is clicked
  * @param {String} clickType - Type of click. Can be: left (default value), or right.
  */
-const useSetStateOnClickElement = ({ current: targetItem }, setState, clickType = "LEFT") => {
+const useSetStateOnClickElement = ({ current: targetItem }, setState, clickType = 'LEFT') => {
   const { lastClickedItem } = useContext(BoardContext);
 
-  const areItemsNotNull = targetItem !== null && lastClickedItem !== null; // Verifies if objects are not null in order to avoid errors accesing these objects properties
+  // Verifies if objects are not null in order to avoid errors accesing these objects properties
+  const areItemsNotNull = targetItem !== null && lastClickedItem !== null;
 
   const isItemLastClicked =
     areItemsNotNull &&

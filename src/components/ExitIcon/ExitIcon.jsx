@@ -1,12 +1,12 @@
-import PropTypes from "prop-types";
-import React from "react";
-import styles from "./ExitIcon.scss";
+import PropTypes from 'prop-types';
+import React from 'react';
+import styles from './ExitIcon.scss';
 
-const ExitIcon = ({className, ...parameters }) => <span className={`${className} ${styles.exitIcon}`} {...parameters}></span>;
+const ExitIcon = ({ className, ...parameters }) => <span className={`${className} ${styles.exitIcon}`} {...parameters} />;
 
 export default ExitIcon;
 
 ExitIcon.propTypes = {
-    className: PropTypes.string,
-    parameters: PropTypes.object
-}
+  className: PropTypes.string,
+  parameters: PropTypes.object,
+};

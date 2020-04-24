@@ -1,12 +1,11 @@
-import React, { Component } from "react";
-import "../../assets/fonts/fonts.scss";
-import styles from "./Header.scss";
+import React from 'react';
+import '../../assets/fonts/fonts.scss';
+import './Header.scss';
 
-const Header = () => {
-  return (
-    <header>
-      <a href="#">kanboard</a>
-    </header>
-  );
-};
+const Header = () => (
+  <header>
+    <a href="/#">kanboard</a>
+  </header>
+);
+
 export default Header;

@@ -1,43 +1,42 @@
-import { DragDropContext, Draggable, Droppable } from "react-beautiful-dnd";
-import React, { useContext } from "react";
+import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
+import React, { useContext, useState } from 'react';
 
-import AddList from "../AddList/AddList";
-import BoardContext from "../../context/boardContext";
-import BoardHeader from "../BoardHeader/BoardHeader";
-import Card from "../Card/Card";
-import Header from "../Header/Header";
-import List from "../List/List";
-import { cloneDeep as copy } from "lodash";
-import styles from "./Board.scss";
-import { useState } from "react";
+import { cloneDeep as copy } from 'lodash';
+import AddList from '../AddList/AddList';
+import BoardContext from '../../context/boardContext';
+import BoardHeader from '../BoardHeader/BoardHeader';
+import Card from '../Card/Card';
+import Header from '../Header/Header';
+import List from '../List/List';
+import styles from './Board.scss';
 
 // A list is a column
 
 const Board = () => {
   const cardsFromBackend1 = [
     {
-      id: "card-1",
+      id: 'card-1',
       title: `As a developer, I would like to create a template for an order to be placed, 
               in the administrator be able to select a supplier and several products that you want to order.`,
     },
-    { id: "card-2", title: "Second card" },
+    { id: 'card-2', title: 'Second card' },
   ];
 
   const cardsFromBackend2 = [
     {
-      id: "card-3",
-      title: "third card",
+      id: 'card-3',
+      title: 'third card',
     },
-    { id: "card-4", title: "fourth card" },
+    { id: 'card-4', title: 'fourth card' },
   ];
 
   const listsFromBackend = {
-    "list-1": {
-      name: "Todo",
+    'list-1': {
+      name: 'Todo',
       cards: cardsFromBackend1,
     },
-    "list-2": {
-      name: "Todo",
+    'list-2': {
+      name: 'Todo',
       cards: cardsFromBackend2,
     },
   };
@@ -45,7 +44,7 @@ const Board = () => {
   const context = useContext(BoardContext);
   const [lists, setLists] = useState(listsFromBackend);
 
-  const dropOnSameList = (result, lists, setLists) => {
+  const dropOnSameList = (result) => {
     const { source, destination } = result;
     const list = copy(lists[source.droppableId]);
     const [movedCard] = list.cards.splice(source.index, 1); // Removes the card from its position on the list
@@ -53,7 +52,7 @@ const Board = () => {
     setLists({ ...lists, [source.droppableId]: list });
   };
 
-  const dropOnDifferentList = (result, lists, setLists) => {
+  const dropOnDifferentList = (result) => {
     const { source, destination } = result;
     const sourceList = copy(lists[source.droppableId]);
     const destinationList = copy(lists[destination.droppableId]);
@@ -66,25 +65,14 @@ const Board = () => {
     });
   };
 
-  const onDragEnd = (result, lists, setLists) => {
+  const onDragEnd = (result) => {
     const { source, destination } = result;
     if (source.droppableId === destination.droppableId) {
-      dropOnSameList(result, lists, setLists);
+      dropOnSameList(result);
     } else {
-      dropOnDifferentList(result, lists, setLists);
+      dropOnDifferentList(result);
     }
   };
-
-  const renderList = (listId = "", list = {}) => (
-    <Droppable key={listId} droppableId={listId}>
-      {(provided, snapshot) => (
-        <List providedRef={provided.innerRef} droppableProps={provided.droppableProps}>
-          {list.cards.map((card, index) => renderCard(index, card))}
-          {provided.placeholder}
-        </List>
-      )}
-    </Droppable>
-  );
 
   const renderCard = (cardIndex, card = {}) => (
     <Draggable key={card.id} draggableId={card.id} index={cardIndex}>
@@ -99,17 +87,31 @@ const Board = () => {
     </Draggable>
   );
 
+  const renderList = (listId = '', list = {}) => (
+    <Droppable key={listId} droppableId={listId}>
+      {(provided, snapshot) => (
+        <List providedRef={provided.innerRef} droppableProps={provided.droppableProps}>
+          {list.cards.map((card, index) => renderCard(index, card))}
+          {provided.placeholder}
+        </List>
+      )}
+    </Droppable>
+  );
+
   return (
     <div
+      role="button"
       className={styles.wrapper}
-      onClick={(e) => context.setLastClickedItem(e.target, "LEFT")}
-      onContextMenu={(e) => context.setLastClickedItem(e.target, "RIGHT")}
+      onKeyDown={(e) => context.setLastClickedItem(e.target, 'LEFT')}
+      onClick={(e) => context.setLastClickedItem(e.target, 'LEFT')}
+      onContextMenu={(e) => context.setLastClickedItem(e.target, 'RIGHT')}
+      tabIndex={0}
     >
       <Header />
       <div className={styles.boardWrapper}>
         <BoardHeader />
         <div className={styles.listsWrapper}>
-          <DragDropContext onDragEnd={(result) => onDragEnd(result, lists, setLists)}>
+          <DragDropContext onDragEnd={(result) => onDragEnd(result)}>
             {Object.entries(lists).map(([listId, list]) => renderList(listId, list))}
             <AddList />
           </DragDropContext>

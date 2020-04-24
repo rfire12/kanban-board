@@ -1,31 +1,28 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from 'react';
 
-import boardContext from "../../context/boardContext";
-import styles from "./BoardTitle.scss";
+import styles from './BoardTitle.scss';
 
-const BoardTitle = props => {
-  const [boardTitle, setBoardTitle] = useState("Store");
+const BoardTitle = () => {
+  const [boardTitle, setBoardTitle] = useState('Store');
 
   const [enableEditTitle, setEnableEditTitle] = useState(false);
 
-  const [titleWidth, setTitleWidth] = useState("");
+  const [titleWidth, setTitleWidth] = useState('');
 
   const titleSpanRef = useRef(null);
 
   const titleInputRef = useRef(null);
 
-
   useEffect(() => {
     setTitleWidth(`${titleSpanRef.current.offsetWidth - 30}px`);
   }, [boardTitle]);
-  
 
   useEffect(() => {
     titleInputRef.current.focus();
   }, [enableEditTitle === true]);
 
-  const saveBoardTitle = e => {
-    if (e.key === "Enter" || e.key === "Escape" || e.nativeEvent.type === "blur") {
+  const saveBoardTitle = (e) => {
+    if (e.key === 'Enter' || e.key === 'Escape' || e.nativeEvent.type === 'blur') {
       e.currentTarget.blur();
       setEnableEditTitle(false);
     }
@@ -41,13 +38,14 @@ const BoardTitle = props => {
         value={boardTitle}
         autoComplete="off"
         spellCheck={false}
+        // eslint-disable-next-line jsx-a11y/no-autofocus
         autoFocus
-        onChange={e => setBoardTitle(e.currentTarget.value)}
+        onChange={(e) => setBoardTitle(e.currentTarget.value)}
         onBlur={saveBoardTitle}
         onKeyDown={saveBoardTitle}
         style={{
           width: titleWidth,
-          display: enableEditTitle ? "inline-block" : "none"
+          display: enableEditTitle ? 'inline-block' : 'none',
         }}
       />
 
@@ -57,9 +55,14 @@ const BoardTitle = props => {
         onClick={() => {
           setEnableEditTitle(true);
         }}
-        style={{
-          visibility: enableEditTitle ? "hidden" : "visible"
+        onKeyDown={() => {
+          setEnableEditTitle(true);
         }}
+        style={{
+          visibility: enableEditTitle ? 'hidden' : 'visible',
+        }}
+        role="button"
+        tabIndex={0}
       >
         {boardTitle}
       </span>

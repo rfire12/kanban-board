@@ -1,0 +1,35 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "jest": true
+  },
+  "extends": ["prettier", "plugin:react/recommended", "airbnb"],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 2018,
+    "sourceType": "module"
+  },
+  "plugins": ["prettier", "react"],
+  "rules": {
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/require-default-props": [2, { "forbidDefaultForRequired": false, "ignoreFunctionalComponents": true }],
+    "react/jsx-props-no-spreading": [
+      2,
+      {
+        "html": "ignore",
+        "custom": "enforce",
+        "explicitSpread": "enforce",
+        "exceptions": []
+      }
+    ],
+    "max-len": ["error", { "code": 150, "tabWidth": 2 }],
+    "object-curly-newline": "off"
+  }
+}

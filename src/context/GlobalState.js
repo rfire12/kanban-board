@@ -1,16 +1,16 @@
-import React, { useReducer } from "react";
+import React, { useReducer } from 'react';
 
-import BoardContext from "./boardContext";
-import boardReducer from "./boardReducer";
+import BoardContext from './boardContext';
+import boardReducer from './boardReducer';
 
 const GlobalState = (props) => {
   const [state, dispatch] = useReducer(boardReducer, { lastClickedItem: null });
 
   const setLastClickedItem = (clickedItem, clickType) => {
-    const lastClickedItem = { item: clickedItem, clickType: clickType };
+    const lastClickedItem = { item: clickedItem, clickType };
 
     dispatch({
-      type: "SET_LAST_CLICKED_ITEM",
+      type: 'SET_LAST_CLICKED_ITEM',
       payload: lastClickedItem,
     });
   };
@@ -19,7 +19,7 @@ const GlobalState = (props) => {
     <BoardContext.Provider
       value={{
         lastClickedItem: state.lastClickedItem,
-        setLastClickedItem: setLastClickedItem,
+        setLastClickedItem,
       }}
     >
       {props.children}
