@@ -40,7 +40,7 @@ const Card = ({ providedRef, draggableProps = {}, dragHandleProps = {}, title = 
             <Button title="Save" className={styles.saveButton} />
           </div>
         ) : (
-          <a href="/#" className={styles.link}>
+          <a href="# " className={styles.link}>
             <div className={styles.cardLabelWrapper}>
               <p className={styles.title}>{cardTitle}</p>
               <div className={styles.editIcon}>

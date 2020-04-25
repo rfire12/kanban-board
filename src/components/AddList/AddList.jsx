@@ -22,7 +22,7 @@ const AddList = () => {
             <ExitIcon className={styles.exitIcon} onClick={() => setIsAdding(false)} />
           </div>
         ) : (
-          <a className={styles.addList} href="/#" data-testid="add-another-list-button">
+          <a className={styles.addList} href="# " data-testid="add-another-list-button">
             <span className={styles.addIcon} />
             Add another list
           </a>

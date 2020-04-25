@@ -4,7 +4,7 @@ import './Header.scss';
 
 const Header = () => (
   <header>
-    <a href="/#">kanboard</a>
+    <a href="# ">kanboard</a>
   </header>
 );
 
