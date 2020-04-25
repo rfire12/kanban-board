@@ -1,6 +1,4 @@
-const setLastClickedItem = (lastClickedItem, state) => {
-  return { ...state, lastClickedItem };
-};
+const setLastClickedItem = (lastClickedItem, state) => ({ ...state, lastClickedItem });
 
 export default (state, action) => {
   switch (action.type) {
