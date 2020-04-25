@@ -44,7 +44,7 @@ const List = ({ providedRef, droppableProps = {}, children }) => {
 
 List.propTypes = {
   providedRef: PropTypes.func.isRequired,
-  droppableProps: PropTypes.object.isRequired,
+  droppableProps: PropTypes.object,
   children: PropTypes.node,
 };
 

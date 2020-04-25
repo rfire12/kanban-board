@@ -50,7 +50,7 @@ const Card = ({ providedRef, draggableProps = {}, dragHandleProps = {}, title = 
           </a>
         )}
       </div>
-      {/* The following renders a blur screen in order to highlight the card that's been editing 
+      {/* The following renders a blur screen in order to highlight the card that's been editing
           It needs to be outside the card's container, because when somebody clicks on it, it should disappear.
       */}
       {isEditing && <div className={styles.blurScreen} />}

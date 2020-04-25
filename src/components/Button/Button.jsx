@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import stylePropType from 'react-style-proptype';
 import React from 'react';
 import styles from './Button.scss';
 
@@ -11,7 +12,7 @@ const Button = ({ title = '', className = '', style = {} }) => (
 Button.propTypes = {
   title: PropTypes.string,
   className: PropTypes.string,
-  style: PropTypes.object,
+  style: stylePropType,
 };
 
 export default Button;
