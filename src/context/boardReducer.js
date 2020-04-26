@@ -1,9 +1,10 @@
-const setLastClickedItem = (lastClickedItem, state) => ({ ...state, lastClickedItem });
 
 export default (state, action) => {
   switch (action.type) {
     case 'SET_LAST_CLICKED_ITEM':
-      return setLastClickedItem(action.payload, state);
+      return { ...state, lastClickedItem: action.payload };
+    case 'SET_BOARD_REF':
+      return { ...state, boardRef: action.payload };
     default:
       return state;
   }

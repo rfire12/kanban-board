@@ -1,5 +1,5 @@
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useRef, useEffect } from 'react';
 
 import { cloneDeep as copy } from 'lodash';
 import AddList from '../AddList/AddList';
@@ -43,6 +43,11 @@ const Board = () => {
 
   const context = useContext(BoardContext);
   const [lists, setLists] = useState(listsFromBackend);
+  const boardRef = useRef(null);
+
+  useEffect(() => {
+    context.setBoardRef(boardRef);
+  }, []);
 
   const dropOnSameList = (result) => {
     const { source, destination } = result;
@@ -100,6 +105,7 @@ const Board = () => {
 
   return (
     <div
+      ref={boardRef}
       role="button"
       className={styles.wrapper}
       onKeyDown={(e) => context.setLastClickedItem(e.target, 'LEFT')}

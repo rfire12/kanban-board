@@ -1,12 +1,15 @@
-import React, { useRef, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 
 import Button from '../Button/Button';
 import ExitIcon from '../ExitIcon/ExitIcon';
 import styles from './AddList.scss';
 import useSetStateOnClickElement from '../../hooks/useSetStateOnClickElement';
+import BoardContext from '../../context/boardContext';
 
 const AddList = () => {
   const [isAdding, setIsAdding] = useState(false);
+
+  const context = useContext(BoardContext);
 
   const listTitleRef = useRef(null);
 
@@ -19,7 +22,7 @@ const AddList = () => {
           <div data-testid="adding-list">
             <input type="text" className={styles.listNameInput} placeholder="Enter list title..." autoComplete="off" autoFocus />
             <Button title="Add List" style={{ margin: '0px 0px 4px 4px' }} />
-            <ExitIcon className={styles.exitIcon} onClick={() => setIsAdding(false)} />
+            <ExitIcon className={styles.exitIcon} onClick={() => context.clickBoard()} />
           </div>
         ) : (
           <a className={styles.addList} href="# " data-testid="add-another-list-button">
