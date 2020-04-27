@@ -79,6 +79,16 @@ const Board = () => {
     }
   };
 
+  const removeCardAnimation = (style, snapshot) => {
+    if (!snapshot.isDropAnimating) {
+      return style;
+    }
+    return {
+      ...style,
+      transitionDuration: '0.001s',
+    };
+  };
+
   const renderCard = (cardIndex, card = {}) => (
     <Draggable key={card.id} draggableId={card.id} index={cardIndex}>
       {(provided, snapshot) => (
@@ -87,6 +97,8 @@ const Board = () => {
           draggableProps={provided.draggableProps}
           dragHandleProps={provided.dragHandleProps}
           title={card.title}
+          isDragging={snapshot.isDragging}
+          removeCardAnimation={() => removeCardAnimation(provided.draggableProps.style, snapshot)}
         />
       )}
     </Draggable>

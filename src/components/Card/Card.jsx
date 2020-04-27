@@ -7,7 +7,7 @@ import Button from '../Button/Button';
 import styles from './Card.scss';
 import useSetStateOnClickElement from '../../hooks/useSetStateOnClickElement';
 
-const Card = ({ providedRef, draggableProps = {}, dragHandleProps = {}, title = '' }) => {
+const Card = ({ providedRef, draggableProps = {}, dragHandleProps = {}, title = '', isDragging = false, removeCardAnimation }) => {
   const cardRef = useRef(null);
 
   const titleTextareaRef = useRef(null);
@@ -30,8 +30,14 @@ const Card = ({ providedRef, draggableProps = {}, dragHandleProps = {}, title = 
   }, [isEditing]);
 
   return (
-    <div ref={providedRef} {...draggableProps} {...dragHandleProps} onContextMenu={(e) => e.preventDefault()}>
-      <div ref={cardRef}>
+    <div
+      ref={providedRef}
+      {...draggableProps}
+      {...dragHandleProps}
+      onContextMenu={(e) => e.preventDefault()}
+      style={removeCardAnimation()}
+    >
+      <div ref={cardRef} className={isDragging ? styles.dragging : ''}>
         {isEditing ? (
           <div className={styles.cardEditingWrapper}>
             <div className={styles.textareaWrapper}>
@@ -43,7 +49,7 @@ const Card = ({ providedRef, draggableProps = {}, dragHandleProps = {}, title = 
           <a href="# " className={styles.link}>
             <div className={styles.cardLabelWrapper}>
               <p className={styles.title}>{cardTitle}</p>
-              <div className={styles.editIcon}>
+              <div className={styles.editIcon} onClick={() => setIsEditing(true)} onKeyDown={() => setIsEditing(true)} role="button" tabIndex={0}>
                 <FontAwesomeIcon icon={faPencilAlt} />
               </div>
             </div>
@@ -63,6 +69,7 @@ Card.propTypes = {
   draggableProps: PropTypes.object.isRequired,
   dragHandleProps: PropTypes.object.isRequired,
   title: PropTypes.string.isRequired,
+  isDragging: PropTypes.bool,
 };
 
 export default Card;
