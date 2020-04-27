@@ -8,7 +8,7 @@ import BoardContext from '../../context/boardContext';
 import styles from './List.scss';
 import useSetStateOnClickElement from '../../hooks/useSetStateOnClickElement';
 
-const List = ({ providedRef, droppableProps = {}, children }) => {
+const List = ({ children }) => {
   const [isAdding, setIsAdding] = useState(false);
 
   const addCardRef = useRef(null);
@@ -18,7 +18,7 @@ const List = ({ providedRef, droppableProps = {}, children }) => {
   useSetStateOnClickElement(addCardRef, setIsAdding);
 
   return (
-    <div ref={providedRef} {...droppableProps} className={styles.wrapper}>
+    <div className={styles.wrapper}>
       <section className={styles.header}>
         <h2 className={styles.listTitle}>General</h2>
         <h3 className={styles.numCards}>0 cards</h3>
@@ -46,8 +46,6 @@ const List = ({ providedRef, droppableProps = {}, children }) => {
 };
 
 List.propTypes = {
-  providedRef: PropTypes.func.isRequired,
-  droppableProps: PropTypes.object,
   children: PropTypes.node,
 };
 

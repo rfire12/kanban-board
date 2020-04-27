@@ -30,16 +30,18 @@ const Board = () => {
     { id: 'card-4', title: 'fourth card' },
   ];
 
-  const listsFromBackend = {
-    'list-1': {
+  const listsFromBackend = [
+    {
+      id: 'list-1',
       name: 'Todo',
       cards: cardsFromBackend1,
     },
-    'list-2': {
+    {
+      id: 'list-2',
       name: 'Todo',
       cards: cardsFromBackend2,
     },
-  };
+  ];
 
   const context = useContext(BoardContext);
   const [lists, setLists] = useState(listsFromBackend);
@@ -49,33 +51,46 @@ const Board = () => {
     context.setBoardRef(boardRef);
   }, []);
 
-  const dropOnSameList = (result) => {
-    const { source, destination } = result;
-    const list = copy(lists[source.droppableId]);
+  const dropOnSameList = (source, destination) => {
+    const listsCopy = copy(lists);
+
+    const listIndex = listsCopy.findIndex((list) => list.id === source.droppableId);
+    const list = listsCopy[listIndex];
+
     const [movedCard] = list.cards.splice(source.index, 1); // Removes the card from its position on the list
     list.cards.splice(destination.index, 0, movedCard); // Re-inserts the card into its new position on the same list
-    setLists({ ...lists, [source.droppableId]: list });
+    setLists(listsCopy);
   };
 
-  const dropOnDifferentList = (result) => {
-    const { source, destination } = result;
-    const sourceList = copy(lists[source.droppableId]);
-    const destinationList = copy(lists[destination.droppableId]);
+  const dropOnDifferentList = (source, destination) => {
+    const listsCopy = copy(lists);
+
+    const sourceListIndex = lists.findIndex((list) => list.id === source.droppableId);
+    const sourceList = listsCopy[sourceListIndex];
+    const destinationListIndex = lists.findIndex((list) => list.id === destination.droppableId);
+    const destinationList = listsCopy[destinationListIndex];
+
     const [movedCard] = sourceList.cards.splice(source.index, 1); // Removes the card from its position on the list
     destinationList.cards.splice(destination.index, 0, movedCard); // Inserts the card into its new position on the destination list
-    setLists({
-      ...lists,
-      [source.droppableId]: sourceList,
-      [destination.droppableId]: destinationList,
-    });
+    setLists(listsCopy);
+  };
+
+  const dropColumn = (source, destination) => {
+    const listsCopy = copy(lists);
+    const [movedList] = listsCopy.splice(source.index, 1);
+    listsCopy.splice(destination.index, 0, movedList);
+    setLists(listsCopy);
   };
 
   const onDragEnd = (result) => {
-    const { source, destination } = result;
-    if (source.droppableId === destination.droppableId) {
-      dropOnSameList(result);
+    const { source, destination, type } = result;
+
+    if (type === 'list') {
+      dropColumn(source, destination);
+    } else if (source.droppableId === destination.droppableId) {
+      dropOnSameList(source, destination);
     } else {
-      dropOnDifferentList(result);
+      dropOnDifferentList(source, destination);
     }
   };
 
@@ -92,27 +107,37 @@ const Board = () => {
   const renderCard = (cardIndex, card = {}) => (
     <Draggable key={card.id} draggableId={card.id} index={cardIndex}>
       {(provided, snapshot) => (
-        <Card
-          providedRef={provided.innerRef}
-          draggableProps={provided.draggableProps}
-          dragHandleProps={provided.dragHandleProps}
-          title={card.title}
-          isDragging={snapshot.isDragging}
-          removeCardAnimation={() => removeCardAnimation(provided.draggableProps.style, snapshot)}
-        />
+        <div
+          ref={provided.innerRef}
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+          style={removeCardAnimation(provided.draggableProps.style, snapshot)}
+        >
+          <Card title={card.title} isDragging={snapshot.isDragging} />
+        </div>
       )}
     </Draggable>
   );
 
-  const renderList = (listId = '', list = {}) => (
-    <Droppable key={listId} droppableId={listId}>
-      {(provided, snapshot) => (
-        <List providedRef={provided.innerRef} droppableProps={provided.droppableProps}>
-          {list.cards.map((card, index) => renderCard(index, card))}
-          {provided.placeholder}
-        </List>
+  const renderList = (list = {}, draggableIndex) => (
+    <Draggable key={`draggable-${list.id}`} draggableId={list.id} index={draggableIndex}>
+      {(draggableProvided) => (
+        <div className={styles.listWrapper}>
+          <div ref={draggableProvided.innerRef} {...draggableProvided.dragHandleProps} {...draggableProvided.draggableProps}>
+            <Droppable key={`droppable-${list.id}`} droppableId={list.id}>
+              {(droppableProvided) => (
+                <div ref={droppableProvided.innerRef} {...droppableProvided.droppableProps}>
+                  <List droppableProps={droppableProvided.droppableProps}>
+                    {list.cards.map((card, index) => renderCard(index, card))}
+                    {droppableProvided.placeholder}
+                  </List>
+                </div>
+              )}
+            </Droppable>
+          </div>
+        </div>
       )}
-    </Droppable>
+    </Draggable>
   );
 
   return (
@@ -128,11 +153,23 @@ const Board = () => {
       <Header />
       <div className={styles.boardWrapper}>
         <BoardHeader />
+
         <div className={styles.listsWrapper}>
-          <DragDropContext onDragEnd={(result) => onDragEnd(result)}>
-            {Object.entries(lists).map(([listId, list]) => renderList(listId, list))}
+          <div className={styles.box}>
+            <div style={{ display: 'inline-block' }}>
+              <DragDropContext onDragEnd={(result) => onDragEnd(result)}>
+                <Droppable droppableId="droppable-board" direction="horizontal" type="list">
+                  {(provided) => (
+                    <div {...provided.droppableProps} ref={provided.innerRef}>
+                      {lists.map((list, index) => renderList(list, index))}
+                      {provided.placeholder}
+                    </div>
+                  )}
+                </Droppable>
+              </DragDropContext>
+            </div>
             <AddList />
-          </DragDropContext>
+          </div>
         </div>
       </div>
     </div>

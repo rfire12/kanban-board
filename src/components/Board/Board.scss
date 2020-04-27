@@ -19,6 +19,7 @@ $scrollbar-padding: 10px;
 }
 
 .listsWrapper {
+  display: inline-block;
   height: 100%;
   overflow-x: auto;
   padding-right: 10px;
@@ -48,4 +49,9 @@ $scrollbar-padding: 10px;
 .listsWrapper::-webkit-scrollbar-thumb {
   background-color: hsla(0, 0%, 81%, 0.741);
   border-radius: 20px;
+}
+
+.listWrapper {
+  outline: none;
+  display: inline-block;
 }
