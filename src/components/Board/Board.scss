@@ -5,10 +5,10 @@ $scrollbar-padding: 10px;
   background-position: 50%;
   background-repeat: no-repeat;
   background-size: cover;
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   height: 100vh;
-  position: absolute;
+  position: relative;
   width: 100%;
 }
 
@@ -19,11 +19,12 @@ $scrollbar-padding: 10px;
 }
 
 .listsWrapper {
-  display: inline-block;
+  display: flex;
   height: 100%;
   overflow-x: auto;
   padding-right: 10px;
   white-space: nowrap;
+
 }
 
 .listsWrapper * {
@@ -54,4 +55,8 @@ $scrollbar-padding: 10px;
 .listWrapper {
   outline: none;
   display: inline-block;
+}
+
+.flexContainer {
+  display: flex;
 }

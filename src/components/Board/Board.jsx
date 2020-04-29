@@ -153,23 +153,18 @@ const Board = () => {
       <Header />
       <div className={styles.boardWrapper}>
         <BoardHeader />
-
         <div className={styles.listsWrapper}>
-          <div className={styles.box}>
-            <div style={{ display: 'inline-block' }}>
-              <DragDropContext onDragEnd={(result) => onDragEnd(result)}>
-                <Droppable droppableId="droppable-board" direction="horizontal" type="list">
-                  {(provided) => (
-                    <div {...provided.droppableProps} ref={provided.innerRef}>
-                      {lists.map((list, index) => renderList(list, index))}
-                      {provided.placeholder}
-                    </div>
-                  )}
-                </Droppable>
-              </DragDropContext>
-            </div>
-            <AddList />
-          </div>
+          <DragDropContext onDragEnd={(result) => onDragEnd(result)}>
+            <Droppable droppableId="droppable-board" direction="horizontal" type="list">
+              {(provided) => (
+                <div {...provided.droppableProps} ref={provided.innerRef} className={styles.flexContainer}>
+                  {lists.map((list, index) => renderList(list, index))}
+                  {provided.placeholder}
+                  <AddList />
+                </div>
+              )}
+            </Droppable>
+          </DragDropContext>
         </div>
       </div>
     </div>
