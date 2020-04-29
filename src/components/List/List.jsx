@@ -8,7 +8,7 @@ import BoardContext from '../../context/boardContext';
 import styles from './List.scss';
 import useSetStateOnClickElement from '../../hooks/useSetStateOnClickElement';
 
-const List = ({ providedRef, droppableProps = {}, children }) => {
+const List = ({ children, dragHandleProps }) => {
   const [isAdding, setIsAdding] = useState(false);
 
   const addCardRef = useRef(null);
@@ -18,8 +18,8 @@ const List = ({ providedRef, droppableProps = {}, children }) => {
   useSetStateOnClickElement(addCardRef, setIsAdding);
 
   return (
-    <div ref={providedRef} {...droppableProps} className={styles.wrapper}>
-      <section className={styles.header}>
+    <div className={styles.wrapper}>
+      <section className={styles.header} {...dragHandleProps}>
         <h2 className={styles.listTitle}>General</h2>
         <h3 className={styles.numCards}>0 cards</h3>
       </section>
@@ -46,9 +46,16 @@ const List = ({ providedRef, droppableProps = {}, children }) => {
 };
 
 List.propTypes = {
-  providedRef: PropTypes.func.isRequired,
-  droppableProps: PropTypes.object,
   children: PropTypes.node,
+  dragHandleProps: PropTypes.shape({
+    'aria-describedby': PropTypes.string,
+    'data-rbd-drag-handle-context-id': PropTypes.string,
+    'data-rbd-drag-handle-draggable-id': PropTypes.string,
+    draggable: PropTypes.bool,
+    onDragStart: PropTypes.func,
+    role: PropTypes.string,
+    tabIndex: PropTypes.number,
+  }),
 };
 
 export default List;

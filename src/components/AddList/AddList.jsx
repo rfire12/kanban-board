@@ -16,22 +16,20 @@ const AddList = () => {
   useSetStateOnClickElement(listTitleRef, setIsAdding);
 
   return (
-    <>
-      <div className={`${styles.wrapper} ${isAdding ? styles.adding : ''}`} ref={listTitleRef} data-testid="add-list">
-        {isAdding ? (
-          <div data-testid="adding-list">
-            <input type="text" className={styles.listNameInput} placeholder="Enter list title..." autoComplete="off" autoFocus />
-            <Button title="Add List" style={{ margin: '0px 0px 4px 4px' }} />
-            <ExitIcon className={styles.exitIcon} onClick={() => context.clickBoard()} />
-          </div>
-        ) : (
-          <a className={styles.addList} href="# " data-testid="add-another-list-button">
-            <span className={styles.addIcon} />
-            Add another list
-          </a>
-        )}
-      </div>
-    </>
+    <div className={`${styles.wrapper} ${isAdding ? styles.adding : ''}`} ref={listTitleRef} data-testid="add-list">
+      {isAdding ? (
+        <div data-testid="adding-list">
+          <input type="text" className={styles.listNameInput} placeholder="Enter list title..." autoComplete="off" autoFocus />
+          <Button title="Add List" style={{ margin: '0px 0px 4px 4px' }} />
+          <ExitIcon className={styles.exitIcon} onClick={() => context.clickBoard()} />
+        </div>
+      ) : (
+        <a className={styles.addList} href="# " data-testid="add-another-list-button">
+          <span className={styles.addIcon} />
+          Add another list
+        </a>
+      )}
+    </div>
   );
 };
 

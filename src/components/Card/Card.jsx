@@ -7,7 +7,7 @@ import Button from '../Button/Button';
 import styles from './Card.scss';
 import useSetStateOnClickElement from '../../hooks/useSetStateOnClickElement';
 
-const Card = ({ providedRef, draggableProps = {}, dragHandleProps = {}, title = '', isDragging = false, removeCardAnimation }) => {
+const Card = ({ title = '', isDragging = false }) => {
   const cardRef = useRef(null);
 
   const titleTextareaRef = useRef(null);
@@ -31,11 +31,7 @@ const Card = ({ providedRef, draggableProps = {}, dragHandleProps = {}, title = 
 
   return (
     <div
-      ref={providedRef}
-      {...draggableProps}
-      {...dragHandleProps}
       onContextMenu={(e) => e.preventDefault()}
-      style={removeCardAnimation()}
     >
       <div ref={cardRef} className={isDragging ? styles.dragging : ''}>
         {isEditing ? (
@@ -65,9 +61,6 @@ const Card = ({ providedRef, draggableProps = {}, dragHandleProps = {}, title = 
 };
 
 Card.propTypes = {
-  providedRef: PropTypes.func.isRequired,
-  draggableProps: PropTypes.object.isRequired,
-  dragHandleProps: PropTypes.object.isRequired,
   title: PropTypes.string.isRequired,
   isDragging: PropTypes.bool,
 };
