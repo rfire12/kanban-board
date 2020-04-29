@@ -21,7 +21,7 @@ const AddList = () => {
         <div data-testid="adding-list">
           <input type="text" className={styles.listNameInput} placeholder="Enter list title..." autoComplete="off" autoFocus />
           <Button title="Add List" style={{ margin: '0px 0px 4px 4px' }} />
-          <ExitIcon className={styles.exitIcon} onClick={() => context.clickBoard()} />
+          <ExitIcon className={styles.exitIcon} onClick={() => context.clickBoard()} dataTestId="close-add-list" />
         </div>
       ) : (
         <a className={styles.addList} href="# " data-testid="add-another-list-button">
