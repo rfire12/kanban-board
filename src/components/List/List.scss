@@ -16,6 +16,7 @@
   cursor: pointer !important; /* In this particular case, the use of !important is necessary to override react-beautiful-dnd cursor property.*/
   margin: 0px -9px; /* Expands the header to fully fit the list horizontally */
   padding: 15px 0px 0px 16px;
+  user-select: none;
   vertical-align: top;
   width: calc(100% -7px);
 }
