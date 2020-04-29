@@ -1,4 +1,4 @@
-@import "../../assets/scss/common.scss";
+@import '../../assets/scss/common.scss';
 .wrapper {
   background-color: #ebecf0;
   border-radius: 3px;
@@ -6,23 +6,27 @@
   font-family: Arial, Helvetica, sans-serif;
   height: auto;
   margin: 0px 0px 0px 10px;
-  padding: 15px 10px 7px 10px;
+  padding: 0px 10px 7px 10px;
   transition: height 70ms ease-out;
   vertical-align: top;
   width: 269px;
 }
 
 .header {
-  margin-left: 7px;
+  cursor: pointer !important; /* In this particular case, the use of !important is necessary to override react-beautiful-dnd cursor property.*/
+  padding: 15px 0px 0px 7px;
+  padding-left: 7px;
   vertical-align: top;
   width: calc(100% -7px);
 }
+
 .listTitle {
   color: #172b4d;
   display: inline-block;
   font-size: 14.5px;
   margin: 0;
 }
+
 .numCards {
   color: #5e6c84;
   display: block;
@@ -30,10 +34,12 @@
   font-weight: 100;
   margin-top: 3px;
 }
+
 .addSection {
   position: relative;
   width: 100%;
 }
+
 .addCards {
   border-radius: 3px;
   color: #5e6c84;
@@ -45,17 +51,21 @@
   user-select: none;
   width: 88%;
 }
+
 .addCards:hover {
   background-color: rgba(9, 30, 66, 0.08);
   color: rgba(9, 30, 66, 0.8);
   cursor: pointer;
 }
+
 .addCards:active {
   background-color: rgba(9, 30, 66, 0.219);
 }
+
 .addIcon {
   margin-left: -10px;
 }
+
 .archiveIcon {
   border-radius: 3px;
   color: #5e6c84;
@@ -64,26 +74,30 @@
   position: relative;
   vertical-align: middle;
 }
+
 .archiveIcon:before {
-  content: "\267B";
+  content: '\267B';
   font-size: 18px;
 }
+
 .archiveIcon:hover {
   color: rgba(9, 30, 66, 0.8);
   cursor: pointer;
 }
+
 .archiveIcon:active {
   color: rgba(9, 30, 66, 0.9);
 }
+
 .cardTitle {
   @extend %cardBox;
 }
+
 .cardTitle::placeholder {
   color: #6b768b;
 }
+
 .exitIcon::before {
   line-height: 47px;
   margin: 0px 0px 0px 10px;
 }
-
-

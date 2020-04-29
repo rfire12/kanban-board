@@ -123,11 +123,11 @@ const Board = () => {
     <Draggable key={`draggable-${list.id}`} draggableId={list.id} index={draggableIndex}>
       {(draggableProvided) => (
         <div className={styles.listWrapper}>
-          <div ref={draggableProvided.innerRef} {...draggableProvided.dragHandleProps} {...draggableProvided.draggableProps}>
+          <div ref={draggableProvided.innerRef} {...draggableProvided.draggableProps}>
             <Droppable key={`droppable-${list.id}`} droppableId={list.id}>
               {(droppableProvided) => (
                 <div ref={droppableProvided.innerRef} {...droppableProvided.droppableProps}>
-                  <List droppableProps={droppableProvided.droppableProps}>
+                  <List dragHandleProps={draggableProvided.dragHandleProps}>
                     {list.cards.map((card, index) => renderCard(index, card))}
                     {droppableProvided.placeholder}
                   </List>
@@ -154,7 +154,7 @@ const Board = () => {
       <div className={styles.boardWrapper}>
         <BoardHeader />
         <div className={styles.listsWrapper}>
-          <DragDropContext onDragEnd={(result) => onDragEnd(result)}>
+          <DragDropContext onDragEnd={(result) => result.destination && onDragEnd(result)}>
             <Droppable droppableId="droppable-board" direction="horizontal" type="list">
               {(provided) => (
                 <div {...provided.droppableProps} ref={provided.innerRef} className={styles.flexContainer}>
