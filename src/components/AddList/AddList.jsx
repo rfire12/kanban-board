@@ -19,7 +19,14 @@ const AddList = () => {
     <div className={`${styles.wrapper} ${isAdding ? styles.adding : ''}`} ref={listTitleRef} data-testid="add-list">
       {isAdding ? (
         <div data-testid="adding-list">
-          <input type="text" className={styles.listNameInput} placeholder="Enter list title..." autoComplete="off" autoFocus />
+          <input
+            type="text"
+            className={styles.listNameInput}
+            placeholder="Enter list title..."
+            autoComplete="off"
+            autoFocus
+            data-testid="add-list-title"
+          />
           <Button title="Add List" style={{ margin: '0px 0px 4px 4px' }} />
           <ExitIcon className={styles.exitIcon} onClick={() => context.clickBoard()} dataTestId="close-add-list" />
         </div>
