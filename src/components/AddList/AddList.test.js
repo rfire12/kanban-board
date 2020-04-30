@@ -20,25 +20,39 @@ it('Renders shrinked', () => {
 });
 
 describe('End to End tests', () => {
-  it('On click, it allows to add a new list', async () => {
+  it('On click, it opens the Adding Box (Allowing to add a new list)', async () => {
     const test = async (page) => {
       await page.click("[data-testid='add-list']");
       const addingBoxId = await page.$eval("[data-testid='adding-list']", (input) => input.id); // Returns undefined if it doesn't match any element
-      expect(addingBoxId != null).toBeTruthy();
-      /* Expect the adding box to exist */
+      return addingBoxId;
     };
 
-    await runEnd2End(test);
+    const testResult = await runEnd2End(test);
+    expect(testResult != null).toBeTruthy();
+    /* Expect the adding box to exist */
   });
 
-  it('On click close icon, AddList closes', async () => {
+  it('On click, it allows to write a new list name', async () => {
+    const test = async (page) => {
+      await page.click("[data-testid='add-list']");
+      await page.type("[data-testid='add-list-title']", 'This is a testing text');
+      const addListTitle = await page.$eval("[data-testid='add-list-title']", (input) => input.value);
+      return addListTitle;
+    };
+
+    const testResult = await runEnd2End(test);
+    expect(testResult).toBe('This is a testing text');
+  });
+
+  it('On click the close icon, AddList closes', async () => {
     const test = async (page) => {
       await page.click("[data-testid='add-list']"); // Clicks on "Add another list", whih opens the component
       await page.click("[data-testid='close-add-list']"); // Closes the component
       const addAnotherListBox = await page.$eval("[data-testid='add-another-list-button']", (input) => input.id);
-      expect(addAnotherListBox != null).toBeTruthy();
+      return addAnotherListBox;
     };
 
-    await runEnd2End(test);
+    const testResult = await runEnd2End(test);
+    expect(testResult != null).toBeTruthy();
   });
 });
