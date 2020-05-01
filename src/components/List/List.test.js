@@ -23,7 +23,7 @@ describe('End to End tests', () => {
   it('On click, it allows to write a card title', async () => {
     const test = async (page) => {
       await page.click("[data-testid='add-card']");
-      await page.type("[data-testid='add-card-title']", "This is card title test. This text doesn't have a single meaning");
+      await page.type("[data-testid='add-card-title']", "This is a card title. This text doesn't have a any meaning");
       const addListTitle = await page.$eval("[data-testid='add-card-title']", (input) => input.value);
       return addListTitle;
     };
