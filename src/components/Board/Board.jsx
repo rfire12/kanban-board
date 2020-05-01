@@ -107,13 +107,8 @@ const Board = () => {
   const renderCard = (cardIndex, card = {}) => (
     <Draggable key={card.id} draggableId={card.id} index={cardIndex}>
       {(provided, snapshot) => (
-        <div
-          ref={provided.innerRef}
-          {...provided.draggableProps}
-          {...provided.dragHandleProps}
-          style={removeCardAnimation(provided.draggableProps.style, snapshot)}
-        >
-          <Card title={card.title} isDragging={snapshot.isDragging} />
+        <div ref={provided.innerRef} {...provided.draggableProps} style={removeCardAnimation(provided.draggableProps.style, snapshot)}>
+          <Card title={card.title} dragHandleProps={provided.dragHandleProps} isDragging={snapshot.isDragging} />
         </div>
       )}
     </Draggable>
