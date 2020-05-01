@@ -2,28 +2,16 @@
 import React from 'react';
 import '@testing-library/jest-dom/extend-expect';
 
-import { cleanup, render } from '@testing-library/react';
+import { cleanup } from '@testing-library/react';
 import { runEnd2End } from '../../helpers/testing-helpers';
-
-import AddList from './AddList';
-import BoardContext from '../../context/boardContext';
 
 afterEach(cleanup);
 
-it('Renders closed', () => {
-  const { queryByTestId } = render(
-    <BoardContext.Provider value={{ lastClickedItem: null }}>
-      <AddList />
-    </BoardContext.Provider>,
-  );
-  expect(queryByTestId('add-another-list-button')).toBeTruthy();
-});
-
 describe('End to End tests', () => {
-  it('On click, it opens the Adding Box (Allowing to add a new list)', async () => {
+  it('On click, it opens the Adding Box (Allowing to add a new card)', async () => {
     const test = async (page) => {
-      await page.click("[data-testid='add-list']");
-      const addingBoxId = await page.$eval("[data-testid='adding-list']", (input) => input.id); // Returns undefined if it doesn't match any element
+      await page.click("[data-testid='add-card']");
+      const addingBoxId = await page.$eval("[data-testid='adding-card']", (input) => input.id); // Returns undefined if it doesn't match any element
       return addingBoxId;
     };
 
@@ -32,16 +20,16 @@ describe('End to End tests', () => {
     /* Expect the adding box to exist */
   });
 
-  it('On click, it allows to write a new list name', async () => {
+  it('On click, it allows to write a card title', async () => {
     const test = async (page) => {
-      await page.click("[data-testid='add-list']");
-      await page.type("[data-testid='add-list-title']", 'This is a testing text');
-      const addListTitle = await page.$eval("[data-testid='add-list-title']", (input) => input.value);
+      await page.click("[data-testid='add-card']");
+      await page.type("[data-testid='add-card-title']", "This is card title test. This text doesn't have a single meaning");
+      const addListTitle = await page.$eval("[data-testid='add-card-title']", (input) => input.value);
       return addListTitle;
     };
 
     const testResult = await runEnd2End(test);
-    expect(testResult).toBe('This is a testing text');
+    expect(testResult).toBe("This is card title test. This text doesn't have a single meaning");
   });
 
   it('On click the close icon, AddList closes', async () => {

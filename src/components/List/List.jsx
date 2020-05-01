@@ -24,13 +24,13 @@ const List = ({ children, dragHandleProps }) => {
         <h3 className={styles.numCards}>0 cards</h3>
       </section>
       {children}
-      <section className={styles.addSection} ref={addCardRef}>
+      <section className={styles.addSection} ref={addCardRef} data-testId="add-card">
         {isAdding ? (
-          <>
-            <textarea className={styles.cardTitle} placeholder="Enter a title for this card" autoFocus />
+          <div data-testId="adding-card">
+            <textarea className={styles.cardTitle} placeholder="Enter a title for this card" data-testId="add-card-title" autoFocus />
             <Button style={{ padding: '9px 14px 8px 14px', margin: '5px 0px 0px 0px' }} title="Add card" />
             <ExitIcon className={styles.exitIcon} onClick={() => context.clickBoard()} />
-          </>
+          </div>
         ) : (
           <>
             <div className={styles.addCards}>
