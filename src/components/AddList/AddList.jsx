@@ -24,8 +24,8 @@ const AddList = () => {
             className={styles.listNameInput}
             placeholder="Enter list title..."
             autoComplete="off"
-            autoFocus
             data-testid="add-list-title"
+            autoFocus
           />
           <Button title="Add List" style={{ margin: '0px 0px 4px 4px' }} />
           <ExitIcon className={styles.exitIcon} onClick={() => context.clickBoard()} dataTestId="close-add-list" />

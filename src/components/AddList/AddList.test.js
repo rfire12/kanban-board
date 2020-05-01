@@ -10,7 +10,7 @@ import BoardContext from '../../context/boardContext';
 
 afterEach(cleanup);
 
-it('Renders shrinked', () => {
+it('Renders closed', () => {
   const { queryByTestId } = render(
     <BoardContext.Provider value={{ lastClickedItem: null }}>
       <AddList />
