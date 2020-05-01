@@ -29,7 +29,7 @@ describe('End to End tests', () => {
     };
 
     const testResult = await runEnd2End(test);
-    expect(testResult).toBe("This is card title test. This text doesn't have a single meaning");
+    expect(testResult).toBe("This is a card title. This text doesn't have a any meaning");
   });
 
   it('On click the close icon, add-card closes', async () => {
