@@ -5,11 +5,11 @@ The project consist on a Kaban Board app, the most similar to Trello as possible
 
 ### Stack
 - [ReactJS](https://en.reactjs.org/) - Frontend
-- [Some fancy Node backend framework](https://#/) - Backend
+- [Ruby on Rails](https://rubyonrails.org/) - Backend
 - [MongoDB](https://www.mongodb.com/es)
 - [GraphQL](https://graphql.org/)
 - [Jest](https://jestjs.io/)
-- CircleCI || Jenkins - Still to be decided
+- [CircleCI](https://circleci.com/)
 - [Docker](https://www.docker.com/)
 - [Kubernetes](https://kubernetes.io/)
 - [Nginx](https://www.nginx.com/)
