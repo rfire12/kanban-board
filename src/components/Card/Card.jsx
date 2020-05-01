@@ -65,4 +65,4 @@ Card.propTypes = {
   isDragging: PropTypes.bool,
 };
 
-export default Card;
+export default React.memo(Card);
