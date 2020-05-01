@@ -32,7 +32,7 @@ describe('End to End tests', () => {
     expect(testResult).toBe("This is card title test. This text doesn't have a single meaning");
   });
 
-  it('On click the close icon, add new card closes', async () => {
+  it('On click the close icon, add-card closes', async () => {
     const test = async (page) => {
       await page.click("[data-testid='add-list']"); // Clicks on "Add another list", whih opens the component
       await page.click("[data-testid='close-add-list']"); // Closes the component
