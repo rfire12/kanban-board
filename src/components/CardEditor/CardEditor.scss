@@ -1,3 +1,5 @@
+$font: Arial, Helvetica, sans-serif;
+
 .wrapper {
   background: #0000008e;
   display: flex;
@@ -32,8 +34,35 @@
 }
 
 .title {
-  font-family: Arial, Helvetica, sans-serif;
+  color: #172b4d;
+  font-family: $font;
+  font-size: 1.2em;
   margin: 0;
+}
+
+.subTitle {
+  font-family: $font;
+  font-weight: normal;
+}
+
+.listName {
+  color: #172b4db9;
+  font-family: $font;
+  font-size: 14px;
+  margin-right: 1px;
+
+  span {
+    text-decoration: underline;
+    &:before {
+      content: '\00a0';
+      display:inline-block;
+      text-decoration: none;
+    }
+    &:hover{
+      cursor: pointer;
+      color: #12223d;
+    }
+  }
 }
 
 @media (max-width: 769px) {
@@ -50,5 +79,4 @@
   .cardIcon {
     left: 12px;
   }
-
 }

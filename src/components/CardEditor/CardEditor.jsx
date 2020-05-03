@@ -10,10 +10,14 @@ const CardEditor = () => {
       <div className={styles.card}>
         <div className={styles.header}>
           <FontAwesomeIcon icon={faWindowMaximize} className={styles.cardIcon} />
-          <h3 className={styles.title}>
+          <h2 className={styles.title}>
             As a developer, I would like to create a template for an order to be placed, in the administrator be able to select a supplier and several
             products that you want to order.
-          </h3>
+          </h2>
+          <p className={styles.listName}>
+            in list
+            <span>General</span>
+          </p>
         </div>
       </div>
     </div>
