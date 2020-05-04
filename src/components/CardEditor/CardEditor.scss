@@ -2,7 +2,6 @@ $font: Arial, Helvetica, sans-serif;
 
 .wrapper {
   background: #0000008e;
-  display: flex;
   height: 100%;
   position: fixed;
   width: 100%;
@@ -13,7 +12,9 @@ $font: Arial, Helvetica, sans-serif;
 .card {
   background: #f4f5f7;
   border-radius: 2px;
-  height: 1000px;
+  display: grid;
+  grid-template-columns: 75% 25%;
+  height: auto;
   margin: 45px auto;
   padding: 25px 20px;
   position: relative;
@@ -21,8 +22,8 @@ $font: Arial, Helvetica, sans-serif;
 }
 
 .header {
-  margin-left: 6%;
-  width: 88%;
+  grid-column: span 2;
+  padding-left: 40px;
 }
 
 .cardIcon {
@@ -33,36 +34,74 @@ $font: Arial, Helvetica, sans-serif;
   position: absolute;
 }
 
-.title {
+%title {
   color: #172b4d;
   font-family: $font;
-  font-size: 1.2em;
+  font-weight: bold;
+  font-size: 19px;
   margin: 0;
+  min-height: 20px;
+  width: 88%;
 }
 
-.subTitle {
-  font-family: $font;
-  font-weight: normal;
+.titleParagraph {
+  @extend %title;
+}
+
+.titleTextarea {
+  @extend %title;
+  margin: -7px 0px -11px -7px;
 }
 
 .listName {
   color: #172b4db9;
   font-family: $font;
   font-size: 14px;
-  margin-right: 1px;
-
   span {
     text-decoration: underline;
     &:before {
       content: '\00a0';
-      display:inline-block;
+      display: inline-block;
       text-decoration: none;
     }
-    &:hover{
+    &:hover {
       cursor: pointer;
       color: #12223d;
     }
   }
+}
+
+.content {
+  grid-column: span 1;
+}
+
+.section {
+  color: #172b4d;
+  font-family: $font;
+  font-size: 15px;
+  margin: 10px 0px 0px 0px;
+  padding: 0 15px 0 40px;
+}
+
+%description {
+  min-height: 100px;
+  width: 100%;
+  margin: 0;
+}
+
+.descriptionParagraph {
+  @extend %description;
+}
+
+.descriptionTextarea {
+  @extend %description;
+  margin: -7px;
+  margin-bottom: -11px;
+}
+
+.sideMenu {
+  height: 300px;
+  width: 170px;
 }
 
 @media (max-width: 769px) {
@@ -72,9 +111,6 @@ $font: Arial, Helvetica, sans-serif;
     width: 90%;
   }
 
-  .header {
-    margin-left: 30px;
-  }
 
   .cardIcon {
     left: 12px;

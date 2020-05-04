@@ -136,13 +136,19 @@ const Board = () => {
     </Draggable>
   );
 
+  const setLastClickedItem = (e) => {
+    if (window.getSelection().toString() === '') { // If it's not selecting text
+      context.setLastClickedItem(e.target, 'LEFT');
+    }
+  };
+
   return (
     <div
       ref={boardRef}
       role="button"
       className={styles.wrapper}
-      onKeyDown={(e) => context.setLastClickedItem(e.target, 'LEFT')}
-      onClick={(e) => context.setLastClickedItem(e.target, 'LEFT')}
+      onKeyDown={setLastClickedItem}
+      onClick={setLastClickedItem}
       onContextMenu={(e) => context.setLastClickedItem(e.target, 'RIGHT')}
       tabIndex={0}
     >
