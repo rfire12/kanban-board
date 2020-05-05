@@ -1,0 +1,116 @@
+$font: Roboto;
+
+.wrapper {
+  background: #0000008e;
+  height: 100%;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  overflow-y: auto;
+}
+
+.card {
+  background: #f4f5f7;
+  border-radius: 2px;
+  display: grid;
+  grid-template-columns: 77% 23%;
+  height: auto;
+  margin: 45px auto;
+  padding: 25px 20px;
+  position: relative;
+  width: 730px;
+}
+
+.header {
+  grid-column: span 2;
+  padding-left: 40px;
+}
+
+.cardIcon {
+  color: #455172;
+  font-size: 17px;
+  left: 3.5%;
+  margin-top: 3px;
+  position: absolute;
+}
+
+%title {
+  color: #172b4d;
+  font-family: $font;
+  font-weight: bold;
+  font-size: 20px;
+  margin: 0;
+  min-height: 20px;
+  width: 95%;
+}
+
+.titleParagraph {
+  @extend %title;
+}
+
+.titleTextarea {
+  @extend %title;
+  margin: -7px 0px -11px -7px;
+}
+
+.listName {
+  color: #172b4db9;
+  font-family: $font;
+  font-size: 14px;
+  span {
+    text-decoration: underline;
+    &:before {
+      content: '\00a0';
+      display: inline-block;
+      text-decoration: none;
+    }
+    &:hover {
+      cursor: pointer;
+      color: #12223d;
+    }
+  }
+}
+
+.content {
+  grid-column: span 1;
+}
+
+.section {
+  color: #172b4d;
+  font-family: $font;
+  font-size: 15px;
+  margin: 10px 0px 0px 0px;
+  padding: 0 15px 0 40px;
+}
+
+%description {
+  min-height: 100px;
+  width: 100%;
+  margin: 0;
+}
+
+.descriptionParagraph {
+  @extend %description;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.descriptionTextarea {
+  @extend %description;
+  margin: -7px;
+  margin-bottom: -11px;
+}
+
+
+@media (max-width: 769px) {
+  .card {
+    margin: 40px auto;
+    padding: 20px 10px;
+    width: 90%;
+  }
+
+  .cardIcon {
+    left: 12px;
+  }
+}

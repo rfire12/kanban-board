@@ -9,6 +9,7 @@ import Card from '../Card/Card';
 import Header from '../Header/Header';
 import List from '../List/List';
 import styles from './Board.scss';
+import CardEditor from '../CardEditor/CardEditor';
 
 // A list is a column
 
@@ -107,13 +108,8 @@ const Board = () => {
   const renderCard = (cardIndex, card = {}) => (
     <Draggable key={card.id} draggableId={card.id} index={cardIndex}>
       {(provided, snapshot) => (
-        <div
-          ref={provided.innerRef}
-          {...provided.draggableProps}
-          {...provided.dragHandleProps}
-          style={removeCardAnimation(provided.draggableProps.style, snapshot)}
-        >
-          <Card title={card.title} isDragging={snapshot.isDragging} />
+        <div ref={provided.innerRef} {...provided.draggableProps} style={removeCardAnimation(provided.draggableProps.style, snapshot)}>
+          <Card title={card.title} dragHandleProps={provided.dragHandleProps} isDragging={snapshot.isDragging} />
         </div>
       )}
     </Draggable>
@@ -140,13 +136,19 @@ const Board = () => {
     </Draggable>
   );
 
+  const setLastClickedItem = (e) => {
+    if (window.getSelection().toString() === '') { // If it's not selecting text
+      context.setLastClickedItem(e.target, 'LEFT');
+    }
+  };
+
   return (
     <div
       ref={boardRef}
       role="button"
       className={styles.wrapper}
-      onKeyDown={(e) => context.setLastClickedItem(e.target, 'LEFT')}
-      onClick={(e) => context.setLastClickedItem(e.target, 'LEFT')}
+      onKeyDown={setLastClickedItem}
+      onClick={setLastClickedItem}
       onContextMenu={(e) => context.setLastClickedItem(e.target, 'RIGHT')}
       tabIndex={0}
     >
@@ -166,6 +168,7 @@ const Board = () => {
             </Droppable>
           </DragDropContext>
         </div>
+
       </div>
     </div>
   );

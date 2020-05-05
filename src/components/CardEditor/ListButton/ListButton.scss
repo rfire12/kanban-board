@@ -1,0 +1,30 @@
+$color: #0e2449;
+
+.button {
+  background: #1d36520e;
+  border: none;
+  border-radius: 3px;
+  color: #172d53;
+  font-family: Roboto;
+  margin-bottom: 5px;
+  outline: none;
+  padding: 9px;
+  position: relative;
+  display: flex;
+  justify-content: left;
+  width: 100%;
+  &:hover {
+    background: #1d365217;
+    cursor: pointer;
+  }
+}
+
+.icon {
+  color: #1d3652d0;
+}
+
+.title {
+  font-size: 14px;
+  left: 35px;
+  position: absolute;
+}
