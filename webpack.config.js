@@ -1,17 +1,17 @@
-const path = require("path"); // Manipulates filepaths
-const HtmlWebpackPlugin = require("html-webpack-plugin");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const webpack = require("webpack");
-const autoprefixer = require("autoprefixer");
+const path = require('path'); // Manipulates filepaths
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const webpack = require('webpack');
+const autoprefixer = require('autoprefixer');
 
 module.exports = {
-  entry: "./src/index.jsx",
+  entry: './src/index.jsx',
   output: {
-    path: path.join(__dirname, "/dist"),
-    filename: "bundle.js"
+    path: path.join(__dirname, '/dist'),
+    filename: 'bundle.js',
   },
   resolve: {
-    extensions: [".js", ".jsx"]
+    extensions: ['.js', '.jsx'],
   },
   module: {
     rules: [
@@ -19,54 +19,47 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader"
-        }
+          loader: 'babel-loader',
+        },
       },
       {
         test: /\.scss$/,
-        use: [
-          MiniCssExtractPlugin.loader,
-          { loader: "css-loader", options: { modules: true } },
-          "sass-loader",
-          "postcss-loader"
-        ]
+        use: [MiniCssExtractPlugin.loader, { loader: 'css-loader', options: { modules: true } }, 'sass-loader', 'postcss-loader'],
       },
       {
         test: /\.(woff(2)|jpeg|jpg)?$/,
         use: [
           {
-            loader: "url-loader",
+            loader: 'url-loader',
             options: {
               limit: 10000,
-              name: "./font/[hash].[ext]",
-              mimetype: "application/font-woff"
-            }
-          }
-        ]
-      }
-    ]
+              name: './font/[hash].[ext]',
+              mimetype: 'application/font-woff',
+            },
+          },
+        ],
+      },
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/index.html"
+      template: './src/index.html',
     }),
     new MiniCssExtractPlugin({
-      filename: "style.css",
-      chunkFilename: "[name].css"
+      filename: 'style.css',
+      chunkFilename: '[name].css',
     }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.LoaderOptionsPlugin({
       options: {
-          postcss: [
-              autoprefixer()
-          ]
-      }
-  })
+        postcss: [autoprefixer()],
+      },
+    }),
   ],
   devServer: {
-    port: 8080, // If you change this port, make sure to also change it on helpers.js
+    port: 8080, // If you change this port, to change it in helpers.js too
     watchOptions: {
-      ignored: "./src/assets/fonts/fontawesome/"
-    }
-  }
+      ignored: './src/assets/fonts/fontawesome/',
+    },
+  },
 };
