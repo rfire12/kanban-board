@@ -1,4 +1,4 @@
-$font: Arial, Helvetica, sans-serif;
+$font: Roboto;
 
 .wrapper {
   background: #0000008e;
@@ -13,7 +13,7 @@ $font: Arial, Helvetica, sans-serif;
   background: #f4f5f7;
   border-radius: 2px;
   display: grid;
-  grid-template-columns: 75% 25%;
+  grid-template-columns: 77% 23%;
   height: auto;
   margin: 45px auto;
   padding: 25px 20px;
@@ -38,10 +38,10 @@ $font: Arial, Helvetica, sans-serif;
   color: #172b4d;
   font-family: $font;
   font-weight: bold;
-  font-size: 19px;
+  font-size: 20px;
   margin: 0;
   min-height: 20px;
-  width: 88%;
+  width: 95%;
 }
 
 .titleParagraph {
@@ -91,6 +91,9 @@ $font: Arial, Helvetica, sans-serif;
 
 .descriptionParagraph {
   @extend %description;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .descriptionTextarea {
@@ -99,10 +102,6 @@ $font: Arial, Helvetica, sans-serif;
   margin-bottom: -11px;
 }
 
-.sideMenu {
-  height: 300px;
-  width: 170px;
-}
 
 @media (max-width: 769px) {
   .card {
@@ -110,7 +109,6 @@ $font: Arial, Helvetica, sans-serif;
     padding: 20px 10px;
     width: 90%;
   }
-
 
   .cardIcon {
     left: 12px;
