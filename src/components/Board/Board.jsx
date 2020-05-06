@@ -137,7 +137,8 @@ const Board = () => {
   );
 
   const setLastClickedItem = (e) => {
-    if (window.getSelection().toString() === '') { // If it's not selecting text
+    if (window.getSelection().toString() === '') {
+      // If it's not selecting text
       context.setLastClickedItem(e.target, 'LEFT');
     }
   };
@@ -168,7 +169,7 @@ const Board = () => {
             </Droppable>
           </DragDropContext>
         </div>
-
+      
       </div>
     </div>
   );

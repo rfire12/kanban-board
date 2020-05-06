@@ -1,0 +1,17 @@
+@import '../../../assets/scss/common.scss';
+
+.section {
+  color: #172b4d;
+  font-family: Roboto;
+  font-size: 15px;
+  margin: 10px 0px 0px 0px;
+  padding: 0 15px 0 40px;
+}
+
+.cardIcon {
+  @extend %cardEditorHeadingIcons;
+}
+
+.sectionTitle {
+  text-transform: capitalize;
+}

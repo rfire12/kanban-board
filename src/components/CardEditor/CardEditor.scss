@@ -1,3 +1,5 @@
+@import "../../assets/scss/common.scss";
+
 $font: Roboto;
 
 .wrapper {
@@ -27,11 +29,7 @@ $font: Roboto;
 }
 
 .cardIcon {
-  color: #455172;
-  font-size: 17px;
-  left: 3.5%;
-  margin-top: 3px;
-  position: absolute;
+  @extend %cardEditorHeadingIcons;
 }
 
 %title {
@@ -75,13 +73,6 @@ $font: Roboto;
   grid-column: span 1;
 }
 
-.section {
-  color: #172b4d;
-  font-family: $font;
-  font-size: 15px;
-  margin: 10px 0px 0px 0px;
-  padding: 0 15px 0 40px;
-}
 
 %description {
   min-height: 100px;

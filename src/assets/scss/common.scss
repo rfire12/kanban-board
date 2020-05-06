@@ -1,5 +1,5 @@
 %crossIcon {
-  content: "\000D7";
+  content: '\000D7';
   display: inline-block;
   font-size: 1.6em;
   margin: 0px 10px 0px 17px;
@@ -19,4 +19,12 @@
   resize: none;
   background-color: white;
   width: calc(100% - 18px);
+}
+
+%cardEditorHeadingIcons {
+  color: #455172;
+  font-size: 17px;
+  left: 3.5%;
+  margin-top: 3px;
+  position: absolute;
 }
