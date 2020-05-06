@@ -1,4 +1,4 @@
-@import "../../assets/scss/common.scss";
+@import '../../assets/scss/common.scss';
 
 $font: Roboto;
 
@@ -73,7 +73,6 @@ $font: Roboto;
   grid-column: span 1;
 }
 
-
 %description {
   min-height: 100px;
   width: 100%;
@@ -93,6 +92,19 @@ $font: Roboto;
   margin-bottom: -11px;
 }
 
+.percentageNumberWrapper {
+  position: relative;
+}
+
+.percentageNumber {
+  color: #172b4d;
+  top: -3.5px;
+  left: -36px;
+  font-family: Roboto;
+  font-size: 12px;
+  position: absolute;
+}
+
 
 @media (max-width: 769px) {
   .card {
@@ -101,7 +113,7 @@ $font: Roboto;
     width: 90%;
   }
 
-  .cardIcon {
-    left: 12px;
+  .percentageNumber {
+    display: none;
   }
 }
