@@ -4,7 +4,7 @@
     "es6": true,
     "jest": true
   },
-  "extends": ["prettier", "plugin:testing-library/react", "testing-library", "airbnb"],
+  "extends": ["prettier", "plugin:testing-library/react", "airbnb"],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
