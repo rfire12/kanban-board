@@ -4,7 +4,7 @@
     "es6": true,
     "jest": true
   },
-  "extends": ["prettier", "plugin:react/recommended", "airbnb"],
+  "extends": ["prettier", "plugin:testing-library/react", "testing-library", "airbnb"],
   "globals": {
     "Atomics": "readonly",
     "SharedArrayBuffer": "readonly"
@@ -16,7 +16,7 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "plugins": ["prettier", "react"],
+  "plugins": ["prettier", "testing-library", "react"],
   "rules": {
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/require-default-props": [2, { "forbidDefaultForRequired": false, "ignoreFunctionalComponents": true }],

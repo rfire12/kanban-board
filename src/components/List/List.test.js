@@ -1,6 +1,4 @@
 /* eslint-disable no-console */
-import '@testing-library/jest-dom/extend-expect';
-
 import { cleanup } from '@testing-library/react';
 import { runEnd2End } from '../../helpers/testing-helpers';
 
