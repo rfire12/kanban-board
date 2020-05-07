@@ -36,13 +36,12 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
             />
           </Section>
           <Section title="Checklist" icon={faCheckSquare}>
-            <div className={styles.percentageNumberWrapper}>
-              <span className={styles.percentageNumber}>25%</span>
-            </div>
             <ProgressBar percentage={25} />
           </Section>
         </section>
-        <Sidebar />
+        <section className={styles.sideBar}>
+          <Sidebar />
+        </section>
       </div>
     </div>
   );

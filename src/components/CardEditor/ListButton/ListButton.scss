@@ -5,14 +5,15 @@ $color: #0e2449;
   border: none;
   border-radius: 3px;
   color: #172d53;
+  display: flex;
   font-family: Roboto;
+  justify-content: left;
   margin-bottom: 5px;
   outline: none;
   padding: 9px;
   position: relative;
-  display: flex;
-  justify-content: left;
   width: 100%;
+  
   &:hover {
     background: #1d365217;
     cursor: pointer;

@@ -6,9 +6,9 @@ $font: Roboto;
   background: #0000008e;
   height: 100%;
   position: fixed;
-  width: 100%;
-  top: 0;
   overflow-y: auto;
+  top: 0;
+  width: 100%;
 }
 
 .card {
@@ -33,6 +33,7 @@ $font: Roboto;
   font-family: $font;
   font-size: 14px;
   margin-left: 36px;
+
   span {
     text-decoration: underline;
     &:before {
@@ -41,8 +42,8 @@ $font: Roboto;
       text-decoration: none;
     }
     &:hover {
-      cursor: pointer;
       color: #12223d;
+      cursor: pointer;
     }
   }
 }
@@ -52,10 +53,10 @@ $font: Roboto;
 }
 
 %description {
-  min-height: 100px;
-  margin: 10px 0 0 35px;
-  width: calc(100% - 35px);
   box-sizing: border-box;
+  margin: 10px 0 0 35px;
+  min-height: 100px;
+  width: calc(100% - 35px);
 }
 
 .descriptionParagraph {
@@ -71,17 +72,8 @@ $font: Roboto;
   width: calc(100% - 21px);
 }
 
-.percentageNumberWrapper {
-  position: relative;
-}
-
-.percentageNumber {
-  color: #172b4d;
-  top: -4px;
-  left: -36px;
-  font-family: Roboto;
-  font-size: 12px;
-  position: absolute;
+.sideBar {
+  grid-column: span 1;
 }
 
 @media (max-width: 769px) {
@@ -93,5 +85,13 @@ $font: Roboto;
 
   .percentageNumber {
     display: none;
+  }
+
+  .content {
+    grid-column: span 2;
+  }
+
+  .sideBar {
+    grid-column: span 2;
   }
 }

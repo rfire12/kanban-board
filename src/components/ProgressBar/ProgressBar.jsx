@@ -4,7 +4,12 @@ import styles from './ProgressBar.scss';
 
 const ProgressBar = ({ percentage = 0 }) => (
   <div className={styles.wrapper}>
-    <div style={{ width: `${percentage}%` }} className={styles.filler} />
+    <div className={styles.percentageNumberWrapper}>
+      <span className={styles.percentageNumber}>25%</span>
+    </div>
+    <div className={styles.bar}>
+      <div style={{ width: `${percentage}%` }} className={styles.filler} />
+    </div>
   </div>
 );
 
