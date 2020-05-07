@@ -4,15 +4,53 @@
   color: #172b4d;
   font-family: Roboto;
   font-size: 15px;
-  margin: 10px 0px 0px 0px;
-  padding: 0 15px 0 40px;
+  margin: 10px 0px 10px 0px;
+  padding: 0 15px 0 0px;
+  position: relative;
+}
+
+.header {
+  display: flex;
+  margin-top: -10px;
 }
 
 .cardIcon {
-  @extend %cardEditorHeadingIcons;
+  color: #455172;
+  font-size: 17px;
+  margin-top: 2px;
 }
 
-.sectionTitle {
-  text-transform: capitalize;
-  word-break: break-all;
+.titleWrapper {
+  flex-grow: 1;
+}
+
+%title {
+  box-sizing: border-box;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 20px;
+  word-break: break-word;
+}
+
+.titleParagraph {
+  @extend %title;
+  margin: 0 0 0 20px;
+  width: calc(100% - 40px);
+}
+
+.titleTextarea {
+  @extend %title;
+  margin: -7px 0px -9.5px 13px;
+  width: calc(100% - 30px);
+}
+
+.mainHeadingParagraph {
+  font-size: 19px;
+  margin-top: -3px;
+}
+
+.mainHeadingTextarea {
+  font-size: 19px;
+  margin-top: -10px;
 }

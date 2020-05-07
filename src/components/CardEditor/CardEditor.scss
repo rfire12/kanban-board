@@ -28,33 +28,11 @@ $font: Roboto;
   padding-left: 40px;
 }
 
-.cardIcon {
-  @extend %cardEditorHeadingIcons;
-}
-
-%title {
-  color: #172b4d;
-  font-family: $font;
-  font-weight: bold;
-  font-size: 20px;
-  margin: 0;
-  min-height: 20px;
-  width: 95%;
-}
-
-.titleParagraph {
-  @extend %title;
-}
-
-.titleTextarea {
-  @extend %title;
-  margin: -7px 0px -11px -7px;
-}
-
 .listName {
   color: #172b4db9;
   font-family: $font;
   font-size: 14px;
+  margin-left: 36px;
   span {
     text-decoration: underline;
     &:before {
@@ -75,8 +53,9 @@ $font: Roboto;
 
 %description {
   min-height: 100px;
-  margin: 0;
-  width: 100%;
+  margin: 10px 0 0 35px;
+  width: calc(100% - 35px);
+  box-sizing: border-box;
 }
 
 .descriptionParagraph {
@@ -88,8 +67,8 @@ $font: Roboto;
 
 .descriptionTextarea {
   @extend %description;
-  margin: -7px;
-  margin-bottom: -11px;
+  margin: 3px 0px 0px 28px;
+  width: calc(100% - 21px);
 }
 
 .percentageNumberWrapper {
@@ -104,7 +83,6 @@ $font: Roboto;
   font-size: 12px;
   position: absolute;
 }
-
 
 @media (max-width: 769px) {
   .card {
