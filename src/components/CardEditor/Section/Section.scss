@@ -4,7 +4,6 @@
   color: #172b4d;
   font-family: Roboto;
   font-size: 15px;
-  margin: 10px 0px 50px 0px;
   padding: 0 15px 0 0px;
   position: relative;
 }
@@ -53,4 +52,10 @@
 .mainHeadingTextarea {
   font-size: 19px;
   margin-top: -10px;
+}
+
+@media (max-width: 769px) {
+  .cardIcon {
+    
+  }
 }

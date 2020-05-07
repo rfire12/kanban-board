@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import styles from './Section.scss';
 import HiddenTextarea from '../../HiddenTextarea/HiddenTextarea';
 
-const Section = ({ title = '', icon, className, mainHeading, isTitleEditable = true, children }) => {
+const Section = ({ title = '', icon, className = '', mainHeading, isTitleEditable = true, children }) => {
   const mainHeadingParagraph = mainHeading ? styles.mainHeadingParagraph : '';
   const mainHeadingTextarea = mainHeading ? styles.mainHeadingTextarea : '';
 

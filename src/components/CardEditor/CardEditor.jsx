@@ -21,9 +21,9 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
     <div className={styles.wrapper}>
       <div className={styles.card}>
         <Section className={styles.header} title={cardTitle} icon={faWindowMaximize} fontSize={20} mainHeading>
-          <p className={styles.listName}>
+          <p className={styles.listNameWrapper}>
             in list
-            <span>General</span>
+            <span className={styles.listName}>General</span>
           </p>
         </Section>
         <section className={styles.content}>
@@ -42,6 +42,7 @@ The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for t
         <section className={styles.sideBar}>
           <Sidebar />
         </section>
+        
       </div>
     </div>
   );

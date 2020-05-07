@@ -25,16 +25,17 @@ $font: Roboto;
 
 .header {
   grid-column: span 2;
-  padding-left: 40px;
+  margin-bottom: 20px;
+  margin-top: 10px;
 }
 
-.listName {
+.listNameWrapper {
   color: #172b4db9;
   font-family: $font;
   font-size: 14px;
   margin-left: 36px;
 
-  span {
+  .listName {
     text-decoration: underline;
     &:before {
       content: '\00a0';
@@ -50,17 +51,23 @@ $font: Roboto;
 
 .content {
   grid-column: span 1;
+  display: inline-block;
+}
+
+.content > * {
+  margin-bottom: 40px;
 }
 
 %description {
   box-sizing: border-box;
-  margin: 10px 0 0 35px;
   min-height: 100px;
-  width: calc(100% - 35px);
 }
 
 .descriptionParagraph {
   @extend %description;
+  margin: 10px 0 10px 35px;
+  width: calc(100% - 35px);
+
   &:hover {
     cursor: pointer;
   }
@@ -79,12 +86,8 @@ $font: Roboto;
 @media (max-width: 769px) {
   .card {
     margin: 40px auto;
-    padding: 20px 10px;
-    width: 90%;
-  }
-
-  .percentageNumber {
-    display: none;
+    padding: 20px 15px;
+    width: 88%;
   }
 
   .content {
