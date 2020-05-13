@@ -5,7 +5,10 @@
   "main": "index.js",
   "scripts": {
     "prebuild": "rebuild-node-sass",
-    "start": "webpack-dev-server --mode development --content-base src --watch-content-base --hot --inline",
+    "dev:start": "webpack-dev-server --mode development --content-base src --watch-content-base --hot --inline",
+    "webpack:server": "webpack --watch --mode production",
+    "webpack:start": "nodemon --watch build --exec node client_server/index.js",
+    "start": "npm-run-all --parallel webpack:*",
     "build": "webpack --mode production",
     "test": "jest --watchAll --maxWorkers=2",
     "test-not-watch": "jest --maxWorkers=2"
@@ -29,7 +32,10 @@
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/react-fontawesome": "^0.1.9",
     "@testing-library/jest-dom": "^5.5.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
     "lodash": "^4.17.15",
+    "path": "^0.12.7",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-beautiful-dnd": "^13.0.0",
@@ -44,6 +50,7 @@
     "@babel/plugin-transform-runtime": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
+    "@babel/register": "^7.9.0",
     "@testing-library/react": "^9.5.0",
     "@types/jest": "^25.2.1",
     "app-root-path": "^3.0.0",
@@ -63,10 +70,12 @@
     "file-loader": "^4.3.0",
     "hot-module-replacement": "^3.0.3",
     "html-webpack-plugin": "^3.2.0",
+    "ignore-styles": "^5.0.1",
     "jest": "^25.4.0",
     "jest-css-modules": "^2.1.0",
     "mini-css-extract-plugin": "^0.8.2",
-    "node-sass": "^4.13.1",
+    "node-sass": "^4.14.1",
+    "nodemon": "^2.0.3",
     "postcss-loader": "^3.0.0",
     "puppeteer": "^3.0.0",
     "rebuild-node-sass": "^1.1.0",
@@ -77,6 +86,6 @@
     "url-loader": "^2.3.0",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.3"
+    "webpack-dev-server": "^3.11.0"
   }
 }

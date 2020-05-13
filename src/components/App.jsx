@@ -1,13 +1,13 @@
 import '../assets/scss/normalize.scss';
 
-import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
+import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import React from 'react';
 
 import Board from './Board/Board';
 import GlobalState from '../context/GlobalState';
 
 const App = () => (
-  <Router>
+  <BrowserRouter>
     <Switch>
       <GlobalState>
         <Route path="/">
@@ -15,7 +15,7 @@ const App = () => (
         </Route>
       </GlobalState>
     </Switch>
-  </Router>
+  </BrowserRouter>
 );
 
 export default App;
