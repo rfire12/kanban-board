@@ -10,9 +10,6 @@ const App = () => (
   <Switch>
     <GlobalState>
       <Route path="/">
-        <button type="button" onClick={() => console.log('you clicked me')}>
-          test
-        </button>
         <Board />
       </Route>
     </GlobalState>

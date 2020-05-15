@@ -7,7 +7,7 @@
     "prebuild": "rebuild-node-sass",
     "dev:start": "webpack-dev-server --mode development --content-base src --watch-content-base --hot --inline",
     "webpack:server": "webpack --watch --mode production",
-    "webpack:start": "nodemon --watch dist --exec node dist/bundle.js",
+    "webpack:start": "nodemon --watch dist --exec node dist/server/server_bundle.js",
     "start": "npm-run-all --parallel webpack:*",
     "build": "webpack --mode production",
     "test": "jest --watchAll --maxWorkers=2",

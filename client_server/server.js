@@ -13,7 +13,7 @@ import App from '../src/components/App';
 const app = express();
 
 app.use(bodyParser.json());
-app.use(express.static(path.join(__dirname, './dist')));
+app.use('/public', express.static('dist/public'));
 
 app.get('/*', (request, response) => {
   const context = {};
@@ -24,13 +24,13 @@ app.get('/*', (request, response) => {
     </StaticRouter>,
   );
 
-  const indexFile = path.resolve('./dist/index.html');
+  const indexFile = path.resolve('./dist/public/index.html');
   fs.readFile(indexFile, 'utf8', (err, data) => {
     if (err) {
       console.error('Something went wrong:', err);
       return response.status(500).send('Oops, better luck next time!');
     }
-    return response.send(data.replace('<div id="app"></div>', `<div id="app">${content}</div>`));
+    return response.send(data.replace('<div id="root"></div>', `<div id="root">${content}</div>`));
   });
 });
 

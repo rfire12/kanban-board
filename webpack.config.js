@@ -9,9 +9,62 @@ const serverConfig = {
   entry: './client_server/server.js',
   target: 'node',
   output: {
-    path: path.join(__dirname, '/dist'),
+    path: path.resolve(__dirname, 'dist/server'),
+    filename: 'server_bundle.js',
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+      {
+        test: /\.scss$/,
+        use: [MiniCssExtractPlugin.loader, { loader: 'css-loader', options: { modules: true } }, 'sass-loader', 'postcss-loader'],
+      },
+      {
+        test: /\.(woff(2)|jpeg|jpg)?$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 10000,
+              name: './font/[hash].[ext]',
+              mimetype: 'application/font-woff',
+            },
+          },
+        ],
+      },
+    ],
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: 'style.css',
+      chunkFilename: '[name].css',
+    }),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        postcss: [autoprefixer()],
+      },
+    }),
+  ],
+  externals: [webpackNodeExternarls()],
+};
+
+const clientConfig = {
+  entry: './src/index.jsx',
+  target: 'node',
+  output: {
+    path: path.resolve(__dirname, 'dist/public'),
     filename: 'bundle.js',
-    publicPath: '/dist',
+    publicPath: '/public',
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -59,17 +112,6 @@ const serverConfig = {
       },
     }),
   ],
-  devServer: {
-    port: 8080, // If you change this port, make sure to also change it in helpers.js too
-    watchOptions: {
-      ignored: './src/assets/fonts/fontawesome/',
-    },
-  },
-  externals: [webpackNodeExternarls()],
 };
-
-const clientConfig = {
-
-}
 
 module.exports = [serverConfig, clientConfig];
