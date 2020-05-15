@@ -7,7 +7,7 @@
     "prebuild": "rebuild-node-sass",
     "dev:start": "webpack-dev-server --mode development --content-base src --watch-content-base --hot --inline",
     "webpack:server": "webpack --watch --mode production",
-    "webpack:start": "nodemon --watch build --exec node client_server/index.js",
+    "webpack:start": "nodemon --watch dist --exec node dist/bundle.js",
     "start": "npm-run-all --parallel webpack:*",
     "build": "webpack --mode production",
     "test": "jest --watchAll --maxWorkers=2",
@@ -27,6 +27,8 @@
     "defaults"
   ],
   "dependencies": {
+    "@babel/preset-stage-0": "^7.8.3",
+    "@babel/register": "^7.9.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
     "@fortawesome/free-regular-svg-icons": "^5.13.0",
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
@@ -40,6 +42,7 @@
     "react": "^16.13.1",
     "react-beautiful-dnd": "^13.0.0",
     "react-dom": "^16.13.1",
+    "react-router": "^5.2.0",
     "react-router-dom": "^5.1.2",
     "react-style-proptype": "^3.2.2",
     "react-textarea-autosize": "^7.1.2"
@@ -50,7 +53,6 @@
     "@babel/plugin-transform-runtime": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
-    "@babel/register": "^7.9.0",
     "@testing-library/react": "^9.5.0",
     "@types/jest": "^25.2.1",
     "app-root-path": "^3.0.0",
@@ -76,6 +78,7 @@
     "mini-css-extract-plugin": "^0.8.2",
     "node-sass": "^4.14.1",
     "nodemon": "^2.0.3",
+    "npm-run-all": "^4.1.5",
     "postcss-loader": "^3.0.0",
     "puppeteer": "^3.0.0",
     "rebuild-node-sass": "^1.1.0",
@@ -86,6 +89,7 @@
     "url-loader": "^2.3.0",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.0",
+    "webpack-node-externals": "^1.7.2"
   }
 }

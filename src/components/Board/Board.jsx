@@ -9,6 +9,7 @@ import Card from '../Card/Card';
 import Header from '../Header/Header';
 import List from '../List/List';
 import styles from './Board.scss';
+
 import CardEditor from '../CardEditor/CardEditor';
 
 // A list is a column

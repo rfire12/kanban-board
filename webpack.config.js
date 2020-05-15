@@ -3,12 +3,15 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
+const webpackNodeExternarls = require('webpack-node-externals');
 
-module.exports = {
-  entry: './src/index.jsx',
+const serverConfig = {
+  entry: './client_server/server.js',
+  target: 'node',
   output: {
     path: path.join(__dirname, '/dist'),
     filename: 'bundle.js',
+    publicPath: '/dist',
   },
   resolve: {
     extensions: ['.js', '.jsx'],
@@ -62,4 +65,11 @@ module.exports = {
       ignored: './src/assets/fonts/fontawesome/',
     },
   },
+  externals: [webpackNodeExternarls()],
 };
+
+const clientConfig = {
+
+}
+
+module.exports = [serverConfig, clientConfig];
