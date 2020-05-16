@@ -36,7 +36,7 @@ jobs:
 
       - run: 
           name: "Install wait-on package globally"
-          command: npm install -g wait-on"
+          command: npm install -g wait-on
 
       - run: npm install
 
