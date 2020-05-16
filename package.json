@@ -6,7 +6,7 @@
   "scripts": {
     "prebuild": "rebuild-node-sass",
     "build": "webpack --mode production",
-    "start": "node dist/server/server_bundle.js",
+    "start": "node ./dist/server/server_bundle.js",
     "dev:build": "webpack --watch --mode development",
     "dev:start": "nodemon --watch dist --exec node dist/server/server_bundle.js",
     "test": "jest --watchAll --maxWorkers=2",

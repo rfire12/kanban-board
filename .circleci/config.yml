@@ -62,4 +62,4 @@ jobs:
           background: true
 
       - run: 
-          npm run wait-on http://127.0.0.1:8080 && npm run test-not-watch
+          wait-on http://127.0.0.1:8080 && npm run test-not-watch
