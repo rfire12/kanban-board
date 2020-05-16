@@ -34,11 +34,15 @@ jobs:
           name: "Add missing library to run puppeteer"
           command: sudo apt-get install -yq libxtst6
 
+      - run: 
+          name: "Install wait-on package globally"
+          command: sudo npm install -g wait-on
+
       - run: npm install
 
       - run:
           name: "Rebuild node-sass if needed"
-          command: "npm run prebuild"
+          command: npm run prebuild
 
       - save_cache:
           paths:
@@ -49,6 +53,13 @@ jobs:
           name: "Indicate that tests are running on CircleCI"
           command: echo "export TEST_ENV=circle_ci" >> $BASH_ENV
 
-      - run: npm run build
+      - run: 
+          npm run build
 
-      - run: npm run test-not-watch
+      - run:
+          name: "Running client server"
+          command: npm run start
+          background: true
+
+      - run: 
+          wait-on http://127.0.0.1:8080 && npm run test-not-watch

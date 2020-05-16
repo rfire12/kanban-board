@@ -1,8 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import appRoot from 'app-root-path';
 import puppeteer from 'puppeteer';
 
-export const getTestPageUrl = () => (process.env.TEST_ENV === 'circle_ci' ? `file:${appRoot.path}/dist/index.html` : 'http://127.0.0.1:8080');
 
 /**
  * Creates a page on a browser
@@ -14,7 +12,7 @@ export const getTestPageUrl = () => (process.env.TEST_ENV === 'circle_ci' ? `fil
 export const createBrowserPage = async () => {
   const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] });
   const page = await browser.newPage();
-  const url = getTestPageUrl();
+  const url = 'http://127.0.0.1:8080';
   await page.goto(url);
 
   return [page, browser];

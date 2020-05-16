@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "prebuild": "rebuild-node-sass",
-    "start": "webpack-dev-server --mode development --content-base src --watch-content-base --hot --inline",
     "build": "webpack --mode production",
+    "start": "node ./dist/server/server_bundle.js",
+    "dev:build": "webpack --watch --mode development",
+    "dev:start": "nodemon --watch dist --exec node dist/server/server_bundle.js",
     "test": "jest --watchAll --maxWorkers=2",
     "test-not-watch": "jest --maxWorkers=2"
   },
@@ -24,16 +26,21 @@
     "defaults"
   ],
   "dependencies": {
+    "@babel/register": "^7.9.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
     "@fortawesome/free-regular-svg-icons": "^5.13.0",
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/react-fontawesome": "^0.1.9",
     "@testing-library/jest-dom": "^5.5.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
     "lodash": "^4.17.15",
+    "path": "^0.12.7",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-beautiful-dnd": "^13.0.0",
     "react-dom": "^16.13.1",
+    "react-router": "^5.2.0",
     "react-router-dom": "^5.1.2",
     "react-style-proptype": "^3.2.2",
     "react-textarea-autosize": "^7.1.2"
@@ -63,10 +70,13 @@
     "file-loader": "^4.3.0",
     "hot-module-replacement": "^3.0.3",
     "html-webpack-plugin": "^3.2.0",
+    "ignore-styles": "^5.0.1",
     "jest": "^25.4.0",
     "jest-css-modules": "^2.1.0",
     "mini-css-extract-plugin": "^0.8.2",
-    "node-sass": "^4.13.1",
+    "node-sass": "^4.14.1",
+    "nodemon": "^2.0.3",
+    "npm-run-all": "^4.1.5",
     "postcss-loader": "^3.0.0",
     "puppeteer": "^3.0.0",
     "rebuild-node-sass": "^1.1.0",
@@ -74,9 +84,11 @@
     "sass-loader": "^8.0.2",
     "style-loader": "^1.1.4",
     "tree-kill": "^1.2.2",
+    "universal-hot-reload": "^3.3.4",
     "url-loader": "^2.3.0",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.3"
+    "webpack-dev-server": "^3.11.0",
+    "webpack-node-externals": "^1.7.2"
   }
 }
