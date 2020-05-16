@@ -25,7 +25,15 @@ To run this project use npm 6.13.0
 **Install dependencies**
 `npm install`
 
-**Run the project**
+###### Development build
+`$ npm run dev:build`
+`$ npm run dev:start`
+
+###### Development build
+*Terminal 1:* `$ npm run dev:build`
+*Terminal 2:* `$ npm run dev:start`
+
+
 `npm start`
 
 ### This documentation is still in progress ...
