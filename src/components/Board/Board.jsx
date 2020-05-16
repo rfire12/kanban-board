@@ -170,7 +170,7 @@ const Board = () => {
             </Droppable>
           </DragDropContext>
         </div>
-       
+        <CardEditor />
       </div>
     </div>
   );

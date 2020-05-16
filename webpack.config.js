@@ -35,7 +35,7 @@ const serverConfig = {
             loader: 'url-loader',
             options: {
               limit: 10000,
-              name: './font/[hash].[ext]',
+              name: '/font/[hash].[ext]',
               mimetype: 'application/font-woff',
             },
           },
@@ -89,7 +89,7 @@ const clientConfig = {
             loader: 'url-loader',
             options: {
               limit: 10000,
-              name: './font/[hash].[ext]',
+              name: '/font/[hash].[ext]',
               mimetype: 'application/font-woff',
             },
           },

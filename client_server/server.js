@@ -34,6 +34,6 @@ app.get('/*', (request, response) => {
   });
 });
 
-app.listen(8080, () => {
+export default app.listen(8080, () => {
   console.log(`App launched on 8080`);
 });

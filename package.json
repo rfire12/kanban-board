@@ -6,9 +6,9 @@
   "scripts": {
     "prebuild": "rebuild-node-sass",
     "dev:start": "webpack-dev-server --mode development --content-base src --watch-content-base --hot --inline",
-    "webpack:server": "webpack --watch --mode production",
+    "webpack:server": "webpack --watch --mode development",
     "webpack:start": "nodemon --watch dist --exec node dist/server/server_bundle.js",
-    "start": "npm-run-all --parallel webpack:*",
+    "start": "npm-run-all --parallel webpack:server webpack:start",
     "build": "webpack --mode production",
     "test": "jest --watchAll --maxWorkers=2",
     "test-not-watch": "jest --maxWorkers=2"
@@ -27,7 +27,6 @@
     "defaults"
   ],
   "dependencies": {
-    "@babel/preset-stage-0": "^7.8.3",
     "@babel/register": "^7.9.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.28",
     "@fortawesome/free-regular-svg-icons": "^5.13.0",
@@ -86,6 +85,7 @@
     "sass-loader": "^8.0.2",
     "style-loader": "^1.1.4",
     "tree-kill": "^1.2.2",
+    "universal-hot-reload": "^3.3.4",
     "url-loader": "^2.3.0",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
