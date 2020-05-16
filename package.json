@@ -5,11 +5,10 @@
   "main": "index.js",
   "scripts": {
     "prebuild": "rebuild-node-sass",
-    "dev:start": "webpack-dev-server --mode development --content-base src --watch-content-base --hot --inline",
-    "webpack:server": "webpack --watch --mode development",
-    "webpack:start": "nodemon --watch dist --exec node dist/server/server_bundle.js",
-    "start": "npm-run-all --parallel webpack:server webpack:start",
     "build": "webpack --mode production",
+    "start": "node dist/server/server_bundle.js",
+    "dev:build": "webpack --watch --mode development",
+    "dev:start": "nodemon --watch dist --exec node dist/server/server_bundle.js",
     "test": "jest --watchAll --maxWorkers=2",
     "test-not-watch": "jest --maxWorkers=2"
   },

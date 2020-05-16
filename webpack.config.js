@@ -48,7 +48,6 @@ const serverConfig = {
       filename: 'style.css',
       chunkFilename: '[name].css',
     }),
-    new webpack.HotModuleReplacementPlugin(),
     new webpack.LoaderOptionsPlugin({
       options: {
         postcss: [autoprefixer()],
@@ -105,7 +104,6 @@ const clientConfig = {
       filename: 'style.css',
       chunkFilename: '[name].css',
     }),
-    new webpack.HotModuleReplacementPlugin(),
     new webpack.LoaderOptionsPlugin({
       options: {
         postcss: [autoprefixer()],

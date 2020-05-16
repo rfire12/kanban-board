@@ -15,7 +15,7 @@ const CardEditor = () => {
 The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.`;
 
   const cardTitle =
-    'As a develope, I would like to create a template for an order to be placed, in the administrator be able to select a supplier and several products that you want to order.';
+    'As a developer, I would like to create a template for an order to be placed, in the administrator be able to select a supplier and several products that you want to order.';
 
   return (
     <div className={styles.wrapper}>

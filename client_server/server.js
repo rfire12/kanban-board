@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 import React from 'react';
 
 import express from 'express';
@@ -28,12 +29,12 @@ app.get('/*', (request, response) => {
   fs.readFile(indexFile, 'utf8', (err, data) => {
     if (err) {
       console.error('Something went wrong:', err);
-      return response.status(500).send('Oops, better luck next time!');
+      return response.status(500).send('Error 500!');
     }
     return response.send(data.replace('<div id="root"></div>', `<div id="root">${content}</div>`));
   });
 });
 
 export default app.listen(8080, () => {
-  console.log(`App launched on 8080`);
+  console.log('App launched on 8080');
 });
