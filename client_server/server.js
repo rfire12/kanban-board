@@ -4,6 +4,7 @@ import React from 'react';
 import express from 'express';
 import ReactDOMServer from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom';
+import { resetServerContext } from 'react-beautiful-dnd';
 
 import bodyParser from 'body-parser';
 
@@ -18,6 +19,8 @@ app.use('/public', express.static('dist/public'));
 
 app.get('/*', (request, response) => {
   const context = {};
+
+  resetServerContext();
 
   const content = ReactDOMServer.renderToString(
     <StaticRouter location={request.url} context={context}>
