@@ -34,7 +34,7 @@ To run this project use npm 6.13.0
 Make sure to also install wait-on as a global dependency:
 `$ npm install -g wait-on`
 
-**Install dependencies**
+###### Install dependencies
 `$ npm install`
 
 ###### Development
