@@ -1,5 +1,5 @@
 ### Description
-This is a training project to strengthen my skills in the fullstack web development area. Thid project will be completly made using NodeJS, both on the client and on the server side. 
+This is a training project to strengthen my skills in the fullstack web development area. 
 
 The project consist on a Kaban Board app, the most similar to Trello as possible. 
 
@@ -21,28 +21,28 @@ Concepts to be found on this project: CI, Server Side Rendering, Load Balancing,
 | ----------- | ----------- |
 
 
-#### Running with docker
+#### Running with docker (Recommended)
 `$ docker-compose up`
 
 **Note:** *If you install additional dependencies, then you'll have to rebuild the containers using:*:
 `docker-compose build`, and then `docker-compose up` to restart the project
 
+This app is running on port 8080
 
-#### Without Docker
+#### Running without Docker
 To run this project use npm 6.13.0
+Make sure to also install wait-on as a global dependency:
+`$ npm install -g wait-on`
 
 **Install dependencies**
 `$ npm install`
 
-###### Development build
-`$ npm run dev:build`
+###### Development
 `$ npm run dev:start`
 
 ###### Development build
-*Terminal 1:* `$ npm run dev:build`
-*Terminal 2:* `$ npm run dev:start`
+`$ npm run start`
 
-
-`npm start`
+This app is running on port 8080
 
 ### This documentation is still in progress ...
