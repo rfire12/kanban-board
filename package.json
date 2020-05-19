@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "prebuild": "rebuild-node-sass",
-    "build": "webpack --mode production",
-    "start": "node ./dist/server/server_bundle.js",
+    "start": "webpack --mode production && node ./dist/server/server_bundle.js",
     "dev:build": "webpack --watch --mode development",
-    "dev:start": "nodemon --watch dist --exec node dist/server/server_bundle.js",
+    "dev:server": "wait-on dist/server/server_bundle.js && nodemon --watch dist --exec node dist/server/server_bundle.js",
+    "dev:start": "npm-run-all --parallel dev:build dev:server",
     "test": "jest --watchAll --maxWorkers=2",
     "test-not-watch": "jest --maxWorkers=2"
   },
@@ -86,6 +86,7 @@
     "tree-kill": "^1.2.2",
     "universal-hot-reload": "^3.3.4",
     "url-loader": "^2.3.0",
+    "wait-on": "^5.0.0",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.11.0",

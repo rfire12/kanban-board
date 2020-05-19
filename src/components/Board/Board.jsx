@@ -1,9 +1,8 @@
 import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
-import React, { useContext, useState, useRef, useEffect } from 'react';
+import React, { useState } from 'react';
 
 import { cloneDeep as copy } from 'lodash';
 import AddList from '../AddList/AddList';
-import BoardContext from '../../context/boardContext';
 import BoardHeader from '../BoardHeader/BoardHeader';
 import Card from '../Card/Card';
 import Header from '../Header/Header';
