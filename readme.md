@@ -20,10 +20,19 @@ Concepts to be found on this project: CI, Server Side Rendering, Load Balancing,
 | Circle CI | [![Build Status](https://circleci.com/gh/rfire12/kanban-board.svg)](https://circleci.com/gh/rfire12/kanban-board) |
 | ----------- | ----------- |
 
+
+#### Running with docker
+`$ docker-compose up`
+
+**Note:** *If you install additional dependencies, then you'll have to rebuild the containers using:*:
+`docker-compose build`, and then `docker-compose up` to restart the project
+
+
+#### Without Docker
 To run this project use npm 6.13.0
 
 **Install dependencies**
-`npm install`
+`$ npm install`
 
 ###### Development build
 `$ npm run dev:build`

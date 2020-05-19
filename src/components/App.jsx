@@ -1,5 +1,5 @@
-import React from 'react';
 import '../assets/scss/normalize.scss';
+import React from 'react';
 
 import { Route, Switch } from 'react-router-dom';
 
