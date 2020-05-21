@@ -1,5 +1,0 @@
-node_modules
-dist
-.circleci
-package.json
-package-lock.json
