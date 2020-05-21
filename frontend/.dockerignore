@@ -1,0 +1,7 @@
+.git*
+.cache
+.prettier
+.eslint*
+.DS_Store
+dist
+node_modules

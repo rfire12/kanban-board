@@ -1,0 +1,28 @@
+.wrapper {
+  height: 300px;
+  text-transform: uppercase;
+}
+
+.title {
+  color: #455172;
+  font-family: Roboto;
+  font-size: 13px;
+  font-weight: 500;
+  position: relative;
+}
+
+.listOptions {
+  list-style-type: none;
+  padding: 0;
+}
+
+@media (max-width: 769px) {
+  .listOptions {
+    display: grid;
+    grid-template-columns: 50% 50%;
+  }
+
+  .listOptions > li:nth-child(odd) {
+    margin-right: 5px;
+  }
+}

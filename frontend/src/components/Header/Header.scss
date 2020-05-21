@@ -1,0 +1,16 @@
+header {
+	align-items: center;
+	background-color: rgba(80, 155, 199, 0.8);
+	display: flex;
+	height: 40px;
+	padding: 0 0 0 10px;
+	a {
+		color: white;
+		font-family: 'Lobster Two', cursive;
+		font-size: 1.6em;
+		font-weight: bold;
+		opacity: 0.9;
+		text-decoration: none;
+		text-shadow: 0.5px 0.5px black;
+	}
+}

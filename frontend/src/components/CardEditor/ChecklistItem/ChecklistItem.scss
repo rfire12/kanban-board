@@ -1,0 +1,26 @@
+.wrapper {
+  align-items: center;
+  border-radius: 2px;
+  display: flex;
+  margin-left: -10px;
+  margin-top: 5px;
+  padding: 8px;
+  width: 100%;
+
+  &:hover {
+    background: #1d36520e;
+    cursor: pointer;
+    user-select: none;
+  }
+}
+
+.title {
+  color: #172d53;
+  font-family: Roboto;
+  margin-left: 18px;
+}
+
+.strikeThrough {
+  color: #172b4db9;
+  text-decoration: line-through;
+}
