@@ -42,7 +42,7 @@ jobs:
 
       - run:
           name: "Rebuild node-sass if needed"
-          command: npm run prebuild
+          command: cd frontend && npm run prebuild
 
       - save_cache:
           paths:
