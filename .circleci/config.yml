@@ -26,9 +26,9 @@ jobs:
       # Download and cache dependencies
       - restore_cache:
           keys:
-            - v2-dependencies-{{ checksum "package.json" }}
+            - v3-dependencies-{{ checksum "frontend/package.json" }}
             # fallback to using the latest cache if no exact match is found
-            - v2-dependencies-
+            - v3-dependencies-
 
       - run:
           name: "Add missing library to run puppeteer"
@@ -38,16 +38,16 @@ jobs:
           name: "Install wait-on package globally"
           command: sudo npm install -g wait-on
 
-      - run: npm install
+      - run: cd frontend && npm install
 
       - run:
           name: "Rebuild node-sass if needed"
-          command: npm run prebuild
+          command: cd frontend && npm run prebuild
 
       - save_cache:
           paths:
             - node_modules
-          key: v2-dependencies-{{ checksum "package.json" }}
+          key: v3-dependencies-{{ checksum "frontend/package.json" }}
 
       - run:
           name: "Indicate that tests are running on CircleCI"
@@ -55,8 +55,8 @@ jobs:
 
       - run:
           name: "Running client server"
-          command: npm run start
+          command: cd frontend && npm run start
           background: true
 
       - run: 
-          wait-on http://127.0.0.1:8080 && npm run test-not-watch
+          cd frontend && wait-on http://127.0.0.1:8080 && npm run test-not-watch

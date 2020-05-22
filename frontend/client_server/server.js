@@ -15,7 +15,7 @@ import App from '../src/components/App';
 const app = express();
 
 app.use(bodyParser.json());
-app.use('/public', express.static('dist/public'));
+app.use('/public', express.static('./dist/public'));
 
 app.get('/*', (request, response) => {
   const context = {};

@@ -7,7 +7,7 @@
     "prebuild": "rebuild-node-sass",
     "start": "webpack --mode production && node ./dist/server/server_bundle.js",
     "dev:build": "webpack --watch --mode development",
-    "dev:server": "wait-on dist/server/server_bundle.js && nodemon --watch dist --exec node dist/server/server_bundle.js",
+    "dev:server": "wait-on ./dist/server/server_bundle.js && nodemon --watch dist --exec node ./dist/server/server_bundle.js",
     "dev:start": "npm-run-all --parallel dev:build dev:server",
     "test": "jest --watchAll --maxWorkers=2",
     "test-not-watch": "jest --maxWorkers=2"
